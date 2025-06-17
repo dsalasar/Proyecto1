@@ -40,7 +40,7 @@ RNF4 El sistema debe ser accesible
 RNF4. El sistema debe ser portable permitiendo su ejecución en distintos navegadores.
 RNF5. El sistema debe ser mantenible 
 RNF6. El sistema debe tener compatibilidad 
-RNF 7. El sistema debe ser intuitivo 
+RNF7. El sistema debe ser intuitivo 
 RNF8. El sistema debe ser mantenible, permitiendo modificaciones.
 RNF9. El sistema debe ofrecer tiempos de carga óptimos.
 RNF10. El sistema debe mostrar mensajes de error comprensibles por el usuario.
@@ -49,4 +49,4 @@ RNF12. El sistema debe contar con navegación consistente en todas sus pantallas
 RNF13. El sistema debe estar desarrollado exclusivamente con tecnologías web estándar (HTML, CSS, JavaScript y Java).
 RNF14. El sistema debe cumplir con la arquitectura DAO de bases de datos.
 RNF15. El sistema debe registrar los intentos de acceso no autorizados y errores en un archivo en formato “.txt”.
-RNF. 16 El sistema debe registrar librerías separadas para capa de datos y lógica 
+RNF16. El sistema debe registrar librerías separadas para capa de datos y lógica 
