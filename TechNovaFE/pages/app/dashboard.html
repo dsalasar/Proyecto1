@@ -354,15 +354,49 @@
 
       <!-- Noticias, crear reporte, promociones -->
       <div class="section2">
-        <!-- reportes -->
-        <div></div>
+  <!-- reportes -->
+  <div class="reportes">
+    <p>¿Tienes alguna <strong>queja </strong> o <strong>reporte</strong> ?</p>
+    <button class="boton-reporte" onclick="crearReporte()">Quéjese aquí</button>
+  </div>
 
-        <!-- noticias  -->
-        <div></div>
-
-        <!-- promociones  -->
-        <div></div>
+  <!-- noticias -->
+  <h3 style="color: #1C1F4C; font-weight: 500;">Noticias</h3>
+  <div class="noticias">
+    <!-- noticia  -->
+    <button class="noticia" onclick="verNoticia()">
+      <img src="../../assets/img/dashboard/noticia1.png" alt="Desfile de la comunidad">
+      <div class="noticia-info">
+        <p class="titulo">Desfile de la comunidad fue todo un éxito</p>
+        <div class="fecha-hora">
+          <span class="fecha">24/03</span>
+          <span class="hora">00:00</span>
+        </div>
       </div>
+    </button>
+    
+    <!-- noticia  -->
+
+  </div>
+
+  <!-- promociones -->
+  
+  <h3 style="font-weight: 500; color: #1C1F4C;">Promociones</h3>
+  <div class="promociones">
+    <div class="promocion" onclick="verPromocion()">
+      <div class="promocion-info">
+        <div class="info">
+          <p class="titulo">Hamburguesaaa topppp de Pescaito</p>
+          <span class="categoria">Emprendimiento</span>
+        </div>
+        <span class="precio">₡3000</span>
+      </div>
+      <img src="../../assets/img/dashboard/promo1.png" alt="Hamburguesaaa topppp de Pescaito">
+    </div>
+    
+  </div>
+</div>
+
     </div>
   </main>
 
