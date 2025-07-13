@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comunidad San Isidro</title>
   <link rel="stylesheet" href="/TechNovaFE/styles/landing.css">
-  <link rel="stylesheet" href="/TechNovaFE/styles/loginpopup.css">
+ 
 </head>
 <body>
   <!-- Navbar -->
@@ -21,11 +21,10 @@
           <li><a href="#beneficios">Beneficios</a></li>
         </ul>
       </div>
-     <div class="auth-links">
-            <button class="btn-auth btn-signin">Sign In</button>
-            <button class="btn-auth btn-register">Register</button>
-            
-            </div>
+    <div class="auth-links">
+      <a href="/TechNovaFE/pages/auth/login.html" class="btn-auth btn-signin">Sign In</a>
+      <a href="/TechNovaFE/pages/auth/signup.html" class="btn-auth btn-register">Register</a>
+    </div>
     </nav>
   </header>
 
@@ -157,7 +156,7 @@
 <!-- Beneficios -->
 <section id="beneficios" class="section light-bg">
   <div class="beneficios-container">
-    <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="App de la comunidad" class="beneficios-image">
+    <img src="https://scontent.fsjo14-1.fna.fbcdn.net/v/t39.30808-6/518204731_1331713732289871_3606517031447717723_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=gYr5UipDzPAQ7kNvwGGPnmS&_nc_oc=AdkNtLvGGes9zJJD0i95nJQFtQdlfhHR-OrFx7feePN9OGeb3Qp_RBmt2DCu_n0cjYw&_nc_zt=23&_nc_ht=scontent.fsjo14-1.fna&_nc_gid=jBBzzPGDcwn1thMI7Lkmgg&oh=00_AfSnt7mC5-pU7BDaATN2w37Yq6Qre33HKR9gI41SwNSpAg&oe=6879EC79" alt="App de la comunidad" class="beneficios-image">
     <div class="beneficios-content">
       <h2>Conoce la app de nuestra comunidad</h2>
       <p class="app-description">Diseñada para facilitar la vida en San Isidro de Heredia, esta aplicación te conecta con todo lo que necesitas en un solo lugar.</p>
@@ -167,14 +166,14 @@
         <li>Envía quejas o reportes directamente a la comunidad</li>
         <li>Accede a las últimas noticias que afectan a nuestra comunidad</li>
       </ul>
-      <div class="app-buttons">
+      <!-- <div class="app-buttons">
         <a href="#" class="app-store-btn">
           <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Descargar en App Store">
         </a>
         <a href="#" class="play-store-btn">
           <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Disponible en Google Play">
         </a>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
@@ -198,8 +197,7 @@
     </div>
   </div>
   
-<div id="authPopupsContainer"></div>
-<script src="/TechNovaFE/js/popups.js"></script>
+
 
 </body>
 </html>

@@ -1,47 +1,22 @@
-/* Base Popup Styles */
-.auth-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.auth-popup.active {
-  display: flex;
-  opacity: 1;
-}
-
+/* Base styles for auth pages */
 .auth-container {
-  background: rgb(255, 255, 255);
+  background: white;
   border-radius: 12px;
   overflow: hidden;
   width: 90%;
   max-width: 900px;
   min-height: 500px;
-  position: relative;
-  transform: scale(0.9);
-  transition: transform 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   display: flex;
-}
-
-.auth-popup.active .auth-container {
-  transform: scale(1);
+  position: relative;
+  margin: 2rem auto;
 }
 
 /* Welcome Section (1/3) */
 .auth-welcome {
   flex: 1;
-  /* Replace grey with a colored gradient */
   background: linear-gradient(135deg, #E3E3E3, #E3E3E3);
-  color: rgb(0, 0, 0); /* Change text to white for contrast */
+  color: rgb(0, 0, 0);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -63,21 +38,6 @@
   flex: 2;
   padding: 3rem;
   position: relative;
-}
-
-.close-auth {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #666;
-}
-
-.close-auth:hover {
-  color: #333;
 }
 
 /* Form Styles */
@@ -112,34 +72,27 @@
   transition: all 0.3s;
   text-align: center;
   display: block;
-  color: gray;
-
+  color: rgba(128, 128, 128, 0.473);
+  text-decoration: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
 }
 
 .btn-auth {
-  padding: 0.9rem;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-  text-align: center;
-  display: block;
-  width: 100%;
-  background-color: #FCAB14; /* White background */
-  color: #000000; /* Blue text */
-  border: 2px solid #a1a1a1; /* Blue border */
+  background-color: #FCAB14;
+  color: #000000;
+  border: 2px solid #a1a1a1;
 }
-
 
 .btn-auth.outline {
   background: transparent;
   border: 2px solid rgb(0, 0, 0);
   color: #000000;
-;
 }
 
 .btn-auth.outline:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 /* Responsive */
@@ -148,13 +101,96 @@
     flex-direction: column;
     min-height: auto;
   }
-  
+
   .auth-welcome {
     padding: 1.5rem;
     text-align: center;
   }
-  
+
   .auth-form-container {
     padding: 2rem 1.5rem;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.back-button {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  width: 40px;
+  height: 40px;
+  background: #FCAB14;
+;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
+  background: #f0f0f0;
+}
+
+/* Background Image Styles */
+.auth-welcome {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.welcome-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.4); /* Dark overlay for better text contrast */
+  z-index: 1;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 2;
+  color: white; /* White text for better contrast */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Text shadow for readability */
+}
+
+/* Button adjustments for dark background */
+.btn-auth.outline {
+  border-color: white;
+  color: white;
+  background: transparent;
+}
+
+.btn-auth.outline:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+  }
+  
+  .auth-welcome {
+    min-height: 300px; /* Ensure enough height for mobile */
   }
 }

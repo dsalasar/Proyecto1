@@ -5,7 +5,7 @@
   --secondary: #000000;
   --light: #f8f9fa;
   --dark: #000000;
-  --light-bg: #f0f8ff;
+  --light-bg: #ffffff;
   --spacing: clamp(1rem, 2vw, 2rem);
   --max-width: 1400px;
 }
@@ -72,8 +72,9 @@ header {
   align-items: center;
 }
 
+/* ===== BUTTON STYLES ===== */
 .btn {
-  padding: 1rem 1rem;
+  padding: 1rem 2rem;
   border-radius: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -81,15 +82,27 @@ header {
   display: inline-block;
   text-align: center;
   background-color: #FCAB14;
+  color: #000;
+  text-decoration: none;
+  border: none;
 }
+
+.btn:hover {
+  background-color: #e69b00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
 .btn-auth {
   padding: 0.6rem 1.5rem;
-  border-radius: 50px; /* Fully rounded edges */
+  border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.95rem;
   border: 2px solid var(--primary);
+  display: inline-block;
+  text-align: center;
 }
 
 .btn-signin {
@@ -109,6 +122,72 @@ header {
 .btn-register:hover {
   background: var(--primary-dark);
   border-color: var(--primary-dark);
+}
+
+.btn-card {
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: block;
+  text-align: center;
+  background-color: #FCAB14;
+  width: fit-content;
+  margin: 1.5rem auto 0;
+  border: none;
+  color: #000;
+  text-decoration: none;
+}
+
+.btn-card:hover {
+  background-color: #e69b00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn.secondary {
+  display: block;
+  width: fit-content;
+  margin: 3rem auto 0;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+  background-color: transparent;
+  color: #000;
+  text-decoration: none;
+  border: 2px solid #FCAB14; /* Changed from border-width/border-color to single border property */
+  position: relative;
+  overflow: hidden;
+}
+
+/* .btn.secondary:hover {
+  background-color: #e69b00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+} */
+
+.btn-transporte {
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-block;
+  text-align: center;
+  background-color: #FCAB14;
+  color: #000;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-transporte:hover {
+  background-color: #e69b00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* ===== HERO SECTION ===== */
@@ -200,7 +279,7 @@ header {
 }
 
 .btn.ver-mas {
-  padding: 1rem 1rem;
+  padding: 1rem 2rem;
   border-radius: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -208,9 +287,16 @@ header {
   display: inline-block;
   text-align: center;
   background-color: #FCAB14;
+  color: #000;
+  text-decoration: none;
+  border: none;
 }
 
-
+.btn.ver-mas:hover {
+  background-color: #e69b00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
 .news-grid {
   display: grid;
@@ -271,17 +357,6 @@ header {
   transform: translateX(3px);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-  
-  .card-image {
-    height: 220px;
-  }
-}
-
 /* Emprendimientos Section */
 .cards {
   display: grid;
@@ -296,6 +371,8 @@ header {
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -312,6 +389,9 @@ header {
 
 .card-content {
   padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .card h3 {
@@ -331,22 +411,9 @@ header {
   margin-bottom: 1.5rem;
   line-height: 1.5;
   font-size: 0.95rem;
+  flex: 1;
 }
 
-.btn-card {
-  padding: 1rem 1rem;
-  border-radius: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-  display: inline-block;
-  text-align: center;
-  background-color: #FCAB14;
-}
-
-.btn-card:hover {
-  background-color: var(--primary-dark);
-}
 /* Transporte Section */
 .transporte-grid {
   display: grid;
@@ -394,42 +461,6 @@ header {
   border-left: 1px solid rgba(0,0,0,0.1);
 }
 
-.btn-transporte {
-  padding: .5rem 1rem;
-  border-radius: .5rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-  display: inline-block;
-  text-align: center;
-  background-color: #FCAB14;
-}
-
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .transporte-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .transporte-card {
-    flex-direction: column;
-  }
-  
-  .transporte-image {
-    width: 100%;
-    height: 150px;
-    border-left: none;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    order: -1;
-  }
-}
-
-@media (min-width: 992px) {
-  .transporte-image {
-    width: 150px;
-  }
-}
 /* Beneficios Section */
 .beneficios-container {
   display: flex;
@@ -497,29 +528,6 @@ header {
   width: auto;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .beneficios-container {
-    flex-direction: column;
-  }
-  
-  .beneficios-image {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 2rem;
-  }
-  
-  .app-buttons {
-    justify-content: center;
-  }
-}
-
-@media (min-width: 1200px) {
-  .beneficios-image {
-    width: 450px;
-  }
-}
-
 /* Footer */
 footer {
   background: var(--dark);
@@ -576,8 +584,54 @@ footer {
     justify-content: center;
   }
   
+  .transporte-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .transporte-card {
+    flex-direction: column;
+  }
+  
+  .transporte-image {
+    width: 100%;
+    height: 150px;
+    border-left: none;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    order: -1;
+  }
+  
+  .beneficios-container {
+    flex-direction: column;
+  }
+  
+  .beneficios-image {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 2rem;
+  }
+  
+  .app-buttons {
+    justify-content: center;
+  }
+  
   .footer-nav {
     flex-direction: column;
     gap: 0.5rem;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .transporte-image {
+    width: 150px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .beneficios-image {
+    width: 450px;
   }
 }
