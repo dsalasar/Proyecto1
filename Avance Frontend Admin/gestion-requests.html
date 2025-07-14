@@ -113,30 +113,79 @@
 
   <!-- === CONTENIDO PRINCIPAL === -->
   <main class="main-content">
+
     <div class="header">
-      <h1>Gestión de Solicitudes</h1>
+      <h1>Panel de Administración</h1>
+      
+      <nav class="tabs">
+        <a class="tab ">Usuarios</a>
+        <a class="tab active">Solicitudes</a>
+        <a class="tab">Noticias</a>
+        <a class="tab">Transporte Público</a>
+      </nav>
+
     </div>
 
-    <section class="table-section">
-      <h2>Solicitudes Pendientes</h2>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Correo</th>
-              <th>Motivo</th>
-              <th>Ubicación</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody id="solicitudes-rows">
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <section class="tables-section">
+    <div class="table-section">
+  <h2>Solicitudes de Emprendimientos</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>Horario</th>
+          <th>Contacto</th>
+          <th>Ubicación</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="emprendimientos-rows">
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="table-section">
+  <h2>Solicitudes de Anuncios</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Descripción</th>
+          <th>Imagen</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="anuncios-rows">
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="table-section">
+  <h2>Solicitudes de Reportes</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Descripción</th>
+          <th>Imagen</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="reportes-rows">
+      </tbody>
+    </table>
+  </div>
+</div>
+      </section>
+
+
   </main>
-<script src="/js/solicitudes.js"></script>
+<script src="js/solicitudes.js"></script>
 </body>
 </html>
