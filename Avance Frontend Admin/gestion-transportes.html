@@ -158,68 +158,7 @@
     </section>
   </main>
 
-  <!-- SCRIPT PRINCIPAL -->
-  <script>
-    // Inicializar el mapa
-    const map = L.map('map').setView([10.0032, -84.1141], 14); // San Isidro de Heredia
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap'
-    }).addTo(map);
-    L.marker([10.0032, -84.1141]).addTo(map)
-      .bindPopup('San Isidro de Heredia')
-      .openPopup();
-
-    // Gestión de transportes
-    const transporteForm = document.getElementById("transporte-form");
-    const tablaBody = document.getElementById("tabla-transporte");
-
-    const transportes = [];
-
-    const renderTabla = () => {
-      tablaBody.innerHTML = "";
-      transportes.forEach((item, index) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${item.empresa}</td>
-          <td>${item.tipo}</td>
-          <td>${item.horario}</td>
-          <td>${item.contacto}</td>
-          <td>${item.rutas}</td>
-          <td>
-            <button class="edit-btn" data-index="${index}">Editar</button>
-            <button class="delete-btn" data-index="${index}">Eliminar</button>
-          </td>
-        `;
-        tablaBody.appendChild(row);
-      });
-    };
-
-    transporteForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const empresa = document.getElementById("empresa").value.trim();
-      const tipo = document.getElementById("tipo").value.trim();
-      const horario = document.getElementById("horario").value.trim();
-      const contacto = document.getElementById("contacto").value.trim();
-      const rutas = document.getElementById("rutas").value.trim();
-
-      transportes.push({ empresa, tipo, horario, contacto, rutas });
-      transporteForm.reset();
-      renderTabla();
-    });
-
-    tablaBody.addEventListener("click", (e) => {
-      if (e.target.classList.contains("delete-btn")) {
-        const index = e.target.dataset.index;
-        transportes.splice(index, 1);
-        renderTabla();
-      }
-
-      if (e.target.classList.contains("edit-btn")) {
-        alert("Función de edición aún no implementada.");
-      }
-    });
-
-    renderTabla();
-  </script>
+  <!-- SCRIPT -->
+  <script src="../Avance Frontend Admin/js/transporte.js"></script>
 </body>
 </html>
