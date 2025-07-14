@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión - Comunidad San Isidro</title>
+  <link rel="stylesheet" href="/TechNovaFE/styles/loginpopup.css">
+</head>
+<body>
+  <a href="/TechNovaFE/pages/landing.html" class="back-button">←</a>
+  <div class="auth-container">
+    <!-- Left Side - Welcome with Background Image -->
+    <div class="auth-welcome" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d7/Desfile_de_boyeros_en_San_Isidro_de_Heredia.jpg')">
+      <div class="welcome-overlay"></div>
+      <div class="welcome-content">
+        <h2>¿No tienes cuenta?</h2>
+        <p>Regístrate para acceder a todos los beneficios</p>
+        <a class="btn-auth outline" href="/TechNovaFE/pages/auth/signup.html" style="text-decoration: none; color: inherit;"
+        >
+        <!-- onclick="alert('Función de registro no implementada')" -->
+          Crear Cuenta
+        </a>
+      </div>
+    </div>
+    
+    <!-- Right Side - Login Form -->
+    <div class="auth-form-container">
+      <div class="form-content">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm" class="auth-form" action="/login" method="POST">
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" placeholder="Contraseña" required>
+          </div>
+          <button type="submit" class="btn-auth">
+            Ingresar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
