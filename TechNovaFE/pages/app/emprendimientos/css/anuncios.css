@@ -1,0 +1,81 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+}
+
+.header {
+  text-align: center;
+  padding: 20px;
+}
+
+.logo {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.desc {
+  color: #666;
+  margin: 10px 0;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.tabs a, .tabs span {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: 3px solid transparent;
+}
+
+.tabs .active {
+  border-color: #000;
+}
+
+.anuncios-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.anuncio {
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+}
+
+.anuncio-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.anuncio-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.fecha {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 2px 0 0 0;
+}
+
+.contenido {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #333;
+}
