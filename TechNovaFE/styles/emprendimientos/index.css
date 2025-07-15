@@ -60,19 +60,17 @@ body {
 /* Layout principal */
 .layout {
   display: flex;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px 40px 40px;
+  gap: 20px;
 }
 
 /* Cards (izquierda) */
 /* Contenedor de las tarjetas */
 .cards {
-  flex: 2;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas exactas */
-  gap: 20px;
+  width: 70%;
+  height: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
 }
 
 /* Estilo individual de cada card */
@@ -90,6 +88,7 @@ body {
   text-decoration: none;
   color: black;
   transition: transform 0.2s ease;
+  margin: 0;
 }
 
 .card:hover {
