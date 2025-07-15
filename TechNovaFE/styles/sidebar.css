@@ -1,6 +1,6 @@
 :root {
-  --sidebar-width: 250px;
-  --sidebar-collapsed-width: 100px;
+  --sidebar-width: 250px; /* esats se puden botrra */
+  --sidebar-collapsed-width: 100px; /* esta igual  */
   --azul: #1C1F4C;
   --verde: #00848B;
   --amarillo: #FCAB14;
