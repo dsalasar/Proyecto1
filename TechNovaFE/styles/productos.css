@@ -1,0 +1,667 @@
+:root {
+    --sidebar-width: 250px;
+    --sidebar-collapsed-width: 100px;
+    --azul: #1C1F4C;
+    --verde: #00848B;
+    --amarillo: #FCAB14;
+    --gris: #EDEDED;
+    --blanco: #F9F9F9;
+    --hover-color: #2e326b;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; 
+    margin: 0;
+    padding: 20px;
+    background-color: var(--gris);
+    color: var(--azul);
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    padding: 32px 24px;
+    background: #f7f7f7;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Hace que el main ocupe toda la altura y tenga scroll si es necesario */
+main.content {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* --- SECCIÓN PRINCIPAL: MI EMPRENDIMIENTO */
+.profile-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 0;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.profile-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #eee;
+}
+
+.profile-details h2 {
+    margin: 0 0 4px 0;
+    font-size: 1.2rem;
+}
+
+.profile-details p {
+    margin: 0;
+    color: #666;
+    font-size: 0.98rem;
+}
+
+.contact-info {
+    margin-left: auto;
+    min-width: 180px;
+    color: #444;
+    font-size: 0.98rem;
+}
+
+/* --- ANUNCIOS PRODUCTOS) --- */
+.content-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Layout principal */
+.productos-layout {
+    display: flex;
+    gap: 32px;
+    padding: 32px 24px;
+    background: #f7f7f7;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Columna izquierda */
+.productos-col {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Grid de productos usando flex */
+.productos-flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 12px;
+}
+
+/* Tarjetas de producto y agregar */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 150px;
+    max-width: 170px;
+    flex: 1 1 170px;
+    box-sizing: border-box;
+}
+
+.add-product-card {
+    border: 2px dashed #3498db;
+    color: #3498db;
+    background: #f4faff;
+    font-size: 2.5rem;
+    justify-content: center;
+    cursor: pointer;
+    min-height: 170px;
+    transition: background 0.2s;
+}
+
+.add-product-card:hover {
+    background: #e3f1fb;
+}
+
+.product-card img {
+    width: 100px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 1rem;
+    margin: 0 0 4px 0;
+    color: #222;
+}
+
+.product-card p {
+    color: #3498db;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Columna derecha: promociones */
+.promociones-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    height: fit-content;
+    min-width: 320px;
+}
+
+.promociones-col h2 {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+    color: #222;
+}
+
+/* Grid de promociones usando flex */
+.promociones-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Tarjetas de promoción y agregar */
+.promotion-card,
+.add-promotion-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    padding: 10px 12px;
+    min-height: 70px;
+}
+
+.add-promotion-card {
+    border: 2px dashed #3498db;
+    color: #3498db;
+    background: #f4faff;
+    font-size: 2rem;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.add-promotion-card:hover {
+    background: #e3f1fb;
+}
+
+.promotion-card img {
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.promotion-card h3 {
+    font-size: 1rem;
+    margin: 0 0 2px 0;
+    color: #222;
+}
+
+.promotion-card p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.promotion-card .price {
+    background: #ffbe3b;
+    color: #fff;
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+/* --- ESTILOS DE LOS MODALES (POPUPS) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--gris);
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content h2, .modal-content h3 {
+    text-align: center;
+    color: var(--azul);
+    margin-top: 0;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content textarea {
+    resize: none;
+    width: calc(100% - 20px); 
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--blanco);
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    display: inline-block;
+    min-width: auto;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.button.primary {
+    background-color: var(--amarillo);
+    color: var(--blanco);
+}
+
+.button.secondary { /* Agregué este estilo para el botón de cerrar en el resumen */
+    background-color: var(--gris);
+    color: #333;
+}
+.button.secondary:hover {
+    background-color: var(--gris);
+}
+
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.small-modal {
+    max-width: 350px;
+    text-align: center;
+    padding: 20px;
+}
+
+.small-modal .user-icon-blue {
+    color:var(--azul);
+    margin-bottom: 15px;
+}
+
+.close-button {
+    color: var(--azul);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color:var(--hover-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.image-upload-area {
+    border: 2px dashed var(--gris);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-upload-area:hover {
+    background-color: var(--blanco);
+}
+
+.image-upload-area .fa-cloud-upload-alt {
+    font-size: 3em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.image-upload-area p {
+    margin: 0;
+    color: #777;
+}
+
+.image-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.image-preview-item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--gris);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.image-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-preview-item .remove-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 0, 0, 0.7);
+    color: var(--blanco);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.resumen-image-container, .oferta-images-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.resumen-image-container img, .oferta-images-container img {
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid var(--gris);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Header de empresa con logo grande a la izquierda */
+.empresa-header {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 16px;
+}
+
+.empresa-logo {
+    width: 200px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+
+.empresa-info h1 {
+    font-size: 2rem;
+    margin: 0 0 8px 0;
+}
+.empresa-info h2 {
+    font-size: 1.2rem;
+    margin: 0 0 6px 0;
+}
+.empresa-info p {
+    margin: 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Contacto y dirección en hilera */
+.empresa-contacto-row {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 18px;
+    font-size: 1rem;
+    color: #222;
+    justify-content: flex-start;
+}
+
+/* Promociones */
+.promociones-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    height: fit-content;
+    min-width: 320px;
+}
+
+/* Centrar header, logo, descripción y tabs */
+.productos-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.empresa-logo {
+    display: block;
+    margin: 0 auto 12px auto;
+}
+
+.empresa-nombre {
+    text-align: center;
+}
+
+.empresa-desc {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 18px auto;
+}
+
+.productos-tabs {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .container {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .promociones-col {
+        min-width: 0;
+        margin-top: 24px;
+    }
+    .productos-flexbox {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px){
+    .main-content {
+        flex-direction: column; 
+    }
+
+    .profile-section {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 15px; 
+    }
+
+    .profile-logo {
+        margin-bottom: 10px; 
+    }
+
+    .profile-details h2, .profile-details p {
+        text-align: center; 
+    }
+
+    .contact-info {
+        text-align: center; 
+        margin-top: 20px; 
+        width: 100%; 
+        padding-left: 0;
+    }
+
+    .content-tabs, .promotions-section {
+        width: 100%; 
+    }
+
+    .tabs-header {
+        flex-direction: column; 
+    }
+
+    .tab-item.active {
+        border-bottom: none; 
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .promotion-card, .add-promotion-card {
+        width: 100%;
+        max-width: none;
+        flex-basis: auto;
+    }
+    
+    .product-card, .add-product-card { 
+        flex-basis: 100%; 
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .profile-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-logo {
+        margin-bottom: 10px;
+    }
+    .profile-details h2, .profile-details p {
+        text-align: center;
+    }
+    .card {
+        padding: 10px;
+    }
+
+    .promotion-card {
+        flex-direction: column; 
+        align-items: center; 
+        padding: 10px; 
+    }
+    .promotion-card img {
+        margin-right: 0; 
+        margin-bottom: 10px; 
+        order: -1; 
+        width: 90px; 
+        height: 90px;
+    }
+    .promotion-card-details {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; 
+    }
+    .promotion-card h3, 
+    .promotion-card p, 
+    .promotion-card .price {
+        text-align: center; 
+        align-self: center; 
+    }
+    .product-card, .add-product-card {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+    .modal-content input, .modal-content textarea {
+        width: calc(100% - 16px); 
+    }
+}

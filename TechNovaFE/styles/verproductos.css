@@ -1,0 +1,179 @@
+:root {
+    --azul: #1C1F4C;
+    --verde: #00848B;
+    --amarillo: #FCAB14;
+    --gris: #EDEDED;
+    --blanco: #F9F9F9;
+    --hover-color: #2e326b;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--gris);
+    color: var(--azul);
+}
+
+main.emprendimientos-layout {
+    display: flex;
+    gap: 32px;
+    padding: 32px 24px;
+    background: #f7f7f7;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.main-content {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.emprendimientos-tabs {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.tab-item {
+    padding: 10px 20px;
+    border: none;
+    background: var(--azul);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.tab-item:hover,
+.tab-item.active {
+    background: var(--hover-color);
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    padding: 16px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #222;
+}
+
+.card img {
+    width: 100px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.card p {
+    margin: 2px 0;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.promociones {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    height: fit-content;
+    min-width: 320px;
+}
+
+.promociones h2 {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+    color: #222;
+}
+
+.promo {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+}
+
+.promo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.promo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.9rem;
+}
+
+.btn-registrar {
+    margin-bottom: 16px;
+    background-color: var(--amarillo);
+    color: var(--blanco);
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+}
+
+.sidebar {
+  width: 250px;
+  transition: width 0.3s;
+  overflow: hidden;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+
+.btn-registrar:hover {
+    background-color: #e09b10;
+}
+
+@media (max-width: 768px) {
+    main.emprendimientos-layout {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .cards {
+        justify-content: center;
+    }
+
+    .promociones {
+        min-width: 100%;
+    }
+}
+

@@ -1,0 +1,393 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background: #f7f7f7;
+    color: #1C1F4C;
+}
+
+/* Permite scroll en toda la página */
+html, body {
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Layout principal */
+.emprendimientos-layout {
+    display: flex;
+    gap: 32px;
+    padding: 32px 24px;
+    background: #f7f7f7;
+    min-height: 100vh;
+    box-sizing: border-box;
+    align-items: flex-start; /* Asegura que ambas columnas inicien arriba */
+}
+
+/* Columna de cartillas */
+.emprendimientos-col {
+    flex-basis: 77.77%;
+    max-width: 77.77%;
+    flex-shrink: 1;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.emprendimientos-header h1 {
+    margin: 0 0 8px 0;
+    font-size: 2rem;
+}
+
+.emprendimientos-header p {
+    margin: 0 0 18px 0;
+    color: #444;
+}
+
+.emprendimientos-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.tab-item {
+    padding: 8px 18px;
+    border-radius: 8px 8px 0 0;
+    background: #f4f4f4;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.tab-item.active {
+    background: #fff;
+    color: #222;
+    border-bottom: 2px solid #FCAB14;
+}
+
+.emprendimientos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: flex-start;
+}
+
+.emprendimientos-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1 1 0;
+    min-width: 260px;
+}
+
+.emprendimiento-card {
+    flex: 0 1 calc(33.333% - 24px);
+    max-width: calc(33.333% - 24px);
+    min-width: 260px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 18px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.emprendimiento-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.emprendimiento-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #eee;
+}
+
+.emprendimiento-nombre {
+    font-weight: bold;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+.emprendimiento-categoria {
+    font-size: 0.95rem;
+    color: #888;
+    margin: 0;
+}
+
+.emprendimiento-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.98rem;
+    color: #222;
+}
+
+/* Columna de promociones */
+.promociones-col {
+    flex-basis: 22.22%;
+    max-width: 22.22%;
+    flex-shrink: 1;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    min-width: 260px;
+    height: auto; /* Ocupa toda la altura disponible */
+    overflow-y: visible;
+    align-self: stretch; /* Se estira para ocupar el alto del contenedor */
+}
+
+.btn-registrar {
+    background: #FCAB14;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 24px;
+    align-self: flex-end;
+    transition: background 0.2s;
+}
+
+.btn-registrar:hover {
+    background: #e09a0f;
+}
+
+.promociones-col h2 {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+    color: #222;
+}
+
+.promociones-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.promotion-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    padding: 10px 12px;
+    min-height: 70px;
+}
+
+.promotion-card img {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    object-fit: cover;
+}
+
+.promotion-card h3 {
+    font-size: 1rem;
+    margin: 0 0 2px 0;
+    color: #222;
+}
+
+.promotion-card p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Cards grid */
+.cards {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* Card individual */
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  width: 100%;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  gap: 4px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card img {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 6px;
+  background: #f4f4f4;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin: 0 0 2px 0;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 0.93rem;
+  margin: 2px 0;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card .icono {
+  font-size: 1rem;
+  margin-right: 4px;
+}
+
+/* Promociones */
+.promociones {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 24px;
+}
+
+.btn-registrar {
+  background: #FCAB14;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 18px;
+  align-self: flex-end;
+  transition: background 0.2s;
+}
+
+.btn-registrar:hover {
+  background: #e09a0f;
+}
+
+.promociones h2 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #222;
+  align-self: flex-start;
+}
+
+.promo {
+  background: white;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  width: 100%;
+  min-width: 220px;
+  max-width: 270px;
+}
+
+.promo img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.promo-text p {
+  font-size: 0.97rem;
+  margin: 0 0 2px 0;
+  font-weight: bold;
+  color: #222;
+}
+
+.promo-text span {
+  display: block;
+  font-weight: normal;
+  color: #666;
+  font-size: 0.93rem;
+}
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.popup-content h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.popup-content input,
+.popup-content textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.btn-registrar {
+  background-color: #fcb434;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+

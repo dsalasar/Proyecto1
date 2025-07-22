@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="../../../styles/sidebar.css">
+    <link rel="stylesheet" href="../../../styles/productos.css">
+    <!-- Agrega aquí tus otros estilos -->
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <button id="hamburger" class="hamburger">&#9776;</button>
+    <div class="overlay" id="overlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <!-- toggle  -->
+        <button id="toggleCollapse" class="collapse-btn" title="Colapsar menú">
+            <span class="toggle-icon">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                </svg>
+            </span>
+        </button>
+        <!-- foto perfil  -->
+        <div class="profile">
+            <a href="../cuenta/micuenta.html">
+                <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img">
+            </a>
+        </div>
+        <!-- elementos -->
+        <nav class="menu">
+            <a href="../dashboard.html" class="menu-item" title="Inicio">
+                <span class="icon">
+                    <!-- SVG de inicio -->
+                </span>
+                <span class="label">Inicio</span>
+            </a>
+            <a href="../emprendimiento/productos.html" class="menu-item" title="Productos">
+                <span class="icon">
+                    <!-- SVG de productos -->
+                </span>
+                <span class="label">Productos</span>
+            </a>
+            <!-- Agrega aquí más enlaces si lo necesitas -->
+        </nav>
+        <!-- logout  -->
+        <div class="logout">
+            <button href="#" id="logout-btn" class="menu-item logout-btn" title="Salir">
+                <span class="icon outimg">
+                    <!-- SVG de logout -->
+                </span>
+                <span class="label">Cerrar Sesión</span>
+            </button>
+        </div>
+    </aside>
+    <!-- FIN SIDEBAR -->
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="content">
+        <div class="productos-layout">
+            <!-- Columna izquierda: Info y productos -->
+            <section class="productos-col">
+                <header class="empresa-header">
+                    <h1>Mi emprendimiento</h1>
+                </header>
+                <div class="empresa-info">
+                    
+                    <div class="empresa-header">
+    <div class="empresa-logo-col">
+        <img src="../../../assets/img/Emprendimiento/aroma-logo.png" alt="Logo Aroma Gourmet" class="empresa-logo">
+        <p class="empresa-desc">
+            Somos una tienda virtual especializada en aceites y sales aromatizadas.<br>
+            Nuestra razón de ser surge gracias al amor que tenemos por la cocina.
+        </p>
+    </div>
+    <div class="empresa-contacto-col">
+        <p><strong>Contacto:</strong> 2225-0802</p>
+        <p><strong>Dirección:</strong> Frente A Bar & Rest. Italia, San Pablo</p>
+    </div>
+</div>
+<div class="tabs-header">
+    <div class="tab-item">Anuncios</div>
+    <div class="tab-item active">Productos</div>
+</div>
+                <div class="productos-flexbox">
+                    <div class="card add-product-card">
+                        <span>+</span>
+                    </div>
+                    <div class="card product-card">
+                        <img src="../../../assets/img/Emprendimiento/sal-de-vino.png" alt="Sal de Vino Tinto">
+                        <h3>Sal de Vino Tinto</h3>
+                        <p>₡3000</p>
+                    </div>
+                    <div class="card product-card">
+                        <img src="../../../assets/img/Emprendimiento/sal-de-vino.png" alt="Sal de Vino Tinto">
+                        <h3>Sal de Vino Tinto</h3>
+                        <p>₡3000</p>
+                    </div>
+                    <div class="card product-card">
+                        <img src="../../../assets/img/Emprendimiento/sal-de-vino.png" alt="Sal de Vino Tinto">
+                        <h3>Sal de Vino Tinto</h3>
+                        <p>₡3000</p>
+                    </div>
+                    <div class="card product-card">
+                        <img src="../../../assets/img/Emprendimiento/sal-de-vino.png" alt="Sal de Vino Tinto">
+                        <h3>Sal de Vino Tinto</h3>
+                        <p>₡3000</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Columna derecha: Promociones -->
+            <aside class="promociones-col">
+                <h2>Promociones</h2>
+                <div class="promociones-grid">
+                    <div class="card add-promotion-card">
+                        <span>+</span>
+                    </div>
+                    <div class="card promotion-card">
+                        <img src="../../../assets/img/dashboard/promo1.png" alt="Hamburguesa top de Pescado">
+                        <div>
+                            <h3>Hamburguesaaaa toppppp de Pescaito</h3>
+                            <p>Emprendimiento</p>
+                            <span class="price">₡3000</span>
+                        </div>
+                    </div>
+                    <div class="card promotion-card">
+                        <img src="../../../assets/img/dashboard/promo1.png" alt="Hamburguesa top de Pescado">
+                        <div>
+                            <h3>Hamburguesaaaa toppppp de Pescaito</h3>
+                            <p>Emprendimiento</p>
+                            <span class="price">₡3000</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <script src="../../../js/sidebar.js"></script>
+</body>
+</html>

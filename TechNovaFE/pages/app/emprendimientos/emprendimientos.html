@@ -104,8 +104,6 @@
   </aside>
 
   <!-- SIDEBAR  -->
-
-
     <main class="emprendimientos-layout">
       <section class="main-content">
         <h1>Emprendimientos</h1>
@@ -123,8 +121,8 @@
               <h3>Emprendimiento</h3>
               <p>Categoría</p>
             </div>
-            <p><span class="icono">📞</span> 2225-0802</p>
-            <p><span class="icono">📍</span> Frente A Bar & Rest. Italia, San Pablo</p>
+            <p><span class="icono"></span> 2225-0802</p>
+            <p><span class="icono"></span> Frente A Bar & Rest. Italia, San Pablo</p>
           </a>
           <!-- Card 2 -->
           <a href="#" class="card">
@@ -133,8 +131,8 @@
               <h3>Emprendimiento</h3>
               <p>Categoría</p>
             </div>
-            <p><span class="icono">📞</span> 2225-0802</p>
-            <p><span class="icono">📍</span> Frente A Bar & Rest. Italia, San Pablo</p>
+            <p><span class="icono"></span> 2225-0802</p>
+            <p><span class="icono"></span> Frente A Bar & Rest. Italia, San Pablo</p>
           </a>
           <!-- Card 3 -->
           <a href="#" class="card">
@@ -143,8 +141,8 @@
               <h3>Emprendimiento</h3>
               <p>Categoría</p>
             </div>
-            <p><span class="icono">📞</span> 2225-0802</p>
-            <p><span class="icono">📍</span> Frente A Bar & Rest. Italia, San Pablo</p>
+            <p><span class="icono"></span> 2225-0802</p>
+            <p><span class="icono"></span> Frente A Bar & Rest. Italia, San Pablo</p>
           </a>
           <!-- Card 4 -->
           <a href="#" class="card">
@@ -153,8 +151,8 @@
               <h3>Emprendimiento</h3>
               <p>Categoría</p>
             </div>
-            <p><span class="icono">📞</span> 2225-0802</p>
-            <p><span class="icono">📍</span> Frente A Bar & Rest. Italia, San Pablo</p>
+            <p><span class="icono"></span> 2225-0802</p>
+            <p><span class="icono"></span> Frente A Bar & Rest. Italia, San Pablo</p>
           </a>
           <!-- Card 5 -->
           <a href="#" class="card">
@@ -163,8 +161,8 @@
               <h3>Emprendimiento</h3>
               <p>Categoría</p>
             </div>
-            <p><span class="icono">📞</span> 2225-0802</p>
-            <p><span class="icono">📍</span> Frente A Bar & Rest. Italia, San Pablo</p>
+            <p><span class="icono"></span> 2225-0802</p>
+            <p><span class="icono"></span> Frente A Bar & Rest. Italia, San Pablo</p>
           </a>
           <!-- Card 6 -->
           <a href="#" class="card">
@@ -173,8 +171,8 @@
               <h3>Emprendimiento</h3>
               <p>Categoría</p>
             </div>
-            <p><span class="icono">📞</span> 2225-0802</p>
-            <p><span class="icono">📍</span> Frente A Bar & Rest. Italia, San Pablo</p>
+            <p><span class="icono"></span> 2225-0802</p>
+            <p><span class="icono"></span> Frente A Bar & Rest. Italia, San Pablo</p>
           </a>
         </section>
       </section>
@@ -208,5 +206,34 @@
       </aside>
     </main>
   </div>
+  <!-- POP-UP Registro de Emprendimiento -->
+<div id="popupEmprendimiento" class="popup-container">
+  <div class="popup-content">
+    <span class="close-btn" id="cerrarPopup">&times;</span>
+    <h2>Crea tu emprendimiento</h2>
+    <form id="formEmprendimiento">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" required>
+
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" rows="3" required></textarea>
+
+      <label for="tipo">Tipo</label>
+      <input type="text" id="tipo" required>
+
+      <label for="contacto">Contacto</label>
+      <input type="text" id="contacto" required>
+
+      <label for="direccion">Dirección</label>
+      <input type="text" id="direccion" required>
+
+      <label for="logo">Logo</label>
+      <input type="file" id="logo" accept="image/*">
+
+      <button type="submit" class="btn-registrar">Solicitar aprobación</button>
+    </form>
+  </div>
+</div>
+<script src="../../../js/emprendimiento.js"></script>
 </body>
 </html>
