@@ -1,0 +1,488 @@
+:root {
+    --azul: #1C1F4C;
+    --verde: #00848B;
+    --amarillo: #FCAB14;
+    --gris: #EDEDED;
+    --blanco: #fdfdfd;
+    --hover-color: #2e326b;
+}
+
+html, body {
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fdfdfd;
+}
+
+body {
+    display: flex; 
+    overflow-y: auto; 
+}
+
+/* contenedor que envuelve el contenido principal y las promociones */
+.main-container {
+    display: flex; 
+    max-width: 1200px;
+    background-color: var(--blanco); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; 
+    border-radius: 8px;
+    min-height: calc(100vh - 40px); 
+    box-sizing: border-box; 
+}
+
+.content-wrapper {
+    flex-grow: 1; 
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    margin-right: 20px; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    overflow-y: auto; 
+    height: auto;
+    min-height: 100%; 
+    box-sizing: border-box;
+}
+
+.promociones {
+    width: 300px; 
+    background-color: #fdfdfd;
+    padding: 20px;
+    border-left: 1px solid #fdfdfd; 
+    flex-shrink: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    overflow-y: auto; 
+    height: auto; 
+    min-height: 100%; 
+    box-sizing: border-box;
+}
+
+.register-button-container {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.promociones .register-button-container button {
+    background-color: var(--amarillo);
+    color:var(--blanco);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 80%;
+    max-width: 250px;
+}
+.promociones .register-button-container button:hover {
+    background-color: #e0a800;
+}
+
+.promociones h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5em;
+    padding-bottom: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.promo {
+    display: flex;
+    background-color: var(--gris);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.promo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.promo-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 15px;
+}
+.texto-promo {
+    flex-grow: 1;
+}
+.titulo-promo {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.3;
+}
+.titulo-promo span {
+    font-weight: normal;
+    color:#888;
+    font-size: 0.9em;
+}
+.promo .precio {
+    font-weight: bold;
+    color:#333;
+    margin-left: auto;
+    font-size: 1.1em;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+.header-left h1 {
+    margin: 0;
+    font-size: 2em;
+    color: var(--azul);
+}
+.header-left p {
+    margin: 5px 0 15px;
+    color: black;
+}
+.tabs {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    padding-left: 0;
+}
+.tabs span,
+.tabs a {
+    text-decoration: none;
+    color: var(--azul);
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.tabs .active {
+    cursor: pointer;
+}
+.tabs span:hover:not(.active),
+.tabs a:hover:not(.active) {
+    background-color: var(--gris);
+}
+
+.listado-emprendimientos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 0%;
+}
+.tarjeta {
+    background-color:var(--gris);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    border: 1px solid var(--gris);
+}
+.encabezado-tarjeta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.logo-emprendimiento {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.encabezado-tarjeta h3 {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+    flex-grow: 1;
+    line-height: 1.3;
+}
+.hace-tiempo {
+    color: #888;
+    font-size: 0.85em;
+    white-space: nowrap;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+.cuerpo-tarjeta p {
+    margin-bottom: 10px;
+    color: var(--azul);
+    line-height: 1.6;
+}
+.cuerpo-tarjeta ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    text-align: left;
+}
+.cuerpo-tarjeta ul li {
+    margin-bottom: 5px;
+    color: var(--azul);
+}
+.imagenes-producto {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.imagenes-producto img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.image-placeholder-grande, .image-placeholder-pequena {
+    background-color: var(--amarillo);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--amarillo); 
+    font-size: 2em;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--verde);
+}
+.image-placeholder-aceite {
+    width: 100px;
+    height: 100px;
+}
+.image-placeholder, .promo-image-placeholder, .popup-image-placeholder {
+    background-color: #e0e0e0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #aaa;
+    font-size: 2em;
+    position: relative;
+    overflow: hidden;
+}
+.image-placeholder::before, .image-placeholder-grande::before, .image-placeholder-pequena::before,
+.promo-image-placeholder::before, .popup-image-placeholder::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 2px;
+    background-color: var(--verde);
+    transform: rotate(45deg);
+}
+.image-placeholder { width: 100px; height: 100px; }
+.promo-image-placeholder { width: 70px; height: 70px; }
+.popup-image-placeholder { width: 45%; max-width: 200px; height: 120px; }
+
+/* --- Estilos del Popup --- */
+.capa-popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+.contenido-popup {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: aparecerSuave 0.3s ease-out;
+}
+@keyframes aparecerSuave {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.boton-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.boton-cerrar:hover,
+.boton-cerrar:focus {
+    color: #333;
+    text-decoration: none;
+}
+.encabezado-popup {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+.titulo-popup {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+.subtitulo-popup {
+    font-size: 1.1em;
+    color: #666;
+    margin-top: 5px;
+}
+.cuerpo-popup {
+    text-align: center;
+}
+.cuerpo-popup p {
+    font-size: 1.1em;
+    color: #444;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+.imagenes-popup {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.popup-image {
+    width: 45%;
+    max-width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+}
+
+@media (min-width: 768px) {
+    .listado-emprendimientos {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Si usas Grid */
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column; 
+        height: auto;
+        max-width: 100%; 
+        margin: 10px; 
+    }
+    .content-wrapper {
+        width: 100%; 
+        padding: 15px;
+        margin-right: 0; 
+        margin-bottom: 20px; 
+        height: auto; 
+    }
+    .promociones {
+        width: 100%; 
+        background-color: #f7f7f7; 
+        padding: 20px;
+        border-left: none; 
+        border-top: 1px solid #f7f7f7; 
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+        margin-top: 0; 
+        height: auto; 
+    }
+    .register-button-container {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .promociones .register-button-container button {
+        width: 90%;
+        max-width: none;
+    }
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .listado-emprendimientos {
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media (max-width: 767px) {
+    .main-container {
+        margin: 5px;
+        border-radius: 0;
+    }
+    .content-wrapper, .promociones {
+        padding: 10px;
+    }
+    .promociones .register-button-container button {
+        font-size: 0.9em;
+        padding: 10px 15px;
+        width: 95%;
+    }
+    .promo {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .promo-image, .promo-image-placeholder {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .promo .precio {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    .contenido-popup {
+        padding: 20px;
+    }
+    .titulo-popup {
+        font-size: 1.5em;
+    }
+    .subtitulo-popup {
+        font-size: 1em;
+    }
+    .cuerpo-popup p {
+        font-size: 1em;
+    }
+    .popup-image, .popup-image-placeholder {
+        width: 80%;
+        max-width: 300px;
+    }
+    .header-left h1 {
+        font-size: 1.6em;
+    }
+    .tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .tabs span,
+    .tabs a {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+    .listado-emprendimientos {
+        grid-template-columns: 1fr;
+    }
+    .imagenes-producto img, .image-placeholder-aceite {
+        width: 90px;
+        height: 90px;
+    }
+}

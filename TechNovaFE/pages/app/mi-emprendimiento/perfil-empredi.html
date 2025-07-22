@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Emprendimientos</title>
-    <link rel="stylesheet" href="../../../styles/anuncioemprendi/anuncios.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Emprendimiento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../../styles/perfil-emprendimiento/perfil-emp.css">
     <link rel="stylesheet" href="../../../styles/sidebar.css">
     <link rel="stylesheet" href="../../../styles/dashboard.css">
 </head>
 <body>
 
+    <!-- sidebar -->
     <button id="hamburger" class="hamburger">&#9776;</button>
   <div class="overlay" id="overlay"></div>
   <aside class="sidebar" id="sidebar">
-
 
     <!-- toggle  -->
     <button id="toggleCollapse" class="collapse-btn" title="Colapsar menú">
@@ -29,10 +30,9 @@
     <!-- foto perfil  -->
     <div class="profile">
       <a href="../app/cuenta/micuenta.html">
-        <img src="../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img">
+        <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img">
       </a>
     </div>
-
 
     <!-- elementos -->
     <nav class="menu">
@@ -77,7 +77,6 @@
         <span class="label">Mi emprendimiento</span>
       </a>
 
-
       <a href="../app/admin/usuarios.html" class="menu-item" id="menu-item" title="Admin">
         <span class="icon">
           <svg xmlns="http://www.w3.org/2000/svg"
@@ -102,135 +101,79 @@
         <span class="label">Cerrar Sesión </span>
       </button>
     </div>
-
   </aside>
 
 
-
-    <div class="main-container">
-        <div class="content-wrapper">
-            <header class="header-container">
-                <div class="header-left">
-                    <h1>Emprendimientos</h1>
-                    <p>Conoce nuestros emprendimientos locales:</p>
-                    <div class="tabs">
-                        <a href="#"> Emprendimientos</a>
-                        <span class="active"> Anuncios</span>
-                        <a href="#"> Productos</a>
-                    </div>
-                </div>
-            </header>
-
-            <section class="listado-emprendimientos">
-                <div class="tarjeta"> 
-                    <div class="encabezado-tarjeta">
-                        <img src="../../../assets/img/dashboard/aroma perfil.jpeg" alt="Logo emprendimiento" class="logo-emprendimiento">
-                        <h3>Nombre Apellido</h3>
-                    </div>
-                    <div class="cuerpo-tarjeta">
-                        <p>Principales propiedades curativas del Aceite de oliva:</p>
-                        <ul>
-                            <li>Disminuye el colesterol malo. Esta es una propiedad científicamente probada</li>
-                            <li>Aceite de oliva para prevenir el cáncer</li>
-                            <li>Tiene un efecto antioxidante</li>
-                        </ul>
-                        <div class="imagenes-producto">
-                            <img src="../../../assets/img/dashboard/sal de vino tino.jpeg" alt="Producto Aceite 1">
-                            <img src="../../../assets/img/dashboard/sal de vino tino.jpeg" alt="Producto Aceite 2">
-                            <img src="../../../assets/img/dashboard/sal de vino tino.jpeg" alt="Producto Aceite 3">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tarjeta">
-                    <div class="encabezado-tarjeta">
-                        <img src="../../../assets/img/dashboard/aroma perfil.jpeg" alt="" class="logo-emprendimiento">
-                        <h3>Nombre Apellido</h3>
-                    </div>
-                    <div class="cuerpo-tarjeta">
-                        <p>Al ingerir sal marina auténtica en cantidades moderadas, se pueden obtener muchos beneficios, tales como:</p>
-                        <ul>
-                            <li>Aumento de vitalidad.</li>
-                            <li>Un óptimo drenaje de toxinas.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="tarjeta">
-                    <div class="encabezado-tarjeta">
-                        <img src="../../../assets/img/dashboard/aroma perfil.jpeg" alt="logoemprendi" class="logo-emprendimiento">
-                        <h3>Nombre Apellido</h3>
-                        <span class="hace-tiempo">Hace 2 Días</span>
-                    </div>
-                    <div class="cuerpo-tarjeta">
-                        <p>Somos uana tieneda de sales marinas naturales</p>
-                    </div>
-                </div>
-            </section>
+        <!-- contenido -->
+    <main class="main-content">
+        <div class="header">
+             <!--link  -->
+            <a href="#" class="back-arrow" aria-label="Volver">
+                <i class="fas fa-arrow-left"></i>
+            </a>
         </div>
-                <!--parte del boton de registrate como emprendedor  -->
-        <aside class="promociones">
-            <div class="register-button-container">
-                <button onclick="openPopup()">Registrarme como emprendedor</button>
-            </div>
-            <h2>Promociones</h2>
+        <img src="../../../assets/img/dashboard/aroma perfil.jpeg" alt="img enemprendimiento" class="profile-picture">
 
-            <div class="promo" data-promo-id="1">
-                <img src="../../../assets/img/dashboard/promo1.png" alt="" class="promo-image"/>
-                <div class="texto-promo">
-                    <p class="titulo-promo">Hamburgesaaa topp de Pescaito<br><span>Emprendimiento</span></p>
-                    <span class="precio">₡3000</span>
+        <h1 class="business-name"> Aceites Aromatizados</h1>
+        <p class="business-description">
+            Somos una tienda virtual especializada en aceites y sales aromatizadas. Nuestra razón de ser <br>surge gracias al amor que tenemos por la cocina.
+        </p>
+
+        <nav class="navigation-tabs">
+           <!--link  -->
+            <a href="#" class="nav-item">
+                <i class="fa-solid fa-cart-shopping"></i>Productos
+            </a>
+             <!--link  -->
+            <a href="#" class="nav-item active">
+                <i class="fa-solid fa-comment"></i>Anuncios
+            </a>
+             <!--link  -->
+            <a href="#" class="nav-item">
+                <i class="fas fa-tag"></i> Promociones
+            </a>
+        </nav>
+
+        <div class="announcement-card">
+            <img src="../../../assets/img/dashboard/aroma perfil.jpeg" alt="anuncio" class="announcement-avatar">
+            <div class="announcement-content">
+                <div class="announcement-author-info">
+                    <span>Aromas que Cautivan tus Sentidos</span>
                 </div>
+                <p class="announcement-text">
+                Descubre el toque secreto para tus platos. nuestros aceites aromatizados, infusionados con hierbas frescas y especias selectas, transformarán cada comida en una experiencia culinaria inolvidable. Ideales para aderezar ensaladas, marinar carnes o simplemente para mojar con pan.
+                </p>
+            </div>
             </div>
 
-            <div class="promo" data-promo-id="2">
-                <img src="../../../assets/img/dashboard/promo1.png" alt="promo" class="promo-image"/>
-                <div class="texto-promo">
-                    <p class="titulo-promo">Hamburgesaaa topp de Pescaito<br><span>Emprendimiento</span></p>
-                    <span class="precio">₡3000</span>
+        <div class="announcement-card">
+            <img src="../../../assets/img/dashboard/sal de vino tino.jpeg" alt="anuncio" class="announcement-avatar">
+            <div class="announcement-content">
+                <div class="announcement-author-info">
+                    <span>Sales Aromatizadas</span>
                 </div>
+                <p class="announcement-text">
+                    Transforma tus comidas con la magia de nuestras sales aromatizadas. Cada cristal es una mezcla cuidadosamente seleccionada de sal marina pura y esencias naturales que despertarán tus sentidos y darán vida a cualquier plato.
+                </p>
             </div>
-
-            <div class="promo" data-promo-id="3">
-                <img src="../../../assets/img/dashboard/promo1.png" alt="promo" class="promo-image"/>
-                <div class="texto-promo">
-                    <p class="titulo-promo">Hamburgesaaa topp de Pescaito<br><span>Emprendimiento</span></p>
-                    <span class="precio">₡3000</span>
-                </div>
-            </div>
-
-            <div class="promo" data-promo-id="4">
-                <img src="../../../assets/img/dashboard/promo1.png" alt="promo" class="promo-image"/>
-                <div class="texto-promo">
-                    <p class="titulo-promo">Hamburgesaaa topp de Pescaito<br><span>Emprendimiento</span></p>
-                    <span class="precio">₡3000</span>
-                </div>
-            </div>
-        </aside>
-    </div>
-
-    <div id="popupPromocion" class="capa-popup">
-        <div class="contenido-popup">
-            <span class="boton-cerrar" onclick="cerrarPopupPromocion()">&times;</span>
-            <div class="encabezado-popup">
-                <p class="titulo-popup">Hamburgesaaa topp de Pescaito</p>
-                <p class="subtitulo-popup">Emprendimiento</p>
-            </div>
-            <div class="cuerpo-popup">
-                <p>Hamburgesa super top de pescaito</p>
-                <div class="imagenes-popup">
-                    <img src="../../../assets/img/dashboard/promo1.png" alt="Imagenpopup1" class="popup-image">
-                    <img src="../../../assets/img/dashboard/promo1.png" alt="Imagenpopup2" class="popup-image">
-                </div>
-            </div>
+            <span class="announcement-time">Hace 2 Días</span>
         </div>
-    </div>
 
-    <script src="../../../js/pup-promociones2/promociones.js"></script>
-    <script src="../../../js/app/dashboard.js"></script>
-    <script src="../../../js/sidebar.js"></script>
-  <script src="../../js/app/dashboard.js"></script>
-  <!-- aqui deberia ir el registro de emprendedor -->
-  <script src=""></script>
+        <div class="announcement-card">
+            <img src="../../../assets/img/dashboard/aroma perfil.jpeg" alt="anuncio" class="announcement-avatar">
+            <div class="announcement-content">
+                <div class="announcement-author-info">
+                    <span>Despertar de Aromas y Sabores</span>
+                </div>
+                <p class="announcement-text">
+                    En cada botella de aceite y en cada grano de sal, reside una esencia aromática cuidadosamente seleccionada.
+                </p>
+            </div>
+            <span class="announcement-time">Hace 2 Días</span>
+        </div>
+
+        <script src="../../../js/sidebar.js"></script>
+        <script src="../../../js/app/dashboard.js"></script>
+    </main>
 </body>
-</html> 
+</html>
