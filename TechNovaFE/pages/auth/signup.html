@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro - Comunidad San Isidro</title>
-  <link rel="stylesheet" href="../../styles/auth/login.css">
+  <link rel="stylesheet" href="/Proyecto1\TechNovaFE\styles\auth\login.css">
+  <!-- Agregamos SweetAlert para mensajes bonitos -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <a href="/TechNovaFE/pages/landing.html" class="back-button">←</a>
@@ -25,28 +27,115 @@
     <div class="auth-form-container">
       <div class="form-content">
         <h2>Crea tu Cuenta</h2>
-        <form id="registerForm" class="auth-form" onsubmit="event.preventDefault(); alert('Función de registro no implementada')">
+        <form id="registerForm" class="auth-form">
           <div class="form-group">
-            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+            <small class="error-message" id="nombre-error"></small>
           </div>
           <div class="form-group">
-            <input type="text" name="apellido" placeholder="Apellido" required>
+            <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
+            <small class="error-message" id="apellido-error"></small>
           </div>
           <div class="form-group">
-            <input type="text" name="cedula" placeholder="Cédula" required>
+            <input type="text" name="cedula" id="cedula" placeholder="Cédula" required>
+            <small class="error-message" id="cedula-error"></small>
           </div>
           <div class="form-group">
-            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="email" name="email" id="email" placeholder="Correo electrónico" required>
+            <small class="error-message" id="email-error"></small>
           </div>
           <div class="form-group">
-            <input type="password" name="password" placeholder="Contraseña" required>
+            <input type="password" name="password" id="password" placeholder="Contraseña" required>
+            <small class="error-message" id="password-error"></small>
           </div>
-          <a href="../app/dashboard.html" class="btn-auth">
+          <button type="submit" class="btn-auth">
             Registrarse
-          </a>
+          </button>
         </form>
       </div>
     </div>
   </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Reset errores
+      document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+      
+      // Obtener valores
+      const nombre = document.getElementById('nombre').value.trim();
+      const apellido = document.getElementById('apellido').value.trim();
+      const cedula = document.getElementById('cedula').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      
+      let isValid = true;
+      
+      // Validación de nombre
+      if (!nombre) {
+        document.getElementById('nombre-error').textContent = 'El nombre es obligatorio';
+        isValid = false;
+      } else if (nombre.length < 2) {
+        document.getElementById('nombre-error').textContent = 'El nombre debe tener al menos 2 caracteres';
+        isValid = false;
+      }
+      
+      // Validación de apellido
+      if (!apellido) {
+        document.getElementById('apellido-error').textContent = 'El apellido es obligatorio';
+        isValid = false;
+      }
+      
+      // Validación de cédula (9 dígitos para Costa Rica)
+      if (!cedula) {
+        document.getElementById('cedula-error').textContent = 'La cédula es obligatoria';
+        isValid = false;
+      } else if (!/^\d{9}$/.test(cedula)) {
+        document.getElementById('cedula-error').textContent = 'La cédula debe tener 9 dígitos';
+        isValid = false;
+      }
+      
+      // Validación de email
+      if (!email) {
+        document.getElementById('email-error').textContent = 'El email es obligatorio';
+        isValid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById('email-error').textContent = 'Ingrese un email válido';
+        isValid = false;
+      }
+      
+      // Validación de contraseña
+      if (!password) {
+        document.getElementById('password-error').textContent = 'La contraseña es obligatoria';
+        isValid = false;
+      } else if (password.length < 8) {
+        document.getElementById('password-error').textContent = 'La contraseña debe tener al menos 8 caracteres';
+        isValid = false;
+      } else if (!/[A-Z]/.test(password)) {
+        document.getElementById('password-error').textContent = 'La contraseña debe contener al menos una mayúscula';
+        isValid = false;
+      } else if (!/\d/.test(password)) {
+        document.getElementById('password-error').textContent = 'La contraseña debe contener al menos un número';
+        isValid = false;
+      }
+      
+      if (isValid) {
+        // Guardar datos en localStorage (simulación)
+        localStorage.setItem('userEmail', email);
+        
+        // Mostrar mensaje de éxito
+        Swal.fire({
+          title: '¡Registro exitoso!',
+          text: 'Bienvenido a la Comunidad San Isidro',
+          icon: 'success',
+          confirmButtonText: 'Continuar'
+        }).then(() => {
+          // Redirigir al dashboard o página principal
+          window.location.href = '/TechNovaFE/pages/landing.html';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
