@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro - Comunidad San Isidro</title>
   <link rel="stylesheet" href="/Proyecto1\TechNovaFE\styles\auth\login.css">
-  <!-- Agregamos SweetAlert para mensajes bonitos -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-  <a href="/TechNovaFE/pages/landing.html" class="back-button">←</a>
+  <a href="/Proyecto1\TechNovaFE\pages\landing.html" class="back-button">←</a>
   <div class="auth-container">
     <!-- Left Side - Welcome with Background Image -->
     <div class="auth-welcome" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Iglesia_de_San_Isidro_de_Heredia.jpg/1200px-Iglesia_de_San_Isidro_de_Heredia.jpg')">
@@ -132,10 +131,12 @@
           confirmButtonText: 'Continuar'
         }).then(() => {
           // Redirigir al dashboard o página principal
-          window.location.href = '/TechNovaFE/pages/landing.html';
+          window.location.href = '/Proyecto1/TechNovaFE/pages/landing.html';
         });
       }
     });
   </script>
+  <script src="/Proyecto1\TechNovaFE\scripts\authValidation.js"></script>
+  <script src="/Proyecto1\TechNovaFE\scripts\signup.js"></script>
 </body>
 </html>
