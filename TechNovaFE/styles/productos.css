@@ -1,20 +1,11 @@
-:root {
-    --sidebar-width: 250px;
-    --sidebar-collapsed-width: 100px;
-    --azul: #1C1F4C;
-    --verde: #00848B;
-    --amarillo: #FCAB14;
-    --gris: #EDEDED;
-    --blanco: #F9F9F9;
-    --hover-color: #2e326b;
-}
+
 
 body {
     font-family: 'Montserrat', sans-serif; 
     margin: 0;
     padding: 20px;
-    background-color: var(--gris);
-    color: var(--azul);
+    background-color: #f9f9f9;
+    color: var#1c1f4c;
 }
 
 .container {
@@ -22,13 +13,13 @@ body {
     flex-direction: row;
     gap: 32px;
     padding: 32px 24px;
-    background: #f7f7f7;
+    background: #ededed;
     min-height: 100vh;
     box-sizing: border-box;
 }
 
-/* Hace que el main ocupe toda la altura y tenga scroll si es necesario */
-main.content {
+
+/*main.content {
     height: 100vh;
     overflow-y: auto;
 }
@@ -78,12 +69,33 @@ main.content {
 }
 
 /* --- ANUNCIOS PRODUCTOS) --- */
-.content-tabs {
+/*.content-tabs {
     display: flex;
     flex-direction: column;
     gap: 0;
+}*/
+.content-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 17px;
 }
 
+.tab-item {
+    padding: 8px 18px;
+    border-radius: 8px 8px 0 0;
+    background: #F9F9F9;
+    color: #1C1F4C;
+    font-weight: 450;
+    cursor: pointer;
+    border: none;
+    outline-color: #fccf14;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.tab-item.active {
+    border-bottom: 2px solid #fccf14;
+}
 /* Layout principal */
 .productos-layout {
     display: flex;
