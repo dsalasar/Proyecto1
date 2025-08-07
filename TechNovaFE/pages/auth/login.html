@@ -43,68 +43,7 @@
     </div>
   </div>
 
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Reset errores
-      document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-      
-      // Obtener valores
-      const email = document.getElementById('loginEmail').value.trim();
-      const password = document.getElementById('loginPassword').value;
-      
-      let isValid = true;
-      
-      // Validación de email
-      if (!email) {
-        document.getElementById('email-error').textContent = 'El email es obligatorio';
-        isValid = false;
-      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        document.getElementById('email-error').textContent = 'Ingrese un email válido';
-        isValid = false;
-      }
-      
-      // Validación de contraseña
-      if (!password) {
-        document.getElementById('password-error').textContent = 'La contraseña es obligatoria';
-        isValid = false;
-      }
-      
-      if (isValid) {
-        // Simulación de login exitoso
-        const storedEmail = localStorage.getItem('userEmail');
-        
-        if (storedEmail === email) {
-          // Mostrar mensaje de éxito
-          Swal.fire({
-            title: '¡Bienvenido!',
-            text: 'Has iniciado sesión correctamente',
-            icon: 'success',
-            confirmButtonText: 'Continuar'
-          }).then(() => {
-            // Redirigir al dashboard o página principal
-            window.location.href = '/Proyecto1/TechNovaFE/pages/landing.html';
-          });
-        } else {
-          Swal.fire({
-            title: 'Error',
-            text: 'Email o contraseña incorrectos',
-            icon: 'error',
-            confirmButtonText: 'Intentar de nuevo'
-          });
-        }
-      }
-    });
 
-    // Cargar email guardado si existe
-    window.addEventListener('DOMContentLoaded', () => {
-      const savedEmail = localStorage.getItem('userEmail');
-      if (savedEmail) {
-        document.getElementById('loginEmail').value = savedEmail;
-      }
-    });
-  </script>
   <script src="/Proyecto1\TechNovaFE\scripts\authValidation.js"></script>
   <script src="/Proyecto1\TechNovaFE\scripts\login.js"></script>
 </body>
