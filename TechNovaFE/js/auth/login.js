@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             confirmButtonText: 'Continuar'
           }).then(() => {
             // Redirigir al dashboard o página principal
-            window.location.href = '/TechNovaFE/pages/landing.html';
+            window.location.href = '/TechNovaFE/pages/app/dashboard.html';
           });
         } else {
           Swal.fire({
