@@ -1,0 +1,53 @@
+<!-- SIDEBAR -->
+<button id="hamburger" class="hamburger">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<aside class="sidebar" id="sidebar">
+  <!-- toggle  -->
+  <button id="toggleCollapse" class="collapse-btn" title="Colapsar menú">
+    <span class="toggle-icon">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+          <path
+            d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+        </svg>
+      </span>
+  </button>
+
+  <!-- foto perfil -->
+  <div class="profile">
+    <a href="../cuenta/micuenta.html">
+      <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img">
+    </a>
+  </div>
+
+  <!-- elementos -->
+  <nav class="menu">
+    <a href="../../app/dashboard/dashboard.html" class="menu-item" id="menu-item" title="Inicio">
+      <img class="icon" src="../../../assets/sidebar-icons/home.svg" alt="">
+      <span class="label">Inicio</span>
+    </a>
+    <a href="../../app/ver-emprendimientos/anuncios.html" class="menu-item" title="Emprendimientos">
+      <img class="icon" src="../../../assets/sidebar-icons/emprendimientos.svg" alt="">
+      <span class="label">Emprendimientos</span>
+    </a>
+    <a href="../../app/mi-emprendimiento/anuncios.html" class="menu-item" title="Mi emprendimiento">
+      <img class="icon" src="../../../assets/sidebar-icons/mi-emprendimiento.svg" alt="">
+      <span class="label">Mi emprendimiento</span>
+    </a>
+    <a href="../../app/admin/solicitudes.html" class="menu-item" id="admin-btn" title="Admin">
+      <img class="icon" src="../../../assets/sidebar-icons/admin.svg" alt="">
+      <span class="label">Admin</span>
+    </a>
+  </nav>
+
+  <!-- logout -->
+  <div class="logout">
+    <button id="logout-btn" class="menu-item logout-btn" title="Salir">
+      <img class="icon outimg" src="../../../assets/sidebar-icons/out.svg" alt="">
+      <span class="label">Cerrar Sesión</span>
+    </button>
+  </div>
+</aside>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
