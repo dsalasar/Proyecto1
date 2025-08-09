@@ -45,8 +45,8 @@ header {
 .nav-links-container {
   display: flex;
   flex-grow: 1;
-  justify-content: flex-end;
-  margin-right: 2rem;
+  justify-content: start;
+  margin-left: 2rem;
 }
 
 .nav-links {

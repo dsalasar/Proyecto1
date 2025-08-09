@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iniciar Sesión - Comunidad San Isidro</title>
-  <link rel="stylesheet" href="/Proyecto1\TechNovaFE\styles\auth\login.css">
+  <link rel="stylesheet" href="../../styles/auth/login.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-  <a href="/Proyecto1\TechNovaFE\pages\landing.html" class="back-button">←</a>
+  <a href="../landing.html" class="back-button">←</a>
   <div class="auth-container">
     <!-- Left Side - Welcome with Background Image -->
     <div class="auth-welcome" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d7/Desfile_de_boyeros_en_San_Isidro_de_Heredia.jpg')">
@@ -16,7 +16,7 @@
       <div class="welcome-content">
         <h2>¿No tienes cuenta?</h2>
         <p>Regístrate para acceder a todos los beneficios</p>
-        <a class="btn-auth outline" href="/Proyecto1\TechNovaFE\pages\auth\signup.html" style="text-decoration: none; color: inherit;">
+        <a class="btn-auth outline" href="../auth/signup.html" style="text-decoration: none; color: inherit;">
           Crear Cuenta
         </a>
       </div>
@@ -26,13 +26,13 @@
     <div class="auth-form-container">
       <div class="form-content">
         <h2>Iniciar Sesión</h2>
-        <form id="loginForm" class="auth-form">
+        <form id="loginForm" class="auth-form" novalidate>
           <div class="form-group">
-            <input type="email" name="email" id="loginEmail" placeholder="Correo electrónico" required>
+            <input type="email" name="email" id="loginEmail" placeholder="Correo electrónico" >
             <small class="error-message" id="email-error"></small>
           </div>
           <div class="form-group">
-            <input type="password" name="password" id="loginPassword" placeholder="Contraseña" required>
+            <input type="password" name="password" id="loginPassword" placeholder="Contraseña">
             <small class="error-message" id="password-error"></small>
           </div>
           <button type="submit" class="btn-auth">
@@ -44,7 +44,7 @@
   </div>
 
 
-  <script src="/Proyecto1\TechNovaFE\scripts\authValidation.js"></script>
-  <script src="/Proyecto1\TechNovaFE\scripts\login.js"></script>
+  <script src="../../js/auth/authValidation.js"></script> 
+  <script src="../../js/auth/login.js"></script>
 </body>
 </html>
