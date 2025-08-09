@@ -1,0 +1,268 @@
+/* variables */
+:root {
+  --azul: #1C1F4C;
+  --verde: #00848B;
+  --amarillo: #FCAB14;
+  --gris: #EDEDED;
+  --blanco: #fdfdfd;
+  --hover-color: #2e326b;
+}
+
+
+.content{
+    display: flex;
+    width: 100%;
+    background: var(--blanco);
+    padding: 40px 20px 0 20px;
+    height: 100vh;
+}
+
+.promociones{
+    width: 30%;
+}
+
+.anuncios{
+    width: 70%;
+    /* height: 90vh; */
+    /* background: gray; */
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+}
+
+.anuncios h1{
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--azul);
+}
+
+.promociones{
+    width: 30%;
+    background: pink;
+}
+
+/* subnavegacion  */
+.emprendimientos-tabs {
+    display: flex;
+    margin-top: 10px;
+    font-weight:bold;
+    gap: 10px;
+}
+
+.tab-item {
+    padding: 10px 20px;
+    color: #1C1F4C;
+    cursor: pointer;
+    border: none;
+    outline-color: var(--amarillo);
+    font-size: 1rem;
+}
+
+.tab-item:hover {
+    background-color: var(--gris);
+    color: var(--amarillo);
+}
+
+.tab-item.active {
+    border-bottom: 3px solid #fccf14;
+}
+
+/* anuncios */
+.anuncios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.anuncio {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    min-width: 300px;
+    min-height:200px;
+    transition: transform 0.2s ease;
+}
+
+.anuncio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.anuncio-header {
+    background-color: var(--verde);
+    color: var(--blanco);
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.anuncio-header h3 {
+    margin: 0;
+    color: var(--blanco);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.anuncio-tagline {
+    margin: 5px 0 0;
+    font-size: 13px;
+    opacity: 0.9;
+    color: var(--blanco);
+}
+
+.anuncio-content {
+    padding: 20px;
+}
+
+.anuncio-info {
+    font-size: 14px;
+    color: var(--azul);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+}
+
+.anuncio-info i {
+    margin-right: 10px;
+    color: var(--azul);
+    min-width: 16px;
+    text-align: center;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .anuncios-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .anuncio {
+        min-width: 100%;
+    }
+}
+
+/* Columna derecha (30%) */
+.promociones-column {
+    width: 30%;
+    /* background: #f9f9f9; */
+    padding: 0px 10px;
+    border-radius: 8px;
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Botón de registro */
+.registro-btn {
+    background-color: var(--amarillo);
+    color: white;
+    border: none;
+    padding: 12px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.registro-btn:hover {
+    background-color: #f0a500;
+}
+
+/* Título promociones */
+.promociones-column h2 {
+    color: var(--azul);
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Contenedor de promociones con scroll */
+.promociones-container {
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+    padding-right: 10px;
+    flex-grow: 1;
+}
+
+/* Estilos para las cartas de promoción */
+.promo-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.promo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.promo-header h3 {
+    margin: 0;
+    color: var(--azul);
+    font-size: 16px;
+}
+
+.promo-tag {
+    background: var(--amarillo);
+    color: var(--blanco);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.promo-content p {
+    margin: 0 0 10px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.promo-codigo {
+    background: var(--verde);
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: var(--blanco);
+    font-family: monospace;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Scrollbar personalizada para promociones */
+.promociones-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.promociones-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.promociones-container::-webkit-scrollbar-thumb {
+    background: var(--verde);
+    border-radius: 3px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .two-columns-container {
+        flex-direction: column;
+    }
+    
+    .anuncios-column,
+    .promociones-column {
+        width: 100%;
+    }
+    
+    .promociones-container {
+        max-height: 300px;
+    }
+}
