@@ -57,6 +57,10 @@
     height: 75%;
 }
 
+.content{
+  padding: 20px;
+  background: var(--gris);
+}
 
 .bienvenida {
     /* background-color: lightyellow; */
