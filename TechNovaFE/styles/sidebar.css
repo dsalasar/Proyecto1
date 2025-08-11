@@ -39,7 +39,7 @@ body {
 
 .sidebar {
 box-shadow: #1C1F4C 0px 0px 20px 0px;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: var(--sidebar-width);
@@ -162,13 +162,13 @@ align-items: center;
 }
 
 .content {
-  margin-left: var(--sidebar-width);
+  /* margin-left: var(--sidebar-width); */
   flex-grow: 1;
   /* transition: margin-left 0.3s; */
 }
 
 .sidebar.collapsed ~ .content {
-  margin-left: 0;
+  margin-left: var(--sidebar-collapsed-width);
 }
 
 .hamburger {
