@@ -70,14 +70,15 @@
 }
 
 .tab-item:hover {
-    background-color: var(--gris);
+    /* background-color: var(--gris); */
+    border-bottom: 3px solid var(--amarillo);
     color: var(--amarillo);
 }
 
 .tab-item.active {
-    border-bottom: 3px solid #fccf14;
+    border-bottom: 3px solid var(--amarillo);
+    color: var(--amarillo);
 }
-
 /* ============ CONTENEDORES ============ */
 .productos-container {
     display: grid;
