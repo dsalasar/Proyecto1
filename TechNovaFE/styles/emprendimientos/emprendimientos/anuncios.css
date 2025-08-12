@@ -18,23 +18,39 @@
 }
 
 /* ============ MAIN CONTENT COLUMN ============ */
-.emprendimientos {
+.anuncios {
     width: 70%;
     display: flex;
     flex-direction: column;
 }
 
-.emprendimientos h1 {
+.anuncios h1 {
     font-weight: 600;
     margin-bottom: 10px;
     color: var(--azul);
 }
 
-.emprendimientos p {
+.anuncios p {
     color: var(--azul);
 }
 
-/* ============ NAVIGATION TABS ============ */
+/* ============ PROMOTIONS COLUMN ============ */
+.promociones-column {
+    width: 30%;
+    padding: 0 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.promociones-column h2 {
+    color: var(--azul);
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ============ NAVIGATION ============ */
 .emprendimientos-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -62,24 +78,40 @@
     border-bottom: 3px solid #fccf14;
 }
 
-/* ============ CONTENT CONTAINER ============ */
-.emprendimientos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px 20px;
+/* ============ CONTENT CONTAINERS ============ */
+.anuncios-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     padding: 20px;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
 }
 
-/* ============ PROMOTIONS COLUMN (DEFAULT) ============ */
-.promociones-column {
-    width: 30%;
-    padding: 0 10px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
+.promociones-container {
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+    padding-right: 10px;
+    flex-grow: 1;
+}
+
+/* ============ BUTTONS ============ */
+.registro-btn {
+    background-color: var(--amarillo);
+    color: white;
+    border: none;
+    padding: 12px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.registro-btn:hover {
+    background-color: #f0a500;
 }
 
 /* ============ MOBILE COMPONENTS ============ */
@@ -151,15 +183,34 @@
     visibility: visible;
 }
 
+/* ============ SCROLLBARS ============ */
+.promociones-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.promociones-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.promociones-container::-webkit-scrollbar-thumb {
+    background: var(--verde);
+    border-radius: 3px;
+}
+
 /* ============ RESPONSIVE BREAKPOINTS ============ */
 @media (max-width: 992px) {
     .content {
         flex-direction: column;
+        padding: 20px 15px;
     }
     
-    .emprendimientos,
+    .anuncios,
     .promociones-column {
         width: 100%;
+    }
+    
+    .promociones-container {
+        max-height: 300px;
     }
 }
 
@@ -169,10 +220,9 @@
         padding: 40px 20px 0 40px;
     }
     
-    .emprendimientos {
+    .anuncios {
         width: 70%;
-        padding: 0 20px 0 0;
-        height: calc(100vh - 40px);
+        padding-right: 20px;
     }
     
     .promociones-column {
@@ -196,9 +246,9 @@
 }
 
 @media (max-width: 768px) {
-    .emprendimientos-container {
+    .anuncios-container {
         grid-template-columns: 1fr;
-        overflow-y: scroll;
+        padding: 0;
         height: calc(100vh - 200px);
     }
 }

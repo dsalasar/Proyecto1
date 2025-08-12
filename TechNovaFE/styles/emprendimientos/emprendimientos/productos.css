@@ -8,7 +8,7 @@
   --hover-color: #2e326b;
 }
 
-/* ============ BASE STRUCTURE ============ */
+/* ============ ESTRUCTURA PRINCIPAL ============ */
 .content {
     display: flex;
     width: 100%;
@@ -17,24 +17,40 @@
     height: 100vh;
 }
 
-/* ============ MAIN CONTENT COLUMN ============ */
-.emprendimientos {
+/* ============ COLUMNA ANUNCIOS ============ */
+.anuncios {
     width: 70%;
     display: flex;
     flex-direction: column;
 }
 
-.emprendimientos h1 {
+.anuncios h1 {
     font-weight: 600;
     margin-bottom: 10px;
     color: var(--azul);
 }
 
-.emprendimientos p {
+.anuncios p {
     color: var(--azul);
 }
 
-/* ============ NAVIGATION TABS ============ */
+/* ============ COLUMNA PROMOCIONES ============ */
+.promociones-column {
+    width: 30%;
+    padding: 0 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.promociones-column h2 {
+    color: var(--azul);
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ============ NAVEGACIÓN ============ */
 .emprendimientos-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -62,28 +78,44 @@
     border-bottom: 3px solid #fccf14;
 }
 
-/* ============ CONTENT CONTAINER ============ */
-.emprendimientos-container {
+/* ============ CONTENEDORES ============ */
+.productos-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
 }
 
-/* ============ PROMOTIONS COLUMN (DEFAULT) ============ */
-.promociones-column {
-    width: 30%;
-    padding: 0 10px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
+.promociones-container {
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+    padding-right: 10px;
+    flex-grow: 1;
 }
 
-/* ============ MOBILE COMPONENTS ============ */
-/* Promotions Panel (Mobile) */
+/* ============ BOTONES ============ */
+.registro-btn {
+    background-color: var(--amarillo);
+    color: white;
+    border: none;
+    padding: 12px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.registro-btn:hover {
+    background-color: #f0a500;
+}
+
+/* ============ COMPONENTES MÓVIL ============ */
+/* Panel promociones móvil */
 .promociones-column {
     position: fixed;
     top: 0;
@@ -99,7 +131,7 @@
     overflow-y: auto;
 }
 
-/* Overlay */
+/* Overlay para cerrar */
 .promo-overlay {
     position: fixed;
     top: 0;
@@ -107,13 +139,13 @@
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.5);
-    z-index: 10;
+    z-index: 99;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
 }
 
-/* Floating Button */
+/* Botón flotante */
 .floating-promo-btn {
     position: fixed;
     bottom: 25px;
@@ -141,7 +173,7 @@
     transform: scale(1.1);
 }
 
-/* Visible State */
+/* Estado visible */
 .promociones-visible .promociones-column {
     right: 0;
 }
@@ -151,28 +183,45 @@
     visibility: visible;
 }
 
-/* ============ RESPONSIVE BREAKPOINTS ============ */
+/* ============ SCROLLBARS ============ */
+.promociones-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.promociones-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.promociones-container::-webkit-scrollbar-thumb {
+    background: var(--verde);
+    border-radius: 3px;
+}
+
+/* ============ RESPONSIVE ============ */
 @media (max-width: 992px) {
     .content {
         flex-direction: column;
+        padding: 20px 15px;
     }
     
-    .emprendimientos,
+    .anuncios,
     .promociones-column {
         width: 100%;
+    }
+    
+    .promociones-container {
+        max-height: 300px;
     }
 }
 
 @media (min-width: 992px) {
     .content {
         flex-direction: row;
-        padding: 40px 20px 0 40px;
     }
     
-    .emprendimientos {
+    .anuncios {
         width: 70%;
-        padding: 0 20px 0 0;
-        height: calc(100vh - 40px);
+        padding-right: 20px;
     }
     
     .promociones-column {
@@ -196,9 +245,7 @@
 }
 
 @media (max-width: 768px) {
-    .emprendimientos-container {
+    .productos-container {
         grid-template-columns: 1fr;
-        overflow-y: scroll;
-        height: calc(100vh - 200px);
     }
 }
