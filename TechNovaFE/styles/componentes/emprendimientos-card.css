@@ -1,0 +1,63 @@
+/* Emprendimiento Card Styles */
+.emprendimiento {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    min-width: 300px;
+    height: max-content;
+    transition: transform 0.2s ease;
+}
+
+.emprendimiento:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.emprendimiento-header {
+    background-color: var(--verde);
+    color: var(--blanco);
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.emprendimiento-header h3 {
+    margin: 0;
+    color: var(--blanco);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.emprendimiento-tagline {
+    margin: 5px 0 0;
+    font-size: 13px;
+    opacity: 0.9;
+    color: var(--blanco);
+}
+
+.emprendimiento-content {
+    padding: 20px;
+}
+
+.emprendimiento-info {
+    font-size: 14px;
+    color: var(--azul);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+}
+
+.emprendimiento-info i {
+    margin-right: 10px;
+    color: var(--azul);
+    min-width: 16px;
+    text-align: center;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .emprendimiento {
+        min-width: 100%;
+    }
+}
