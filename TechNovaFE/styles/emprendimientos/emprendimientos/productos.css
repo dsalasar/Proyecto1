@@ -71,8 +71,8 @@
 
 .tab-item:hover {
     /* background-color: var(--gris); */
-    border-bottom: 3px solid var(--amarillo);
-    color: var(--amarillo);
+    border-bottom: 3px solid var(--azul);
+    color: var(--azul);
 }
 
 .tab-item.active {
