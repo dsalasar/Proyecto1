@@ -183,6 +183,12 @@ body {
 .btn-auth.outline:hover {
   background: rgba(255,255,255,0.1);
 }
+/* nuevo */
+input.input-error {
+    border: 1px solid #ff4d4f; /* Borde rojo */
+    box-shadow: 0 0 5px rgba(255, 77, 79, 0.5); /* Sombra para resaltar */
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -194,3 +200,7 @@ body {
     min-height: 300px; /* Ensure enough height for mobile */
   }
 }
+
+
+
+

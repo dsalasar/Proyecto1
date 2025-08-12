@@ -6,31 +6,36 @@
   --blanco: #fdfdfd;
   --hover-color: #2e326b;
 }
-
 body {
+    display: flex;
     overflow-y: auto;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--gris);
     color: var(--azul);
+     min-height: 100vh;  
 }
 .container {
-    min-height: 100vh;
+     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    
 }
 .main-content {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-     min-height: 80vh;
+    flex-grow: 1;
+    width: 100%;
+     gap: 20px; 
+       min-height: 80vh;  
 }
 .header {
     text-align: left;
     padding: 20px;
     background-color: var(--gris);
     border-radius: 8px;
+    margin-bottom: 20px;
 }
 .header h1 {
     color: var(--azul);
@@ -48,6 +53,7 @@ body {
     width: 100%;
     box-sizing: border-box;
     flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 .profile-info {
@@ -95,7 +101,7 @@ body {
     margin: 5px 0;
 }
 /* fin */
-
+/* anuncios y productos  */
 .content-tabs {
     flex: 2;
     min-width: 300px;
@@ -135,13 +141,22 @@ body {
 }
 
 .promotions-section {
-  height: 100vh;
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--gris);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  /* height: 100vh;
   position: static;
   top: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
 }
 
 .promotions-section h2 {
@@ -162,7 +177,7 @@ body {
     background-color: var(--blanco);
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    overflow: hidden;
+   /*  overflow: hidden; */
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -184,7 +199,7 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    overflow: hidden;
+    /* overflow: hidden; */
     border: 1px solid var(--gris);
 }
 
@@ -319,7 +334,7 @@ body {
     flex-grow: 1;
     min-height: 120px;
     flex-basis: auto;
-    max-width: none;
+     max-width: none; 
 }
 
 .add-promotion-card i {
@@ -366,7 +381,6 @@ body {
     order: 1;
     text-align: left;
     flex-grow: 1;
-    text-align: left;
 }
 
 .promotion-card h3 {
@@ -722,6 +736,8 @@ body {
         flex-direction: column;
         align-items: center;
         padding: 10px;
+        flex-basis: 100%;
+        max-width: 100%;
     }
     body {
         padding: 10px;
@@ -753,7 +769,6 @@ body {
         height: 80px;
     }
     .promotion-card-details {
-
      text-align: center;
         display: flex;
         flex-direction: column;
