@@ -9,8 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="../../../styles/admin/admin-dashboard.css" />
-  <link rel="stylesheet" href="../../../styles/sidebar.css" />
+   <link rel="stylesheet" href="../../../styles/sidebar.css">
+  <link rel="stylesheet" href="../../../styles/admin/estilos.css" />
+  <link rel="stylesheet" href="../../../styles/admin/dashboard.css" />
   <style>
     /* Modal básico */
     .modal {
@@ -78,26 +79,26 @@
   <div id="sidebar-container"></div>
 
   <!-- SIDEBAR  -->
-
+   
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-content">
-
-    <!-- header de admin  -->
     <div class="header">
       <h1>Panel de Administración</h1>
-      
+
+
       <nav class="tabs">
         <a class="tab" href="solicitudes.html">Solicitudes</a>
           <a class="tab active" href="usuarios.html">Usuarios</a>
           <a class="tab" href="noticias.html">Noticias</a>
           <a class="tab" href="transporte.html">Transporte Público</a>
         </nav>
-        
+
+
+
     </div>
 
-    <!-- header de admin  -->
 
-    <section class="table-section tables-section">
+    <section class="table-section">
       <h2>Gestión de Usuarios</h2>
       <div class="table-container">
         <table>
@@ -111,42 +112,7 @@
               <th>Acciones</th>
             </tr>
           </thead>
-          <tbody id="user-rows">
-  <tr>
-    <td>1-1234-5678</td>
-    <td>María</td>
-    <td>Fernández</td>
-    <td>maria@example.com</td>
-    <td>San José</td>
-    <td>
-      <button class="edit-btn">Editar</button>
-      <button class="delete-btn">Eliminar</button>
-    </td>
-  </tr>
-  <tr>
-    <td>2-2345-6789</td>
-    <td>Carlos</td>
-    <td>Ramírez</td>
-    <td>carlos@example.com</td>
-    <td>Alajuela</td>
-    <td>
-      <button class="edit-btn">Editar</button>
-      <button class="delete-btn">Eliminar</button>
-    </td>
-  </tr>
-  <tr>
-    <td>3-3456-7890</td>
-    <td>Andrea</td>
-    <td>Gómez</td>
-    <td>andrea@example.com</td>
-    <td>Heredia</td>
-    <td>
-      <button class="edit-btn">Editar</button>
-      <button class="delete-btn">Eliminar</button>
-    </td>
-  </tr>
-</tbody>
-
+          <tbody id="user-rows"></tbody>
         </table>
       </div>
     </section>
@@ -169,6 +135,7 @@
 
 </body>
 
+<script src="/js/usuarios.js"></script>
 <!-- sidebar js  -->
  
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

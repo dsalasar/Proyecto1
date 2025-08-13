@@ -3,64 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gestión de Transporte</title>
+  <title>Rutas de Transporte</title>
 
   <!-- Fuente Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="../../../styles/admin/admin-dashboard.css" />
-  <link rel="stylesheet" href="../../../styles/sidebar.css" />
+  <link rel="stylesheet" href="../../../styles/admin/transporte.css" />
+  <link rel="stylesheet" href="../../../styles/admin/dashboard.css" />
+  <link rel="stylesheet" href="../../../styles/sidebar.css">
 
-  <!-- Leaflet para OpenStreetMap -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
 <!-- SIDEBAR  -->
 
-<div id="sidebar-container"></div>
+  <div id="sidebar-container"></div>
 
   <!-- SIDEBAR  -->
 
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-content">
-    <!-- header de admin  -->
     <div class="header">
-      <h1>Panel de Administración</h1>
-      
+      <h1>Rutas de Transporte Público</h1>
+
       <nav class="tabs">
         <a class="tab" href="solicitudes.html">Solicitudes</a>
-          <a class="tab" href="usuarios.html">Usuarios</a>
-          <a class="tab" href="noticias.html">Noticias</a>
-          <a class="tab active" href="transporte.html">Transporte Público</a>
-        </nav>
-        
+        <a class="tab" href="usuarios.html">Usuarios</a>
+        <a class="tab" href="noticias.html">Noticias</a>
+        <a class="tab active" href="transporte.html">Transporte Público</a>
+      </nav>
     </div>
 
-    <!-- Mapa interactivo -->
-     <section class="transportes-contenido">
-    <h2>Mapa de San Isidro de Heredia</h2>
-    <div class="map-container">
-        <div id="map" style="height: 450px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; margin-top: 20px; border-radius: 8px; width: 65%;"></div>
-        
-        <!-- Formulario de transporte -->
-        <form id="transporte-form">
-            <h2>Añadir Transporte</h2>
-            <input type="text" id="empresa" placeholder="Empresa" required />
-            <input type="text" id="tipo" placeholder="Tipo" required />
-            <input type="text" id="horario" placeholder="Horario" required />
-            <input type="text" id="contacto" placeholder="Contacto" required />
-            <input type="text" id="rutas" placeholder="Rutas" required />
-            <button type="submit">Agregar</button>
-        </form>
-    </div>
+    <section class="table-section">
+      <div class="table-header">
+        <h2>Registrar Nueva Ruta</h2>
+        <button id="crear-ruta-btn" class="crear-btn">+ Crear Ruta</button>
+      </div>
 
-    <!-- Tabla de transportes -->
-    <div class="table-section">
-      <h2>Transportes Registrados</h2>
       <div class="table-container">
         <table>
           <thead>
@@ -70,19 +53,15 @@
               <th>Horario</th>
               <th>Contacto</th>
               <th>Rutas</th>
+              <th>Imagen</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody id="tabla-transporte"></tbody>
         </table>
       </div>
-    </div>
     </section>
   </main>
-
-  <!-- SCRIPT -->
-<script src="../../../js/sidebar.js"></script>
-<script src="../../../js/app/admin/transporte.js"></script>
 
 <!-- sidebar js  -->
  
@@ -95,5 +74,7 @@
 </script>
 
 <!-- end sidebar js  -->
+
+  <script src="../../../js/app/admin/transporte.js"></script>
 </body>
 </html>

@@ -9,9 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
 
   <!-- Estilos -->
-    <link rel="stylesheet" href="../../../styles/admin/admin-dashboard.css" />
-  <link rel="stylesheet" href="../../../styles/sidebar.css" />
-  <link rel="stylesheet" href="../../../styles/admin/noticias.css" />
+  <link rel="stylesheet" href="../../../styles/admin/estilos.css" />
+  <link rel="stylesheet" href="../../../styles/admin/dashboard.css" />
+  <link rel="stylesheet" href="../../../styles/admin/admin-noticias.css"/>
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
@@ -23,10 +26,11 @@
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-content">
-    <!-- header de admin  -->
     <div class="header">
-      <h1>Panel de Administración</h1>
-      
+      <h1>Gestión de Noticias</h1>
+    </div>
+
+
       <nav class="tabs">
         <a class="tab" href="solicitudes.html">Solicitudes</a>
           <a class="tab" href="usuarios.html">Usuarios</a>
@@ -36,10 +40,11 @@
         
     </div>
 
+
     <section class="table-section">
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <h2>Publicaciones Activas</h2>
-        <button id="crear-noticia-btn" style="padding: 0.5em 1em; font-weight: bold;">+ Crear Noticia</button>
+        <button id="crear-noticia-btn" class="crear-btn">+ Crear Noticia</button>
       </div>
 
       <div class="table-container">
@@ -58,20 +63,10 @@
     </section>
   </main>
 
-  <!-- MODAL -->
-  <div id="noticia-modal" class="modal">
-    <div class="modal-content">
-      <h2>Crear Noticia</h2>
-      <form id="noticia-form">
-        <input type="text" id="titulo" placeholder="Título" required />
-        <textarea id="descripcion" placeholder="Descripción" required></textarea>
-        <input type="text" id="imagen" placeholder="Ruta de imagen (ej: img.jpg)" required />
-        <button type="submit">Guardar</button>
-        <button type="button" id="cancelar-btn">Cancelar</button>
-      </form>
-    </div>
-  </div>
-<script src="../../../js/app/admin/noticias.js"></script>
+  <!-- Script principal -->
+  <script src="../../../js/app/admin/noticias.js"></script>
+</html>
+
 
 
 <!-- sidebar js  -->

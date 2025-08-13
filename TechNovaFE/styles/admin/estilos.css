@@ -11,11 +11,11 @@ body {
 
 /* === Contenido principal === */
 .main-content {
-  /* margin-left: 250px; mismo ancho que el sidebar */
+  margin-left: 250px;
   padding: 2em;
   flex: 1;
   min-height: 100vh;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 /* === Encabezado principal === */
@@ -24,11 +24,6 @@ body {
   color: #202a44;
   margin-bottom: 1em;
 }
-
-.header{
-  height: 20%;
-}
-
 
 /* === Pestañas === */
 .tabs {
@@ -55,19 +50,9 @@ body {
 }
 
 /* === Sección de tabla === */
-
-.tables-section{
-  width: 100%;
-  overflow-y: auto;
-  scrollbar-width: none;
-  height: 80%;
-  /* height: calc(100vh - 100px); Ajusta según el header */
-  /* padding-bottom: 20px; */
-}
-
-/* .table-section {
+.table-section {
   margin-top: 1em;
-} */
+}
 
 .table-section h2 {
   color: #333;
@@ -79,7 +64,6 @@ body {
   background-color: white;
   border-radius: 8px;
   padding: 1em;
-  margin-bottom: 1em;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
 }
@@ -128,70 +112,23 @@ button.edit-btn, button.delete-btn {
   background-color: #e74c3c;
 }
 
-/* transportes  */
-
-.map-container {
-    /* background-color: black; */
-    display: flex;
-}
-
-#transporte-form {
-    width: 35%;
-  max-width: 400px;
-  margin: 2rem auto;
-  background-color: #f9f9f9; /* fondo claro */
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-family: 'Montserrat', sans-serif;
-}
-
-#transporte-form h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #1C1F4C; /* color corporativo azul */
-  font-weight: 600;
-}
-
-#transporte-form input[type="text"] {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  font-size: 14px;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-#transporte-form input[type="text"]:focus {
-  border-color: #1C1F4C;
-  box-shadow: 0 0 0 2px rgba(28, 31, 76, 0.2);
-  outline: none;
-}
-
-#transporte-form button[type="submit"] {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #1C1F4C;
+/* Botón de crear noticia */
+#crear-ruta-btn {
+  background-color: #202a44;
   color: white;
   border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
+  padding: 0.6em 1.2em;
+  margin: 0 0 20px 0;
+  border-radius: 6px;
   font-weight: 600;
+  font-size: 1em;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-#transporte-form button[type="submit"]:hover {
-  background-color: #2e326b; /* tono más oscuro al pasar el mouse */
+#crear-ruta-btn:hover {
+  background-color: #344785;
 }
-
-.transportes-contenido{
-    height: 80%;
-    overflow-y: auto;
-}
-
-
 
 /* === Responsive === */
 @media (max-width: 768px) {
@@ -208,3 +145,4 @@ button.edit-btn, button.delete-btn {
     font-size: 0.9em;
   }
 }
+

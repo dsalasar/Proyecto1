@@ -1,0 +1,71 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  padding: 2em;
+}
+
+.table-section {
+  background: white;
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.crear-btn {
+  background-color: #202a44;
+  color: white;
+  border: none;
+  padding: 0.6em 1.2em;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.crear-btn:hover {
+  background-color: #344785;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.8em;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #202a44;
+  color: white;
+}
+
+.editar-btn, .eliminar-btn {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-right: 0.5em;
+}
+
+.editar-btn:hover {
+  color: #007bff;
+}
+
+.eliminar-btn:hover {
+  color: #dc3545;
+}
