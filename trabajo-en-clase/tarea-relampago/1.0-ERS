@@ -1,0 +1,52 @@
+ERS relámpago
+Requerimientos Funcionales
+Funcionalidades de Administración
+
+RF1. El sistema debe permitir el registro del administrador si no existe previamente, solicitando Nombre, Apellidos, Identificación, País, Correo y Contraseña.
+RF2. El sistema debe redirigir al inicio de sesión luego del registro
+RF3. El sistema debe asegurar la autenticación y autorización de los usuarios mediante correo y contraseña.
+
+
+RF4. El sistema debe permitir registrar los siguientes datos para cada proyecto: código único, nombre, descripción, ubicación (coordenadas GPS), presupuesto, fecha de inicio, fecha estimada de finalización y estado del proyecto.
+RF5. El sistema debe permitir al administrador gestionar un catálogo de materiales sostenibles, incluyendo su procedencia, el nombre, proveedor, costo unitario e impacto ambiental (bajo, medio, alto).
+RF6. El sistema debe permitir crear equipos de trabajo con los siguientes datos: Código, nombre, especialidad (arquitectura, ingeniería civil, logística), lista de miembros.
+RF7. El sistema debe permitir la creación de múltiples hitos de construcción asociados a cada proyecto, donde cada hito debe incluir: Descripción, fecha estimada, porcentaje de avance y responsable.
+
+
+
+ El sistema debe permitir a los miembros registrar avances en los proyectos, incluyendo horas trabajadas, materiales utilizados (cantidad) y foros del progreso.
+
+Funcionalidades de Equipos de Trabajo:
+RF8. El sistema debe permitir el registro de miembros del equipo solicitando Nombre, apellidos, cédula, país, correo (usuario), contraseña, rol, especialidad y foto.
+RF9. El sistema debe enviar un código de verificación de 3 digitos por correo para la activación de la cuenta.
+RF10. El proyecto debe permitir al usuario ser asociado a 1 o más proyectos 
+RF11. El proyecto debe permitir al usuario registrar avances con datos como: Horas trabajadas, materiales utilizados (cantidad) y fotos del progreso. 
+RF12. El sistema debe calcular automáticamente el porcentaje de avance del hito
+RF13. El sistema deberá notificar al administrador el porcentaje de avance del hito
+RF14. El sistema debe permitir registrar los siguientes datos para cada proyecto: código único, nombre, descripción, ubicación (coordenadas GPS), presupuesto, fecha de inicio, fecha estimada de finalización y estado del proyecto.
+RF15. El sistema debe permitir al administrador gestionar un catálogo de materiales sostenibles, incluyendo su procedencia, el nombre, proveedor, costo unitario e impacto ambiental (bajo, medio, alto)
+RF16. El sistema debe permitir a los miembros registrar avances en los proyectos, incluyendo horas trabajadas, materiales utilizados (cantidad) y fotos del progreso.
+RF17. El sistema debe mostrar al equipo mediante métricas el Gráfico de presupuesto vs gasto real
+RF18. El sistema debe mostrar al equipo mediante métricas una línea de tiempo del proyecto. 
+RF19. El sistema debe mostrar a los usuarios el mapa con la ubicación del proyecto
+
+Requerimientos No Funcionales
+Funcionalidades de Administración y para Equipos de Trabajo.
+
+RNF1. El sistema debe ser responsivo
+RNF2. El sistema debe ser escalable
+RNF3. El sistema debe proteger los datos del administrador
+RNF4 El sistema debe ser accesible 
+RNF4. El sistema debe ser portable permitiendo su ejecución en distintos navegadores.
+RNF5. El sistema debe ser mantenible 
+RNF6. El sistema debe tener compatibilidad 
+RNF7. El sistema debe ser intuitivo 
+RNF8. El sistema debe ser mantenible, permitiendo modificaciones.
+RNF9. El sistema debe ofrecer tiempos de carga óptimos.
+RNF10. El sistema debe mostrar mensajes de error comprensibles por el usuario.
+RNF11. El sistema debe ser capaz de operar con múltiples usuarios simultáneamente sin pérdida significativa de rendimiento.
+RNF12. El sistema debe contar con navegación consistente en todas sus pantallas.
+RNF13. El sistema debe estar desarrollado exclusivamente con tecnologías web estándar (HTML, CSS, JavaScript y Java).
+RNF14. El sistema debe cumplir con la arquitectura DAO de bases de datos.
+RNF15. El sistema debe registrar los intentos de acceso no autorizados y errores en un archivo en formato “.txt”.
+RNF16. El sistema debe registrar librerías separadas para capa de datos y lógica 
