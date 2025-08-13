@@ -59,15 +59,15 @@ body {
 .tables-section{
   width: 100%;
   overflow-y: auto;
+  scrollbar-width: none;
   height: 80%;
   /* height: calc(100vh - 100px); Ajusta según el header */
   /* padding-bottom: 20px; */
 }
 
-
-.table-section {
+/* .table-section {
   margin-top: 1em;
-}
+} */
 
 .table-section h2 {
   color: #333;
@@ -79,6 +79,7 @@ body {
   background-color: white;
   border-radius: 8px;
   padding: 1em;
+  margin-bottom: 1em;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
 }

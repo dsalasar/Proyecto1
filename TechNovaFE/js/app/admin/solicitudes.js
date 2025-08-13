@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   ];
 
-  const solicitudesBody = document.getElementById("solicitudes-rows");
+  const solicitudesBody = document.getElementById("solicitudes-emprendimientos-rows");
 
   const renderSolicitudes = () => {
     solicitudesBody.innerHTML = "";
@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <td contenteditable="true">${item.motivo}</td>
         <td contenteditable="true">${item.ubicacion}</td>
         <td>
-          <button class="aprobar-btn" data-index="${index}">Aprobar</button>
-          <button class="rechazar-btn" data-index="${index}">Rechazar</button>
+          <button class="edit-btn" data-index="${index}">Aprobar</button>
+          <button class="delete-btn" data-index="${index}">Rechazar</button>
         </td>
       `;
 
@@ -50,13 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const index = e.target.dataset.index;
     const btn = e.target;
 
-    if (btn.classList.contains("aprobar-btn")) {
+    if (btn.classList.contains("edit-btn")) {
       alert(`✅ Solicitud aprobada de ${solicitudes[index].nombre}`);
       solicitudes.splice(index, 1);
       renderSolicitudes();
     }
 
-    if (btn.classList.contains("rechazar-btn")) {
+    if (btn.classList.contains("delete-btn")) {
       const confirmado = confirm(`❌ ¿Estás seguro de rechazar la solicitud de ${solicitudes[index].nombre}?`);
       if (confirmado) {
         alert(`Solicitud rechazada`);

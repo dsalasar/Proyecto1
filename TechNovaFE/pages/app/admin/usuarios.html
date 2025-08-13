@@ -9,8 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="css/estilos.css" />
-  <link rel="stylesheet" href="css/dashboard.css" />
+   <link rel="stylesheet" href="../../../styles/sidebar.css">
+  <link rel="stylesheet" href="../../../styles/admin/estilos.css" />
+  <link rel="stylesheet" href="../../../styles/admin/dashboard.css" />
   <style>
     /* Modal básico */
     .modal {
@@ -75,100 +76,10 @@
 
 <!-- SIDEBAR  -->
 
-  <button id="hamburger" class="hamburger">&#9776;</button>
-  <div class="overlay" id="overlay"></div>
-  <aside class="sidebar" id="sidebar">
-
-    <!-- toggle  -->
-    <button id="toggleCollapse" class="collapse-btn" title="Colapsar menú">
-      <span class="toggle-icon">
-        <svg xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-          <path
-            d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-        </svg>
-      </span>
-    </button>
-
-
-    <!-- foto perfil  -->
-    <div class="profile">
-      <a href="perfil.html">
-        <img src="../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img">
-      </a>
-    </div>
-
-    <!-- elementos -->
-    <nav class="menu">
-      <a href="#" class="menu-item" id="menu-item" title="Inicio">
-        <span class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-            <path
-              d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
-          </svg>
-        </span>
-        <span class="label">Inicio</span>
-      </a>
-      <a href="#" class="menu-item" id="menu-item" title="Transportes">
-        <span class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-            <path
-              d="M288 0C422.4 0 512 35.2 512 80l0 16 0 32c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32l0 160c0 17.7-14.3 32-32 32l0 32c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-32-192 0 0 32c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-32c-17.7 0-32-14.3-32-32l0-160c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32c0 0 0 0 0 0l0-32s0 0 0 0l0-16C64 35.2 153.6 0 288 0zM128 160l0 96c0 17.7 14.3 32 32 32l112 0 0-160-112 0c-17.7 0-32 14.3-32 32zM304 288l112 0c17.7 0 32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-112 0 0 160zM144 400a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm288 0a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM384 80c0-8.8-7.2-16-16-16L208 64c-8.8 0-16 7.2-16 16s7.2 16 16 16l160 0c8.8 0 16-7.2 16-16z" />
-          </svg>
-        </span>
-        <span class="label">Transportes</span>
-      </a>
-      <a href="#" class="menu-item" id="menu-item" title="Emprendimientos">
-        <span class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-            <path
-              d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
-          </svg>
-        </span>
-        <span class="label">Emprendimientos</span>
-      </a>
-      <a href="#" class="menu-item" id="menu-item" title="Mi emprendimiento">
-        <span class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-            <path
-              d="M547.6 103.8L490.3 13.1C485.2 5 476.1 0 466.4 0L109.6 0C99.9 0 90.8 5 85.7 13.1L28.3 103.8c-29.6 46.8-3.4 111.9 51.9 119.4c4 .5 8.1 .8 12.1 .8c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.2 0 49.3-11.4 65.2-29c16 17.6 39.1 29 65.2 29c4.1 0 8.1-.3 12.1-.8c55.5-7.4 81.8-72.5 52.1-119.4zM499.7 254.9c0 0 0 0-.1 0c-5.3 .7-10.7 1.1-16.2 1.1c-12.4 0-24.3-1.9-35.4-5.3L448 384l-320 0 0-133.4c-11.2 3.5-23.2 5.4-35.6 5.4c-5.5 0-11-.4-16.3-1.1l-.1 0c-4.1-.6-8.1-1.3-12-2.3L64 384l0 64c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-64 0-131.4c-4 1-8 1.8-12.3 2.3z" />
-          </svg>
-        </span>
-        <span class="label">Mi emprendimiento</span>
-      </a>
-
-      <a href="#" class="menu-item" id="menu-item" title="Admin">
-        <span class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-            <path
-              d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200.2l18.6 31L175.8 483.1l-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7l131.7 0c0 0 0 0 .1 0l5.5 0 112 0 5.5 0c0 0 0 0 .1 0l131.7 0c17 0 30.7-13.8 30.7-30.7c0-75.5-51.9-138.9-121.9-156.4c-8.1-2-15.9 3.3-17.9 11.3l-36 146.9L238.9 359.2l18.6-31c6.4-10.7-1.3-24.2-13.7-24.2L224 304l-19.7 0c-12.4 0-20.1 13.6-13.7 24.2z" />
-          </svg>
-        </span>
-        <span class="label">Admin</span>
-      </a>
-    </nav>
-
-    <!-- logout  -->
-    <div class="logout">
-      <button href="#" id="logout-btn" class="menu-item logout-btn" title="Salir">
-        <span class="icon outimg"><svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-            <path
-              d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
-          </svg></span>
-        <span class="label">Cerrar Sesión </span>
-      </button>
-    </div>
-
-
-  </aside>
+  <div id="sidebar-container"></div>
 
   <!-- SIDEBAR  -->
+   
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-content">
     <div class="header">
@@ -222,11 +133,9 @@
     </div>
   </div>
 
-<script src="/js/usuarios.js"></script>
 </body>
-</html>
 
-
+<script src="/js/usuarios.js"></script>
 <!-- sidebar js  -->
  
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

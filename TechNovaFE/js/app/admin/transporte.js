@@ -21,18 +21,18 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${ruta.rutas}</td>
         <td><img src="${ruta.imagen}" style="height:60px; border-radius:6px;" /></td>
         <td>
-          <button class="editar-btn" data-index="${index}">✏️</button>
-          <button class="eliminar-btn" data-index="${index}">🗑️</button>
+          <button class="edit-btn" data-index="${index}">Editar</button>
+          <button class="delete-btn" data-index="${index}">Eliminar</button>
         </td>
       `;
       tabla.appendChild(fila);
     });
 
-    document.querySelectorAll(".editar-btn").forEach(btn => {
+    document.querySelectorAll(".edit-btn").forEach(btn => {
       btn.addEventListener("click", () => editarRuta(btn.dataset.index));
     });
 
-    document.querySelectorAll(".eliminar-btn").forEach(btn => {
+    document.querySelectorAll(".delete-btn").forEach(btn => {
       btn.addEventListener("click", () => eliminarRuta(btn.dataset.index));
     });
   };
