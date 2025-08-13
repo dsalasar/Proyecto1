@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar Responsive</title>
+  <link rel="stylesheet" href="../../../styles/sidebar.css">
+  <link rel="stylesheet" href="../../../styles/dashboard.css">
+  <link rel="stylesheet" href="../../../styles/componentes/promociones-card.css">
+
+</head>
+
+<body>
+
+  <!-- SIDEBAR  -->
+  <div id="sidebar-container"></div>
+
+  <!-- SIDEBAR  -->
+
+  <main class="content">
+    <div class="dashboard">
+      <!-- Anuncios y crear anuncios -->
+      <div class="section1">
+        <!-- mensaje de bienvenida y crear  -->
+        <div class="crear">
+          <!-- bienvenida  -->
+          <div class="bienvenida">
+            <p>¡Bienvenido de vuelta, <b>John</b>!</p>
+          </div>
+          <button class="crear-anuncio" id="crear-anuncio" onclick="crearAnuncio()">
+            <!-- card -->
+            <div class="card-crear-anuncio">
+              <!-- foto  -->
+              <a href="perfil.html">
+                <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img">
+              </a>
+              <!-- texto  -->
+              <p>¿Quieres crear un anuncio?</p>
+            </div>
+          </button>
+
+        </div>
+        <div class="anuncios">
+
+          <!-- CARTA -->
+          <div class="card">
+            <div class="card-header">
+              <a href="perfil.html">
+                <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img">
+              </a>
+              <div class="user-info">
+                <p><strong>Nombre Apellido Apellido</strong></p>
+                <span>Hace 2 hrs</span>
+              </div>
+              <button class="btn-menu">
+                <span class="elipsis">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 128 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                    <path
+                      d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div class="card-body">
+              <p>
+                Ya no se puede vivir con tanta basura en la comunidad. Cada día hay más bolsas tiradas
+                en las esquinas, los botes están siempre llenos y nadie parece hacerse responsable...
+              </p>
+              <div class="image-row">
+                <img src="../../../assets/img/dashboard/noticiaImg1.jpeg" alt="Imagen 1">
+                <img src="../../../assets/img/dashboard/noticiaImg2.jpg" alt="Imagen 1">
+                <img src="../../../assets/img/dashboard/noticiaImg3.jpg" alt="Imagen 1">
+              </div>
+            </div>
+          </div>
+          <!-- FIN CARTA -->
+
+          <!-- CARTA -->
+          <div class="card">
+            <div class="card-header">
+              <a href="perfil.html">
+                <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img">
+              </a>
+              <div class="user-info">
+                <p><strong>Nombre Apellido Apellido</strong></p>
+                <span>Hace 2 hrs</span>
+              </div>
+              <button class="btn-menu">
+                <span class="elipsis">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 128 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                    <path
+                      d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div class="card-body">
+              <p>
+                Ya no se puede vivir con tanta basura en la comunidad. Cada día hay más bolsas tiradas
+                en las esquinas, los botes están siempre llenos y nadie parece hacerse responsable...
+              </p>
+              <!-- <div class="image-row">
+                <img src="../../assets/img/dashboard/noticiaImg1.jpeg" alt="Imagen 1">
+                <img src="../../assets/img/dashboard/noticiaImg2.jpg" alt="Imagen 1">
+                <img src="../../assets/img/dashboard/noticiaImg3.jpg" alt="Imagen 1">
+              </div> -->
+            </div>
+          </div>
+          <!-- FIN CARTA -->
+
+        </div>
+      </div>
+
+      <!-- Noticias, crear reporte, promociones -->
+      <div class="section2">
+        <!-- reportes -->
+        <div class="reportes">
+          <p>¿Tienes alguna <strong>queja </strong> o <strong>reporte</strong> ?</p>
+          <button class="boton-reporte" onclick="crearReporte()">Quéjese aquí</button>
+        </div>
+
+        <!-- noticias -->
+        <!-- <h3 style="color: #1C1F4C; font-weight: 500;">Noticias</h3>
+        <div class="noticias">
+          <button class="noticia" onclick="verNoticia()">
+            <img src="../../../assets/img/dashboard/noticia1.png" alt="Desfile de la comunidad">
+            <div class="noticia-info">
+              <p class="titulo">Desfile de la comunidad fue todo un éxito</p>
+              <div class="fecha-hora">
+                <span class="fecha">24/03</span>
+                <span class="hora">00:00</span>
+              </div>
+            </div>
+          </button> -->
+
+          <!-- noticia  -->
+
+        <!-- </div> -->
+
+        <!-- promociones -->
+
+        <h3 style="font-weight: 500; color: #1C1F4C;">Promociones</h3>
+        <div class="promociones">
+          <!-- Carta promoción 1 (actualizada) -->
+    <div class="promo-card" onclick="verPromocion()">
+        <div class="promo-header">
+            <h3>2x1 en Panadería</h3>
+            <span class="promo-tag">Válido hasta: 30/06</span>
+        </div>
+        <div class="promo-content">
+            <p>Lleva 2 panes integrales por el precio de 1 en Panadería La Esquina</p>
+            <div class="promo-precio">
+                <span class="precio-original">₡2,500</span>
+                <span class="precio-oferta">₡1,250</span>
+            </div>
+            <span class="empresa">Panaderia Mariluz</span>
+        </div>
+    </div>
+    <div class="promo-card" onclick="verPromocion()">
+        <div class="promo-header">
+            <h3>2x1 en Panadería</h3>
+            <span class="promo-tag">Válido hasta: 30/06</span>
+        </div>
+        <div class="promo-content">
+            <p>Lleva 2 panes integrales por el precio de 1 en Panadería La Esquina</p>
+            <div class="promo-precio">
+                <span class="precio-original">₡2,500</span>
+                <span class="precio-oferta">₡1,250</span>
+            </div>
+            <span class="empresa">Panaderia Mariluz</span>
+        </div>
+    </div>
+    <div class="promo-card" onclick="verPromocion()">
+        <div class="promo-header">
+            <h3>2x1 en Panadería</h3>
+            <span class="promo-tag">Válido hasta: 30/06</span>
+        </div>
+        <div class="promo-content">
+            <p>Lleva 2 panes integrales por el precio de 1 en Panadería La Esquina</p>
+            <div class="promo-precio">
+                <span class="precio-original">₡2,500</span>
+                <span class="precio-oferta">₡1,250</span>
+            </div>
+            <span class="empresa">Panaderia Mariluz</span>
+        </div>
+    </div>
+    <div class="promo-card" onclick="verPromocion()">
+        <div class="promo-header">
+            <h3>2x1 en Panadería</h3>
+            <span class="promo-tag">Válido hasta: 30/06</span>
+        </div>
+        <div class="promo-content">
+            <p>Lleva 2 panes integrales por el precio de 1 en Panadería La Esquina</p>
+            <div class="promo-precio">
+                <span class="precio-original">₡2,500</span>
+                <span class="precio-oferta">₡1,250</span>
+            </div>
+            <span class="empresa">Panaderia Mariluz</span>
+        </div>
+    </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../../../js/sidebar.js"></script>
+  <script>
+    // Aquí defines si el usuario es admin
+    const esAdmin = true; // o true si lo es
+    cargarSidebar(esAdmin);
+  </script>
+  <script src="../../../js/app/dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+.productos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  flex: 1;
+  padding: 20px 0px 100px 0px;
+  max-height: 80vh;      /* altura máxima visible */
+  overflow-y: auto;      /* scroll vertical */
+  scrollbar-width: none; /* ocultar scrollbar en Firefox */
+}
+
+.producto-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  scrollbar-width: none; /* ocultar scrollbar en Firefox */
+  height: max-content;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.producto-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.producto-body {
+  padding: 15px;
+}
+
+.producto-titulo {
+  font-size: 1.1rem;
+  margin: 0 0 8px;
+  color: #333;
+}
+
+.producto-descripcion {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.producto-precio {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #e67e22;
+}
+
+/* Scroll estilizado */
+.productos-container::-webkit-scrollbar {
+  width: 8px;
+}
+.productos-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}

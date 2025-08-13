@@ -1,0 +1,185 @@
+/* Promociones Card Styles */
+.registro-btn {
+    background-color: var(--amarillo);
+    color: white;
+    border: none;
+    padding: 12px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.registro-btn:hover {
+    background-color: #f0a500;
+}
+
+.promociones-column h2 {
+    color: var(--azul);
+    /* margin: 0 0 15px 0;
+    padding-bottom: 10px; */
+    border-bottom: 1px solid #eee;
+}
+
+.promociones-container {
+    overflow-y: auto;
+    scrollbar-width: none;
+    max-height: calc(100vh - 200px);
+    padding-right: 10px;
+    flex-grow: 1;
+    /* display: flex; */
+    /* flex-direction: column; */
+    gap: 20px;
+}
+
+/* Carta de promoción con animaciones */
+.promo-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px;
+    margin-bottom: 10px;
+    /* margin-bottom: 15px; */
+    transition: all 0.3s ease;
+}
+
+.promo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.promo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.promo-header h3 {
+    margin: 0;
+    color: var(--azul);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.promo-tag {
+    background: var(--amarillo);
+    color: var(--blanco);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Contenido mejorado */
+.promo-content {
+    padding: 5px 0;
+}
+
+.promo-content p {
+    margin: 0 0 8px 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Nuevo estilo para precio */
+.promo-precio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.promo-precio .precio-original {
+    color: #777;
+    text-decoration: line-through;
+}
+
+.promo-precio .precio-oferta {
+    color: var(--verde);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.empresa {
+    background: var(--verde);
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: var(--blanco);
+    font-family: monospace;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.empresa:hover {
+    background: #007379;
+}
+
+/* Scrollbar */
+.promociones-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.promociones-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.promociones-container::-webkit-scrollbar-thumb {
+    background: var(--verde);
+    border-radius: 3px;
+}
+
+@media (max-width: 992px) {
+    .promociones-container {
+        flex: 1;
+        max-height: 100%;
+        padding: 20px 0;
+    }
+
+    .promociones-column{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .promociones-column h2 {
+        text-align: center;
+    }
+}
+
+.add-button {
+  height: 150px;
+  border: 2px dashed var(--verde); /* borde punteado */
+  border-radius: 10px;     /* esquinas redondeadas */
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.add-button span {
+  font-size: 2rem;
+  color: var(--verde);
+  font-weight: bold;
+}
+
+.add-button:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  border: 2px dashed #04cad4;
+}
+
+.add-button:hover span {
+  color: #04cad4;
+  transform: scale(1.3);
+}

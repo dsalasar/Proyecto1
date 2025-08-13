@@ -1,0 +1,206 @@
+/* ============ VARIABLES ============ */
+:root {
+  --azul: #1C1F4C;
+  --verde: #00848B;
+  --amarillo: #FCAB14;
+  --gris: #f1f1f1;
+  --blanco: #fdfdfd;
+  --hover-color: #2e326b;
+}
+
+/* ============ BASE STRUCTURE ============ */
+.content {
+    display: flex;
+    width: 100%;
+    background: var(--blanco);
+    padding: 40px 20px 0 40px;
+    height: 100vh;
+}
+
+/* ============ MAIN CONTENT COLUMN ============ */
+.emprendimientos {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.emprendimientos h1 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--azul);
+}
+
+.emprendimientos p {
+    color: var(--white);
+}
+
+/* ============ NAVIGATION TABS ============ */
+.emprendimientos-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.tab-item {
+    padding: 10px 20px;
+    color: #1C1F4C;
+    cursor: pointer;
+    border: none;
+    outline-color: var(--amarillo);
+    font-size: 1rem;
+}
+
+.tab-item:hover {
+    /* background-color: var(--gris); */
+    border-bottom: 3px solid var(--azul);
+    color: var(--azul);
+}
+
+.tab-item.active {
+    border-bottom: 3px solid var(--amarillo);
+    color: var(--amarillo);
+}
+
+/* ============ CONTENT CONTAINER ============ */
+.emprendimientos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px 20px;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+/* ============ PROMOTIONS COLUMN (DEFAULT) ============ */
+.promociones-column {
+    width: 30%;
+    padding: 0 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============ MOBILE COMPONENTS ============ */
+/* Promotions Panel (Mobile) */
+.promociones-column {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 350px;
+    height: 100vh;
+    background: var(--blanco);
+    z-index: 10;
+    padding: 20px 15px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    overflow-y: auto;
+}
+
+/* Overlay */
+.promo-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Floating Button */
+.floating-promo-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 15px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--amarillo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 90;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.floating-promo-btn i {
+    color: var(--blanco);
+    font-size: 1.5rem;
+}
+
+.floating-promo-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Visible State */
+.promociones-visible .promociones-column {
+    right: 0;
+}
+
+.promociones-visible .promo-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ============ RESPONSIVE BREAKPOINTS ============ */
+@media (max-width: 992px) {
+    .content {
+        flex-direction: column;
+    }
+    
+    .emprendimientos,
+    .promociones-column {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .content {
+        flex-direction: row;
+        padding: 40px 20px 0 40px;
+    }
+    
+    .emprendimientos {
+        width: 70%;
+        padding: 0 20px 0 0;
+        height: calc(100vh - 40px);
+    }
+    
+    .promociones-column {
+        position: static;
+        width: 30%;
+        height: auto;
+        right: auto;
+        padding: 0 0 0 10px;
+        box-shadow: none;
+        max-width: none;
+    }
+    
+    .promo-overlay {
+        display: none;
+    }
+    
+    .floating-promo-btn {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .emprendimientos-container {
+        grid-template-columns: 1fr;
+        overflow-y: scroll;
+        height: calc(100vh - 200px);
+    }
+}

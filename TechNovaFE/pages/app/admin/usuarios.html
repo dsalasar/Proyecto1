@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Usuarios</title>
+
+  <!-- Fuente Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+   <link rel="stylesheet" href="../../../styles/sidebar.css">
+  <link rel="stylesheet" href="../../../styles/admin/estilos.css" />
+  <link rel="stylesheet" href="../../../styles/admin/dashboard.css" />
+  <style>
+    /* Modal básico */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 2em;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .modal-content h2 {
+      margin-bottom: 1em;
+      color: #202a44;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 0.6em;
+      margin-bottom: 1em;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .modal-content button {
+      padding: 0.5em 1em;
+      margin-right: 0.5em;
+      border: none;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    #cancel-btn {
+      background-color: #999;
+      color: white;
+    }
+
+    #edit-form button[type="submit"] {
+      background-color: #3498db;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR  -->
+
+  <div id="sidebar-container"></div>
+
+  <!-- SIDEBAR  -->
+   
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-content">
+    <div class="header">
+      <h1>Panel de Administración</h1>
+
+
+      <nav class="tabs">
+        <a class="tab" href="solicitudes.html">Solicitudes</a>
+          <a class="tab active" href="usuarios.html">Usuarios</a>
+          <a class="tab" href="noticias.html">Noticias</a>
+          <a class="tab" href="transporte.html">Transporte Público</a>
+        </nav>
+
+
+
+    </div>
+
+
+    <section class="table-section">
+      <h2>Gestión de Usuarios</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Cédula</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Correo</th>
+              <th>Ubicación</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="user-rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de edición -->
+  <div id="edit-modal" class="modal">
+    <div class="modal-content">
+      <h2>Editar Usuario</h2>
+      <form id="edit-form">
+        <input type="text" id="edit-nombre" placeholder="Nombre" required />
+        <input type="text" id="edit-apellido" placeholder="Apellido" required />
+        <input type="email" id="edit-correo" placeholder="Correo" required />
+        <input type="text" id="edit-ubicacion" placeholder="Ubicación" required />
+        <button type="submit">Guardar</button>
+        <button type="button" id="cancel-btn">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+
+<script src="/js/usuarios.js"></script>
+<!-- sidebar js  -->
+ 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../../../js/sidebar.js"></script>
+<script>
+  // Aquí defines si el usuario es admin
+  const esAdmin = true; // o true si lo es
+  cargarSidebar(esAdmin);
+</script>
+
+<!-- end sidebar js  -->
+ 
+<script src="../../../js/app/admin/usuarios.js"></script>
+</html>

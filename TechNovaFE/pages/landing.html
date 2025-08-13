@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunidad San Isidro</title>
+  <link rel="stylesheet" href="../styles/landing.css">
+ 
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <!-- <div class="logo-placeholder"></div> -->
+      <div class="nav-links-container">
+        <ul class="nav-links">
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#emprendimientos">Emprendimientos</a></li>
+          <li><a href="#transporte">Transporte</a></li>
+          <li><a href="#beneficios">Beneficios</a></li>
+        </ul>
+      </div>
+    <div class="auth-links">
+      <a href="../pages/auth/login.html" class="btn-auth btn-signin">Sign In</a>
+      <a href="../pages/auth/signup.html" class="btn-auth btn-register">Register</a>
+    </div>
+    </nav>
+  </header>
+
+  <!-- Popup Container (empty) -->
+<div id="authModalContainer"></div>
+
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Todos Conectados</h1>
+        <p>Bienvenido a esta tu aplicación. Si quieres más beneficios y formas de interactuar con tu comunidad, dale click al siguiente botón.</p>
+        <a href="#" class="btn">Get Started</a>
+      </div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Desfile_de_boyeros_en_San_Isidro_de_Heredia.jpg" alt="Comunidad de San Isidro" class="hero-image">
+    </div>
+  </section>
+
+  <!-- Nosotros -->
+  <section id="nosotros" class="section">
+    <div class="nosotros-container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Iglesia_de_San_Isidro_de_Heredia.jpg/250px-Iglesia_de_San_Isidro_de_Heredia.jpg" alt="San Isidro de Heredia" class="nosotros-image">
+      <div class="nosotros-text">
+        <h2>Nosotros</h2>
+        <p>
+          Vivir en San Isidro de Heredia es un verdadero orgullo. Esta encantadora comunidad combina la tranquilidad de la vida rural con la cercanía a la ciudad, rodeada de exuberante naturaleza, aire fresco y gente amable. Su clima privilegiado, su riqueza cultural y su fuerte sentido de comunidad hacen de San Isidro un lugar ideal para vivir, crecer y emprender con propósito. Esta página web nace con la intención de brindar información útil y promover el disfrute de todos los vecinos, fortaleciendo así los lazos que nos unen como comunidad.
+        </p>
+      </div>
+    </div>
+  </section>
+
+<!-- Noticias -->
+<section id="noticias" class="section">
+  <div class="noticias-header">
+    <h2>Noticias</h2>
+    <p class="subtitle">Mantente informado sobre lo que sucede en nuestra comunidad</p>
+    <a href="#" class="btn ver-mas">Ver más noticias</a>
+  </div>
+  
+  <div class="news-grid">
+    <article class="news-card">
+      <div class="news-content">
+        <h3>Perro suelto causa estragos</h3>
+        <p>Un perro suelto causó disturbios en la comunidad, generando preocupación por la seguridad. Se hace un llamado a la responsabilidad en el cuidado de mascotas.</p>
+        <a href="#" class="news-link">Leer más </a>
+      </div>
+    </article>
+    
+    <article class="news-card">
+      <div class="news-content">
+        <h3>¿Quién embarazó a la vaca de don Juan?</h3>
+        <p>En San Isidro todavía se comenta el misterio de quién embarazó a la vaca de don Juan. Los sospechosos principales: el toro de Pacho y el toro de Pepe.</p>
+        <a href="#" class="news-link">Leer más </a>
+      </div>
+    </article>
+    
+    <article class="news-card">
+      <div class="news-content">
+        <h3>Chambito cumple 130 vueltas al sol</h3>
+        <p>¡Chambito celebra 130 vueltas al sol! Un señor muy querido por la comunidad, ejemplo de vida, sabiduría y alegría. ¡Felicidades, Chambito!</p>
+        <a href="#" class="news-link">Leer más </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+  <!-- Emprendimientos -->
+<section id="emprendimientos" class="section light-bg">
+  <h2>Conoce nuestros emprendimientos</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Panadería artesanal" class="card-image">
+      <div class="card-content">
+        <h3>Panadería Dulce Hogar</h3>
+        <p class="schedule">06:00 - 18:00</p>
+        <p class="description">Pan fresco y pastelería tradicional hecha con ingredientes locales</p>
+        <a href="#" class="btn-card">Conoce más</a>
+      </div>
+    </div>
+    
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Cafetería" class="card-image">
+      <div class="card-content">
+        <h3>Café Montaña</h3>
+        <p class="schedule">05:30 - 20:00</p>
+        <p class="description">Café orgánico cultivado en las montañas de Heredia</p>
+        <a href="#" class="btn-card">Conoce más</a>
+      </div>
+    </div>
+    
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Artesanías" class="card-image">
+      <div class="card-content">
+        <h3>Artesanías Típicas</h3>
+        <p class="schedule">09:00 - 17:00</p>
+        <p class="description">Productos artesanales hechos a mano por mujeres de la comunidad</p>
+        <a href="#" class="btn-card">Conoce más</a>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="btn secondary">Ver más emprendimientos</a>
+</section>
+
+<!-- Transporte -->
+<section id="transporte" class="section">
+  <h2>¿Cómo moverte por nuestra comunidad?</h2>
+  <div class="transporte-grid">
+    <div class="transporte-card">
+      <div class="transporte-content">
+        <h3>Rutas de Buses</h3>
+        <p>Aquí encontrarás nuestras rutas actualizadas con horarios y paradas oficiales.</p>
+        <a href="#" class="btn-transporte">Ver rutas</a>
+      </div>
+      <img src="https://busesjm.cl/wp-content/uploads/2022/09/bus_vertical.jpg" alt="Autobús en San Isidro" class="transporte-image">
+    </div>
+    
+    <div class="transporte-card">
+      <div class="transporte-content">
+        <h3>Rutas de Taxis</h3>
+        <p>Servicio confiable de taxis con paradas designadas en puntos estratégicos.</p>
+        <a href="#" class="btn-transporte">Ver paradas</a>
+      </div>
+      <img src="https://www.puertoviejosatellite.com/images/taxi-protest-costa-rica.jpg" alt="Taxi en San Isidro" class="transporte-image">
+    </div>
+  </div>
+</section>
+
+<!-- Beneficios -->
+<section id="beneficios" class="section light-bg">
+  <div class="beneficios-container">
+    <img src="https://scontent.fsjo14-1.fna.fbcdn.net/v/t39.30808-6/518204731_1331713732289871_3606517031447717723_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=gYr5UipDzPAQ7kNvwGGPnmS&_nc_oc=AdkNtLvGGes9zJJD0i95nJQFtQdlfhHR-OrFx7feePN9OGeb3Qp_RBmt2DCu_n0cjYw&_nc_zt=23&_nc_ht=scontent.fsjo14-1.fna&_nc_gid=jBBzzPGDcwn1thMI7Lkmgg&oh=00_AfSnt7mC5-pU7BDaATN2w37Yq6Qre33HKR9gI41SwNSpAg&oe=6879EC79" alt="App de la comunidad" class="beneficios-image">
+    <div class="beneficios-content">
+      <h2>Conoce la app de nuestra comunidad</h2>
+      <p class="app-description">Diseñada para facilitar la vida en San Isidro de Heredia, esta aplicación te conecta con todo lo que necesitas en un solo lugar.</p>
+      <ul class="beneficios-list">
+        <li>Compra y vende productos entre vecinos</li>
+        <li>Consulta las rutas y horarios del transporte público</li>
+        <li>Envía quejas o reportes directamente a la comunidad</li>
+        <li>Accede a las últimas noticias que afectan a nuestra comunidad</li>
+      </ul>
+      <!-- <div class="app-buttons">
+        <a href="#" class="app-store-btn">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Descargar en App Store">
+        </a>
+        <a href="#" class="play-store-btn">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Disponible en Google Play">
+        </a>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-nav">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#noticias">Noticias</a>
+      <a href="#emprendimientos">Emprendimientos</a>
+      <a href="#transporte">Transporte</a>
+      <a href="#beneficios">Beneficios</a>
+    </div>
+    <p>&copy; 2025 Comunidad de San Isidro de Heredia</p>
+  </footer>
+<div id="authPopupsContainer">
+  <!-- Login Popup -->
+  <div id="loginPopup" class="auth-popup">
+    <div class="auth-container split-container">
+      <!-- Your login form content here -->
+    </div>
+  </div>
+  
+
+
+</body>
+</html>

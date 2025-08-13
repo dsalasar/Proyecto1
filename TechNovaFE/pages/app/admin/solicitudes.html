@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Solicitudes</title>
+
+  <!-- Fuente Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+   <link rel="stylesheet" href="../../../styles/dashboard.css">
+  <link rel="stylesheet" href="../../../styles/admin/admin-dashboard.css" />
+  <link rel="stylesheet" href="../../../styles/sidebar.css" />
+</head>
+<body>
+
+<!-- SIDEBAR  -->
+
+  <div id="sidebar-container"></div>
+
+  <!-- SIDEBAR  -->
+
+  <!-- === CONTENIDO PRINCIPAL === -->
+  <main class="main-content">
+
+    <!-- header de admin  -->
+    <div class="header">
+      <h1>Panel de Administración</h1>
+      
+      <nav class="tabs">
+        <a class="tab active" href="solicitudes.html">Solicitudes</a>
+          <a class="tab" href="usuarios.html">Usuarios</a>
+          <a class="tab" href="noticias.html">Noticias</a>
+          <a class="tab" href="transporte.html">Transporte Público</a>
+        </nav>
+        
+    </div>
+
+    <section class="tables-section">
+    <div class="table-section">
+  <h2>Solicitudes de Emprendimientos</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>Horario</th>
+          <th>Contacto</th>
+          <th>Ubicación</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="solicitudes-emprendimientos-rows">
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="table-section">
+  <h2>Solicitudes de Anuncios</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Descripción</th>
+          <th>Imagen</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="anuncios-rows">
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="table-section">
+  <h2>Solicitudes de Reportes</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Descripción</th>
+          <th>Imagen</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="reportes-rows">
+      </tbody>
+    </table>
+  </div>
+</div>
+      </section>
+
+
+  </main>
+</body>
+
+<script src="../../../js/app/admin/solicitudes.js"></script>
+
+<!-- sidebar js  -->
+ 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../../../js/sidebar.js"></script>
+<script>
+  // Aquí defines si el usuario es admin
+  const esAdmin = true; // o true si lo es
+  cargarSidebar(esAdmin);
+</script>
+
+<!-- end sidebar js  -->
+</html>
