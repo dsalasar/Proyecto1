@@ -47,7 +47,7 @@ function cargarSidebar(esAdmin) {
           cancelButtonColor: '#d33'
         }).then((result) => {
           if (result.isConfirmed) {
-            window.location.href = '../pages/landing.html';
+            window.location.href = '../../landing.html'; // Redirige a la página de inicio de sesión
           }
         });
       });
