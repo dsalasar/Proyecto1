@@ -42,7 +42,7 @@ document.getElementById('crear-noticia-btn').addEventListener('click', () => {
     if (result.isConfirmed) {
       const { titulo, descripcion, imagen } = result.value;
 
-     
+      // Aquí puedes manejar el guardado de la noticia
       console.log('Noticia creada:', titulo, descripcion, imagen);
 
       Swal.fire('¡Guardado!', 'La noticia ha sido creada exitosamente.', 'success');
