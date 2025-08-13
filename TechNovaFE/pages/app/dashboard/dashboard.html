@@ -7,6 +7,7 @@
   <title>Sidebar Responsive</title>
   <link rel="stylesheet" href="../../../styles/sidebar.css">
   <link rel="stylesheet" href="../../../styles/dashboard.css">
+  <link rel="stylesheet" href="../../../styles/componentes/promociones-card.css">
 
 </head>
 
@@ -26,19 +27,6 @@
           <!-- bienvenida  -->
           <div class="bienvenida">
             <p>¡Bienvenido de vuelta, <b>John</b>!</p>
-            <!-- btn filtrar  -->
-            <button class="btn-filtrar">
-              <!-- svg -->
-              <span class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                  <path
-                    d="M3.9 54.9C10.5 40.9 24.5 32 40 32l432 0c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9 320 448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6l0-79.1L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z" />
-                </svg>
-              </span>
-              <!-- svg -->
-              Filtrar
-            </button>
           </div>
           <button class="crear-anuncio" id="crear-anuncio" onclick="crearAnuncio()">
             <!-- card -->
@@ -135,9 +123,8 @@
         </div>
 
         <!-- noticias -->
-        <h3 style="color: #1C1F4C; font-weight: 500;">Noticias</h3>
+        <!-- <h3 style="color: #1C1F4C; font-weight: 500;">Noticias</h3>
         <div class="noticias">
-          <!-- noticia  -->
           <button class="noticia" onclick="verNoticia()">
             <img src="../../../assets/img/dashboard/noticia1.png" alt="Desfile de la comunidad">
             <div class="noticia-info">
@@ -147,26 +134,73 @@
                 <span class="hora">00:00</span>
               </div>
             </div>
-          </button>
+          </button> -->
 
           <!-- noticia  -->
 
-        </div>
+        <!-- </div> -->
 
         <!-- promociones -->
 
         <h3 style="font-weight: 500; color: #1C1F4C;">Promociones</h3>
         <div class="promociones">
-          <div class="promocion" onclick="verPromocion()">
-            <div class="promocion-info">
-              <div class="info">
-                <p class="titulo">Hamburguesaaa topppp de Pescaito</p>
-                <span class="categoria">Emprendimiento</span>
-              </div>
-              <span class="precio">₡3000</span>
+          <!-- Carta promoción 1 (actualizada) -->
+    <div class="promo-card" onclick="verPromocion()">
+        <div class="promo-header">
+            <h3>2x1 en Panadería</h3>
+            <span class="promo-tag">Válido hasta: 30/06</span>
+        </div>
+        <div class="promo-content">
+            <p>Lleva 2 panes integrales por el precio de 1 en Panadería La Esquina</p>
+            <div class="promo-precio">
+                <span class="precio-original">₡2,500</span>
+                <span class="precio-oferta">₡1,250</span>
             </div>
-            <img src="../../../assets/img/dashboard/promo1.png" alt="Hamburguesaaa topppp de Pescaito">
-          </div>
+            <span class="empresa">Panaderia Mariluz</span>
+        </div>
+    </div>
+    <div class="promo-card" onclick="verPromocion()">
+        <div class="promo-header">
+            <h3>2x1 en Panadería</h3>
+            <span class="promo-tag">Válido hasta: 30/06</span>
+        </div>
+        <div class="promo-content">
+            <p>Lleva 2 panes integrales por el precio de 1 en Panadería La Esquina</p>
+            <div class="promo-precio">
+                <span class="precio-original">₡2,500</span>
+                <span class="precio-oferta">₡1,250</span>
+            </div>
+            <span class="empresa">Panaderia Mariluz</span>
+        </div>
+    </div>
+    <div class="promo-card" onclick="verPromocion()">
+        <div class="promo-header">
+            <h3>2x1 en Panadería</h3>
+            <span class="promo-tag">Válido hasta: 30/06</span>
+        </div>
+        <div class="promo-content">
+            <p>Lleva 2 panes integrales por el precio de 1 en Panadería La Esquina</p>
+            <div class="promo-precio">
+                <span class="precio-original">₡2,500</span>
+                <span class="precio-oferta">₡1,250</span>
+            </div>
+            <span class="empresa">Panaderia Mariluz</span>
+        </div>
+    </div>
+    <div class="promo-card" onclick="verPromocion()">
+        <div class="promo-header">
+            <h3>2x1 en Panadería</h3>
+            <span class="promo-tag">Válido hasta: 30/06</span>
+        </div>
+        <div class="promo-content">
+            <p>Lleva 2 panes integrales por el precio de 1 en Panadería La Esquina</p>
+            <div class="promo-precio">
+                <span class="precio-original">₡2,500</span>
+                <span class="precio-oferta">₡1,250</span>
+            </div>
+            <span class="empresa">Panaderia Mariluz</span>
+        </div>
+    </div>
 
         </div>
       </div>
