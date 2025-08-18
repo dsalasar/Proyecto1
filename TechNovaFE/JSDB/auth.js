@@ -49,7 +49,7 @@ async function login(email, password) {
             nombre: data.nombre, 
             apellido1: data.apellido1, 
             apellido2: data.apellido2, 
-            cedula: data.cedula, 
+            // cedula: data.cedula, 
             email: data.email,
             role: data.role
           }));
@@ -61,20 +61,20 @@ async function login(email, password) {
   }
 }
 
-async function register(nombre, apellido1, apellido2, cedula, email, password) {
+async function register(nombre, apellido1, apellido2, email, password) {
   try {
     // Validar campos antes de enviar al backend
     if (!validateText(nombre)) throw new Error("Nombre no agregado.");
     if (!validateText(apellido1)) throw new Error("Primer apellido no agregado.");
     // if (!validateText(apellido2)) throw new Error("Segundo apellido no agregado.");
-    if (!validateCedula(cedula)) throw new Error("Cédula debe contener solo números y debe tener 9 digitos.");
+    // if (!validateCedula(cedula)) throw new Error("Cédula debe contener solo números y debe tener 9 digitos.");
     if (!validateEmail(email)) throw new Error("Email no válido.");
     if (!validatePassword(password)) throw new Error("La contraseña debe tener al menos 8 caracteres.");
 
     const response = await fetch(`${API_URL}/registro`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nombre, apellido1, apellido2, cedula, email, password }),
+      body: JSON.stringify({ nombre, apellido1, apellido2, email, password }),
     });
     const data = await response.json();
 
@@ -87,7 +87,7 @@ async function register(nombre, apellido1, apellido2, cedula, email, password) {
             nombre: data.nombre, 
             apellido1: data.apellido1, 
             apellido2: data.apellido2, 
-            cedula: data.cedula, 
+            // cedula: data.cedula, 
             email: data.email,
             role: data.role
           }));
@@ -122,9 +122,9 @@ document.getElementById("registerForm")?.addEventListener("submit", (e) => {
   const nombre = document.getElementById("nombre").value;
   const apellido1 = document.getElementById("apellido1").value;
   const apellido2 = document.getElementById("apellido2").value;
-  const cedula = document.getElementById("cedula").value;
+  // const cedula = document.getElementById("cedula").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  register(nombre, apellido1, apellido2, cedula, email, password);
+  register(nombre, apellido1, apellido2, email, password);
 });
