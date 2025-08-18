@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const crearBtn = document.getElementById("crear-ruta-btn");
   const PLACEHOLDER_URL = 'https://via.placeholder.com/60';
 
-  // Función mejorada para obtener rutas
+  // Función para obtener rutas
   const fetchRutas = async () => {
     try {
       const response = await fetch(BASE_URL);

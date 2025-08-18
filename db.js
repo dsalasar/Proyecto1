@@ -1,19 +1,26 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(
-      process.env.MONGO_URI || 'mongodb+srv://ecastro:M0ng0_Fl4tl1n3@cluster0.5wldzgd.mongodb.net/transportDB?retryWrites=true&w=majority',
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    );
-    console.log('MongoDB Connected...');
+    const conn = await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 30000, // 30 segundos de timeout
+      socketTimeoutMS: 45000, // 45 segundos de timeout
+      maxPoolSize: 10, // Número máximo de conexiones
+      retryWrites: true,
+      w: 'majority'
+    });
+
+    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+    return conn;
   } catch (err) {
-    console.error('MongoDB Connection Error:', err);
+    console.error(`❌ MongoDB Connection Error: ${err.message}`);
     process.exit(1);
   }
 };
 
-module.exports = connectDB;
+export default connectDB;

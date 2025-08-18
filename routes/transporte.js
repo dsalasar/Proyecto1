@@ -1,18 +1,34 @@
-// routes/transporte.js
 import express from 'express';
 import Transporte from '../models/Transporte.js';
 
 const router = express.Router();
 
-// GET todas las rutas
+// GET todas las rutas con manejo de timeout
 router.get('/', async (req, res) => {
   try {
-    const rutas = await Transporte.find();
+    // Configurar timeout para esta operación específica
+    const rutas = await Transporte.find().maxTimeMS(20000);
     res.json(rutas);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error('Error al obtener rutas:', err);
+    
+    if (err.name === 'MongooseServerSelectionError') {
+      return res.status(503).json({ 
+        success: false,
+        message: 'Error al conectar con la base de datos',
+        error: err.message
+      });
+    }
+    
+    res.status(500).json({ 
+      success: false,
+      message: 'Error al obtener las rutas',
+      error: err.message
+    });
   }
 });
+
+
 
 // POST crear nueva ruta
 router.post('/', async (req, res) => {

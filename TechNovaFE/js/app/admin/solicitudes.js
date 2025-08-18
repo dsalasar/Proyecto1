@@ -8,6 +8,23 @@ export const getSolicitudesPendientes = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+export const getSolicitudesAprobadas = async (req, res) => {
+  try {
+    const solicitudes = await Solicitud.find({ estado: 'aprobada' });
+    res.json(solicitudes);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const getSolicitudesRechazadas = async (req, res) => {
+  try {
+    const solicitudes = await Solicitud.find({ estado: 'rechazada' });
+    res.json(solicitudes);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 export const aprobarSolicitud = async (req, res) => {
   try {
