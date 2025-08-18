@@ -152,3 +152,42 @@ button.edit-btn, button.delete-btn {
   }
 }
 
+/* Estilos para los botones */
+.btn {
+  padding: 5px 10px;
+  margin: 0 2px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-edit {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-remove-img {
+  background-color: #ff9800;
+  color: white;
+  margin-top: 5px;
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+/* Estilos para los grupos del formulario */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}

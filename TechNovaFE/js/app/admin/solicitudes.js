@@ -1,70 +1,150 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const solicitudes = [
-    {
-      nombre: "Lucía",
-      apellido: "Ramírez",
-      correo: "lucia@example.com",
-      motivo: "Registro de transporte",
-      ubicacion: "San José"
-    },
-    {
-      nombre: "Andrés",
-      apellido: "González",
-      correo: "andres@example.com",
-      motivo: "Solicitud para feria",
-      ubicacion: "Cartago"
-    },
-    {
-      nombre: "Sofía",
-      apellido: "Castro",
-      correo: "sofia@example.com",
-      motivo: "Inscripción cultural",
-      ubicacion: "Heredia"
-    }
-  ];
+import Solicitud from '../models/Solicitud.js';
 
+export const getSolicitudesPendientes = async (req, res) => {
+  try {
+    const solicitudes = await Solicitud.find({ estado: 'pendiente' });
+    res.json(solicitudes);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+export const getSolicitudesAprobadas = async (req, res) => {
+  try {
+    const solicitudes = await Solicitud.find({ estado: 'aprobada' });
+    res.json(solicitudes);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const getSolicitudesRechazadas = async (req, res) => {
+  try {
+    const solicitudes = await Solicitud.find({ estado: 'rechazada' });
+    res.json(solicitudes);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const aprobarSolicitud = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const solicitud = await Solicitud.findByIdAndUpdate(
+      id,
+      { estado: 'aprobada' },
+      { new: true }
+    );
+    
+    if (!solicitud) {
+      return res.status(404).json({ message: 'Solicitud no encontrada' });
+    }
+    
+    res.json({ message: 'Solicitud aprobada', solicitud });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const rechazarSolicitud = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { motivo } = req.body;
+    
+    const solicitud = await Solicitud.findByIdAndUpdate(
+      id,
+      { estado: 'rechazada', motivoRechazo: motivo },
+      { new: true }
+    );
+    
+    if (!solicitud) {
+      return res.status(404).json({ message: 'Solicitud no encontrada' });
+    }
+    
+    res.json({ message: 'Solicitud rechazada', solicitud });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+document.addEventListener("DOMContentLoaded", async () => {
   const solicitudesBody = document.getElementById("solicitudes-emprendimientos-rows");
 
-  const renderSolicitudes = () => {
-    solicitudesBody.innerHTML = "";
-    solicitudes.forEach((item, index) => {
-      const row = document.createElement("tr");
+  const fetchSolicitudes = async () => {
+    try {
+      const response = await fetch('/api/solicitudes');
+      return await response.json();
+    } catch (error) {
+      console.error('Error fetching solicitudes:', error);
+      return [];
+    }
+  };
 
+  const renderSolicitudes = async () => {
+    const solicitudes = await fetchSolicitudes();
+    solicitudesBody.innerHTML = "";
+    
+    solicitudes.forEach((item) => {
+      const row = document.createElement("tr");
       row.innerHTML = `
-        <td contenteditable="true">${item.nombre}</td>
-        <td contenteditable="true">${item.apellido}</td>
-        <td contenteditable="true">${item.correo}</td>
-        <td contenteditable="true">${item.motivo}</td>
-        <td contenteditable="true">${item.ubicacion}</td>
+        <td>${item.nombre}</td>
+        <td>${item.apellido}</td>
+        <td>${item.correo}</td>
+        <td>${item.motivo}</td>
+        <td>${item.ubicacion}</td>
         <td>
-          <button class="edit-btn" data-index="${index}">Aprobar</button>
-          <button class="delete-btn" data-index="${index}">Rechazar</button>
+          <button class="approve-btn" data-id="${item._id}">Aprobar</button>
+          <button class="reject-btn" data-id="${item._id}">Rechazar</button>
         </td>
       `;
-
       solicitudesBody.appendChild(row);
     });
   };
 
-  solicitudesBody.addEventListener("click", (e) => {
-    const index = e.target.dataset.index;
-    const btn = e.target;
-
-    if (btn.classList.contains("edit-btn")) {
-      alert(`✅ Solicitud aprobada de ${solicitudes[index].nombre}`);
-      solicitudes.splice(index, 1);
-      renderSolicitudes();
+  solicitudesBody.addEventListener("click", async (e) => {
+    const id = e.target.dataset.id;
+    
+    if (e.target.classList.contains("approve-btn")) {
+      try {
+        const response = await fetch(`/api/solicitudes/${id}/aprobar`, {
+          method: 'PUT'
+        });
+        
+        if (response.ok) {
+          Swal.fire('¡Aprobado!', 'La solicitud ha sido aprobada.', 'success');
+          await renderSolicitudes();
+        }
+      } catch (error) {
+        console.error('Error al aprobar:', error);
+      }
     }
 
-    if (btn.classList.contains("delete-btn")) {
-      const confirmado = confirm(`❌ ¿Estás seguro de rechazar la solicitud de ${solicitudes[index].nombre}?`);
-      if (confirmado) {
-        alert(`Solicitud rechazada`);
-        solicitudes.splice(index, 1);
-        renderSolicitudes();
+    if (e.target.classList.contains("reject-btn")) {
+      const { value: motivo } = await Swal.fire({
+        title: 'Motivo del rechazo',
+        input: 'text',
+        inputPlaceholder: 'Ingrese el motivo del rechazo'
+      });
+      
+      if (motivo) {
+        try {
+          const response = await fetch(`/api/solicitudes/${id}/rechazar`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ motivo })
+          });
+          
+          if (response.ok) {
+            Swal.fire('¡Rechazado!', 'La solicitud ha sido rechazada.', 'info');
+            await renderSolicitudes();
+          }
+        } catch (error) {
+          console.error('Error al rechazar:', error);
+        }
       }
     }
   });
 
-  renderSolicitudes();
+  await renderSolicitudes();
 });
