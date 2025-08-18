@@ -1,89 +1,103 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const usuarios = [
-    {
-      cedula: "1-111-111",
-      nombre: "Ana",
-      apellido: "Gómez",
-      correo: "ana@email.com",
-      ubicacion: "Heredia"
-    },
-    {
-      cedula: "2-222-222",
-      nombre: "Luis",
-      apellido: "Rodríguez",
-      correo: "luis@email.com",
-      ubicacion: "San José"
-    },
-    {
-      cedula: "3-333-333",
-      nombre: "Usuario",
-      apellido: "Prueba",
-      correo: "dummy@email.com",
-      ubicacion: "San Isidro"
-    } // Usuario dummy
-  ];
+// document.addEventListener('DOMContentLoaded', async () => {
+//   const API = 'http://localhost:3000/api/miusuario';
+//   const userTableBody = document.getElementById('user-rows');
+//   const token = localStorage.getItem('token');
 
-  const tbody = document.getElementById("user-rows");
-  const modal = document.getElementById("edit-modal");
-  const editForm = document.getElementById("edit-form");
-  const cancelBtn = document.getElementById("cancel-btn");
+//   const fetchUsers = async () => {
+//     userTableBody.innerHTML = '<tr><td colspan="6">Cargando...</td></tr>';
+//     try {
+//       const res = await fetch(`${API}/`, {
+//         headers: { 'Authorization': 'Bearer ' + token }
+//       });
+//       if (!res.ok) throw new Error('No se pudo obtener la lista de usuarios');
 
-  let editIndex = null;
+//       const usuarios = await res.json();
+//       if (!usuarios.length) {
+//         userTableBody.innerHTML = '<tr><td colspan="6">No hay usuarios registrados.</td></tr>';
+//         return;
+//       }
 
-  function renderUsuarios() {
-    tbody.innerHTML = "";
-    usuarios.forEach((usuario, index) => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td>${usuario.cedula}</td>
-        <td>${usuario.nombre}</td>
-        <td>${usuario.apellido}</td>
-        <td>${usuario.correo}</td>
-        <td>${usuario.ubicacion}</td>
-        <td>
-          <button class="edit-btn" data-index="${index}">Editar</button>
-          <button class="delete-btn" data-index="${index}">Eliminar</button>
-        </td>
-      `;
-      tbody.appendChild(row);
-    });
-  }
+//       userTableBody.innerHTML = '';
+//       usuarios.forEach(user => {
+//         const row = document.createElement('tr');
+//         row.innerHTML = `
+//           <td>${user.nombre || ''}</td>
+//           <td>${user.apellido1 || ''}</td>
+//           <td>${user.apellido2 || ''}</td>
+//           <td>${user.correo || ''}</td>
+//           <td>${user.role || 'usuario'}</td>
+//           <td>
+//             <button class="edit-btn" data-id="${user._id}">Editar</button>
+//             <button class="delete-btn" data-id="${user._id}">Eliminar</button>
+//           </td>
+//         `;
+//         userTableBody.appendChild(row);
+//       });
 
-  tbody.addEventListener("click", (e) => {
-    const index = e.target.dataset.index;
+//       // Agregar eventos a los botones
+//       document.querySelectorAll('.edit-btn').forEach(button => {
+//         button.addEventListener('click', () => editUser(button.dataset.id));
+//       });
 
-    if (e.target.classList.contains("delete-btn")) {
-      usuarios.splice(index, 1);
-      renderUsuarios();
-    }
+//     } catch (err) {
+//       console.error(err);
+//       userTableBody.innerHTML = `<tr><td colspan="6">Error al cargar usuarios: ${err.message}</td></tr>`;
+//     }
+//   };
 
-    if (e.target.classList.contains("edit-btn")) {
-      editIndex = index;
-      const usuario = usuarios[index];
-      document.getElementById("edit-nombre").value = usuario.nombre;
-      document.getElementById("edit-apellido").value = usuario.apellido;
-      document.getElementById("edit-correo").value = usuario.correo;
-      document.getElementById("edit-ubicacion").value = usuario.ubicacion;
-      modal.style.display = "flex";
-    }
-  });
+//   const editUser = async (userId) => {
+//     try {
+//       // Traer datos del usuario
+//       const res = await fetch(`${API}/${userId}`, {
+//         headers: { 'Authorization': 'Bearer ' + token }
+//       });
+//       if (!res.ok) throw new Error('No se pudo obtener el usuario');
+//       const user = await res.json();
 
-  cancelBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-    editForm.reset();
-  });
+//       // Mostrar SweetAlert con inputs
+//       const { value: formValues } = await Swal.fire({
+//         title: 'Editar Usuario',
+//         html:
+//           `<input id="swal-nombre" class="swal2-input" placeholder="Nombre" value="${user.nombre || ''}">` +
+//           `<input id="swal-apellido1" class="swal2-input" placeholder="Apellido 1" value="${user.apellido1 || ''}">` +
+//           `<input id="swal-apellido2" class="swal2-input" placeholder="Apellido 2" value="${user.apellido2 || ''}">` +
+//           `<input id="swal-correo" class="swal2-input" placeholder="Correo" value="${user.correo || ''}">` +
+//           `<input id="swal-role" class="swal2-input" placeholder="Role" value="${user.role || 'usuario'}">`,
+//         focusConfirm: false,
+//         showCancelButton: true,
+//         preConfirm: () => {
+//           return {
+//             nombre: document.getElementById('swal-nombre').value,
+//             apellido1: document.getElementById('swal-apellido1').value,
+//             apellido2: document.getElementById('swal-apellido2').value,
+//             correo: document.getElementById('swal-correo').value,
+//             role: document.getElementById('swal-role').value
+//           }
+//         }
+//       });
 
-  editForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    usuarios[editIndex].nombre = document.getElementById("edit-nombre").value.trim();
-    usuarios[editIndex].apellido = document.getElementById("edit-apellido").value.trim();
-    usuarios[editIndex].correo = document.getElementById("edit-correo").value.trim();
-    usuarios[editIndex].ubicacion = document.getElementById("edit-ubicacion").value.trim();
+//       if (formValues) {
+//         const updateRes = await fetch(`${API}/${userId}`, {
+//           method: 'PUT',
+//           headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': 'Bearer ' + token
+//           },
+//           body: JSON.stringify(formValues)
+//         });
 
-    modal.style.display = "none";
-    editForm.reset();
-    renderUsuarios();
-  });
+//         const result = await updateRes.json();
+//         if (!updateRes.ok) throw new Error(result.msg || 'Error al actualizar el usuario');
 
-  renderUsuarios();
-});
+//         Swal.fire('¡Actualizado!', 'Usuario actualizado correctamente.', 'success');
+//         fetchUsers(); // recargar tabla
+//       }
+
+//     } catch (err) {
+//       console.error(err);
+//       Swal.fire('Error', err.message, 'error');
+//     }
+//   };
+
+//   fetchUsers();
+// });
