@@ -8,8 +8,8 @@ exports.crearAnuncio = async (req, res) => {
     console.log("req.user:", req.user); // ← Verifica que el usuario autenticado se está pasando correctamente
 
     try {
-        const { titulo, descripcion, imagenes, categoria } = req.body;
-        const nuevoAnuncio = new Anuncio({ titulo, descripcion, imagenes, categoria, autor: req.user.id }); // Asignar el ID del usuario autenticado como autor
+        const { titulo, descripcion, imagenes, categoria, estado } = req.body;
+        const nuevoAnuncio = new Anuncio({ titulo, descripcion, imagenes, categoria, estado,  autor: req.user.id }); // Asignar el ID del usuario autenticado como autor
         console.log(req.user.id); // ← Verifica que el ID del usuario autenticado se está pasando correctamente
         await nuevoAnuncio.save();
         res.status(201).json({ msg: 'Anuncio creado', anuncio: nuevoAnuncio });
@@ -26,6 +26,27 @@ exports.obtenerAnuncios = async (req, res) => {
     } catch (error) {
         res.status(500).json({ msg: 'Error al obtener anuncios', error });
     }
+};
+
+// GET /api/anuncios?estado=aprobado
+// api/controllers/anuncioController.js
+
+exports.listarAnuncios = async (req, res) => {
+  try {
+    const {estado, categoria} = req.query; // obtener el estado de la query string
+    let filter = {};
+    if (estado) filter.estado = estado; // filtrar por estado solo si viene en la query
+    if (categoria) filter.categoria = categoria; // filtrar por categoria solo si viene en la query
+
+    const anuncios = await Anuncio.find(filter)
+      .populate("autor", "nombre") // para mostrar el nombre del autor
+      .sort({ createdAt: -1 });
+
+    res.json(anuncios);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Error al listar anuncios", error });
+  }
 };
 
 
@@ -65,4 +86,29 @@ exports.eliminarAnuncio = async (req, res) => {
     } catch (error) {
         res.status(500).json({ msg: 'Error al eliminar anuncio', error });
     }
+};
+
+// Actualizar solo el estado del anuncio
+exports.actualizarEstadoAnuncio = async (req, res) => {
+  const { id } = req.params;
+  const { estado } = req.body;
+
+  if (!estado) {
+    return res.status(400).json({ msg: 'Se requiere el estado' });
+  }
+
+  try {
+    const anuncio = await Anuncio.findById(id);
+    if (!anuncio) {
+      return res.status(404).json({ msg: 'Anuncio no encontrado' });
+    }
+
+    anuncio.estado = estado;
+    await anuncio.save();
+
+    res.json({ msg: 'Estado actualizado', anuncio });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: 'Error al actualizar el estado', error: err.message });
+  }
 };

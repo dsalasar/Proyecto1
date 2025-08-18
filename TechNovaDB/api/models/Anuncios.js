@@ -21,7 +21,7 @@ const anuncioSchema = new mongoose.Schema({
     },
     estado: {
         type: String,
-        enum: ['pendiente', 'aceptado', 'rechazado'],
+        enum: ['pendiente', 'aprobado', 'rechazado'],
         default: 'pendiente'
     },
     autor: { type: mongoose.Schema.Types.ObjectId, ref: 'Usuario', required: true } // ← NUEVO

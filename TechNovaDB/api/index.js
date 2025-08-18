@@ -13,8 +13,11 @@ const app = express(); // Crear una instancia de express
 // Middlewares
 app.use(cors()); // Habilitar CORS
 // app.use(cors({ origin: 'http://localhost:5502' })); // Ejemplo para Live Server
-app.use(bodyParser.json()); // Parsear el cuerpo de las solicitudes como JSON
-app.use(bodyParser.urlencoded({ extended: true })); // Parsear el cuerpo de las solicitudes con URL codificada
+// JSON
+app.use(bodyParser.json({ limit: '900mb' }));
+
+// URL encoded
+app.use(bodyParser.urlencoded({ extended: true, limit: '900mb' }));
 
 // Conexión a MongoDB
 mongoose.connect(process.env.MONGODB_URI) // Conectamos a MongoDB utilizando la URI de conexión que está en el archivo .env con nuestra contraseña
