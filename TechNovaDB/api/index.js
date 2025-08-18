@@ -11,6 +11,7 @@ const app = express(); // Crear una instancia de express
 
 // Middlewares
 app.use(cors()); // Habilitar CORS
+// app.use(cors({ origin: 'http://localhost:5502' })); // Ejemplo para Live Server
 app.use(bodyParser.json()); // Parsear el cuerpo de las solicitudes como JSON
 app.use(bodyParser.urlencoded({ extended: true })); // Parsear el cuerpo de las solicitudes con URL codificada
 

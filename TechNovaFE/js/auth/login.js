@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Validar campos
       const emailError = AuthValidator.validateEmail(email);
-      const passwordError = AuthValidator.validatePassword(password);
+      // const passwordError = AuthValidator.validatePassword(password);
       
       // Mostrar errores
       if (emailError) AuthValidator.showError('email', emailError);

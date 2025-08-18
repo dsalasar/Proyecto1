@@ -86,14 +86,14 @@ exports.login = async (req, res, next) => {
     const usuario = await Usuario.findOne({ email }).select("+password"); // Buscar un usuario con el email proporcionado y seleccionar la contraseña para poder compararla, el + indica que queremos incluir la contraseña en el resultado ya que marcamos en el modelo que no se debe mostrar por defecto, esto lo anula temporalmente para esta consulta
     if (!usuario) {
       // Si el usuario no existe
-      return res.status(401).json({ msg: "Credenciales inválidas" }); // Enviar un mensaje de error
+      return res.status(401).json({ msg: "Email no Registrado" }); // Enviar un mensaje de error
     }
 
     // 3. Comparar la contraseña
     const isMatch = await usuario.comparePassword(password); // Comparar la contraseña proporcionada con la almacenada en la base de datos. Esta función está definida en el modelo Usuario y utiliza bcrypt para comparar las contraseñas.
     if (!isMatch) {
       // Si la contraseña no coincide
-      return res.status(401).json({ msg: "Credenciales inválidas" }); // Enviar un mensaje de error
+      return res.status(401).json({ msg: "Contraseña Incorrecta" }); // Enviar un mensaje de error
     }
 
     // 4. Generar un token JWT
