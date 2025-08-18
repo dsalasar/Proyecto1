@@ -6,6 +6,7 @@ const bodyParser = require('body-parser'); // Importar body-parser para manejar 
 
 // importar rutas 
 const authRoutes = require('./routes/authRoutes'); // Rutas de autenticación
+const anuncioRoutes = require('./routes/anuncioRoutes'); // Rutas de anuncios
 
 const app = express(); // Crear una instancia de express
 
@@ -22,6 +23,7 @@ mongoose.connect(process.env.MONGODB_URI) // Conectamos a MongoDB utilizando la 
 
 //RUTAS 
 app.use('/api/auth', authRoutes); // Rutas de autenticación
+app.use('/api/anuncios', anuncioRoutes); // Rutas de anuncios
 
 // Rutas básicas
 app.get('/', (req, res) => { // Ruta raíz
