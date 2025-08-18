@@ -43,8 +43,19 @@ async function login(email, password) {
     if (!response.ok) throw new Error(data.message || "Email o contraseña incorrectas.");
 
     localStorage.setItem("token", data.token);
-    await Swal.fire({ icon: 'success', title: '¡Bienvenido!', timer: 2000 });
-    window.location.href = "../app/dashboard/dashboard.html";
+    localStorage.setItem("usuario", JSON.stringify(
+        { 
+            _id: data._id,
+            nombre: data.nombre, 
+            apellido1: data.apellido1, 
+            apellido2: data.apellido2, 
+            cedula: data.cedula, 
+            email: data.email,
+            role: data.role
+          }));
+        await Swal.fire({ icon: 'success', title: '¡Bienvenido!', timer: 2000 });
+        window.location.href = "../app/dashboard/dashboard.html";
+        console.log(data.token);
   } catch (error) {
     showError(error.message);
   }
@@ -70,6 +81,16 @@ async function register(nombre, apellido1, apellido2, cedula, email, password) {
     if (!response.ok) throw new Error(data.message || "Error en el registro.");
 
     localStorage.setItem("token", data.token);
+    localStorage.setItem("usuario", JSON.stringify(
+        { 
+            _id: data._id,
+            nombre: data.nombre, 
+            apellido1: data.apellido1, 
+            apellido2: data.apellido2, 
+            cedula: data.cedula, 
+            email: data.email,
+            role: data.role
+          }));
     await Swal.fire({ icon: 'success', title: '¡Registro exitoso!', timer: 2000 });
     window.location.href = "../app/dashboard/dashboard.html";
   } catch (error) {

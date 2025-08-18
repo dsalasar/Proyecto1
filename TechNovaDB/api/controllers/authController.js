@@ -25,7 +25,7 @@ exports.registro = async (req, res, next) => {
     return res.status(400).json({ errors: errors.array() }); // Enviar una respuesta con los errores
   }
 
-  const { nombre, apellido1, apellido2, email, password} = req.body; // Desestructurar los datos del cuerpo de la solicitud
+  const { nombre, apellido1, apellido2, email, password } = req.body; // Desestructurar los datos del cuerpo de la solicitud
 
   try {
     // 2. Verificar si el usuario ya existe
@@ -43,22 +43,21 @@ exports.registro = async (req, res, next) => {
       apellido2,
       email,
       password, // La contraseña será hasheada por el middleware en el modelo
-        role: "ciudadano", // Asignar el rol por defecto
+      role: "ciudadano", // Asignar el rol por defecto
     });
 
     //4. Generar un token JWT
     const token = generateToken(usuario._id); // Generar un token JWT con el ID del usuario
 
     // 5. Responder con el usuario y el token
-    res.status(201).json({
-      // Enviar una respuesta con el usuario y el token
+    res.status(200).json({
       _id: usuario._id,
       nombre: usuario.nombre,
       apellido1: usuario.apellido1,
       apellido2: usuario.apellido2,
       email: usuario.email,
       role: usuario.role,
-      token, // Enviar el token JWT
+      token,
     });
   } catch (err) {
     next(err); // Pasar el error al middleware de manejo de errores
@@ -101,11 +100,13 @@ exports.login = async (req, res, next) => {
 
     // 5. Responder con el usuario y el token
     res.status(200).json({
-      // Enviar una respuesta con el usuario y el token
       _id: usuario._id,
+      nombre: usuario.nombre,
+      apellido1: usuario.apellido1,
+      apellido2: usuario.apellido2,
       email: usuario.email,
-    //   role: usuario.role,
-      token, // Enviar el token JWT
+      role: usuario.role,
+      token,
     });
   } catch (err) {
     next(err); // Pasar el error al middleware de manejo de errores
