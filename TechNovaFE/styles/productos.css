@@ -19,7 +19,7 @@ body {
 }
 
 
-/*main.content {
+main.content {
     height: 100vh;
     overflow-y: auto;
 }
@@ -39,7 +39,8 @@ body {
 .profile-info {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 12px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .profile-logo {
@@ -69,27 +70,29 @@ body {
 }
 
 /* --- ANUNCIOS PRODUCTOS) --- */
-/*.content-tabs {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}*/
 .content-tabs {
     display: flex;
+    flex-direction:row;
+    gap: 0;
+} 
+/*.profile-section .content-tabs {
+    display: flex;
+    flex-direction: row;
     gap: 10px;
     margin-bottom: 17px;
-}
+}*/
 
 .tab-item {
-    padding: 8px 18px;
+    display: flex;
+    padding: 8px 10px;
     border-radius: 8px 8px 0 0;
     background: #F9F9F9;
     color: #1C1F4C;
-    font-weight: 450;
+    font-weight: 60 px;
     cursor: pointer;
     border: none;
     outline-color: #fccf14;
-    font-size: 1rem;
+    font-size: bold;
     transition: background 0.2s;
 }
 
@@ -114,7 +117,6 @@ body {
     gap: 24px;
 }
 
-/* Grid de productos usando flex */
 .productos-flexbox {
     display: flex;
     flex-wrap: wrap;
@@ -138,8 +140,8 @@ body {
 }
 
 .add-product-card {
-    border: 2px dashed #3498db;
-    color: #3498db;
+    border: 2px dashed #1C1F4C;
+    color: #1C1F4C;
     background: #f4faff;
     font-size: 2.5rem;
     justify-content: center;
@@ -163,11 +165,11 @@ body {
 .product-card h3 {
     font-size: 1rem;
     margin: 0 0 4px 0;
-    color: #222;
+    color: #1C1F4C;
 }
 
 .product-card p {
-    color: #3498db;
+    color: #1C1F4C;
     font-weight: bold;
     margin: 0;
 }
@@ -212,8 +214,8 @@ body {
 }
 
 .add-promotion-card {
-    border: 2px dashed #3498db;
-    color: #3498db;
+    border: 2px dashed #1C1F4C;
+    color: #1C1F4C;
     background: #f4faff;
     font-size: 2rem;
     justify-content: center;
@@ -226,8 +228,8 @@ body {
 }
 
 .promotion-card img {
-    width: 56px;
-    height: 56px;
+    width: 80px;
+    height: 60px;
     border-radius: 8px;
     object-fit: cover;
 }
@@ -235,12 +237,12 @@ body {
 .promotion-card h3 {
     font-size: 1rem;
     margin: 0 0 2px 0;
-    color: #222;
+    color: #1C1F4C;
 }
 
 .promotion-card p {
     margin: 0;
-    color: #666;
+    color: #1C1F4C;
     font-size: 0.95rem;
 }
 
@@ -393,7 +395,7 @@ body {
 }
 
 .image-upload-area .fa-cloud-upload-alt {
-    font-size: 3em;
+    font-size: 4em;
     color: #888;
     margin-bottom: 10px;
 }
@@ -479,31 +481,32 @@ body {
 }
 
 .empresa-info h1 {
-    font-size: 2rem;
+    font-size: 10 px ;
     margin: 0 0 8px 0;
 }
 .empresa-info h2 {
-    font-size: 1.2rem;
+    font-size: 12px;
     margin: 0 0 6px 0;
 }
 .empresa-info p {
     margin: 0;
-    color: #666;
-    font-size: 1rem;
+    color: #1C1F4C;
+    font-size: 50 px ;
+    justify-content: flex-start;
 }
 
 /* Contacto y dirección en hilera */
 .empresa-contacto-row {
     display: flex;
-    gap: 32px;
-    margin-bottom: 18px;
+    gap: 30px;
+    margin-bottom:15px;
     font-size: 1rem;
-    color: #222;
+    color: #1C1F4C;
     justify-content: flex-start;
 }
 
 /* Promociones */
-.promociones-col {
+/*.promociones-col {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -513,14 +516,14 @@ body {
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
     height: fit-content;
     min-width: 320px;
-}
+}*/
 
 /* Centrar header, logo, descripción y tabs */
 .productos-header {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     margin-top: 32px;
     margin-bottom: 24px;
     text-align: center;
@@ -536,15 +539,15 @@ body {
 }
 
 .empresa-desc {
-    text-align: center;
+    text-align: left;
     max-width: 600px;
     margin: 0 auto 18px auto;
 }
 
-.productos-tabs {
+/* .productos-tabs {
     display: flex;
     gap: 18px;
-    justify-content: center;
+    justify-content: left;
     margin-bottom: 0;
 }
 
