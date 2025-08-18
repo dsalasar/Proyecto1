@@ -1,144 +1,281 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const BASE_URL = 'http://localhost:5000/api/transporte';
   const tabla = document.getElementById("tabla-transporte");
   const crearBtn = document.getElementById("crear-ruta-btn");
+  const PLACEHOLDER_URL = 'https://via.placeholder.com/60';
 
-  const rutasGuardadas = JSON.parse(localStorage.getItem("rutasTransporte")) || [];
-
-  const renderTabla = () => {
-    tabla.innerHTML = "";
-    if (rutasGuardadas.length === 0) {
-      tabla.innerHTML = `<tr><td colspan="7" style="text-align:center;">No hay rutas registradas.</td></tr>`;
-      return;
+  // Función mejorada para obtener rutas
+  const fetchRutas = async () => {
+    try {
+      const response = await fetch(BASE_URL);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error al obtener rutas');
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('Error al obtener rutas:', error);
+      Swal.fire("Error", error.message || "No se pudieron cargar las rutas", "error");
+      return [];
     }
-
-    rutasGuardadas.forEach((ruta, index) => {
-      const fila = document.createElement("tr");
-      fila.innerHTML = `
-        <td>${ruta.empresa}</td>
-        <td>${ruta.tipo}</td>
-        <td>${ruta.horario}</td>
-        <td>${ruta.contacto}</td>
-        <td>${ruta.rutas}</td>
-        <td><img src="${ruta.imagen}" style="height:60px; border-radius:6px;" /></td>
-        <td>
-          <button class="edit-btn" data-index="${index}">Editar</button>
-          <button class="delete-btn" data-index="${index}">Eliminar</button>
-        </td>
-      `;
-      tabla.appendChild(fila);
-    });
-
-    document.querySelectorAll(".edit-btn").forEach(btn => {
-      btn.addEventListener("click", () => editarRuta(btn.dataset.index));
-    });
-
-    document.querySelectorAll(".delete-btn").forEach(btn => {
-      btn.addEventListener("click", () => eliminarRuta(btn.dataset.index));
-    });
   };
 
-  crearBtn.addEventListener("click", () => {
-    abrirFormulario();
-  });
+  // Función para renderizar la tabla
+const renderTabla = async () => {
+  try {
+    const rutasGuardadas = await fetchRutas();
+    
+    tabla.innerHTML = rutasGuardadas.length === 0 ? 
+      `<tr><td colspan="7" style="text-align:center;">No hay rutas registradas.</td></tr>` : 
+      rutasGuardadas.map(ruta => {
+        const imagenCell = ruta.imagen ? 
+          `<td><img src="${ruta.imagen.startsWith('data:image') ? ruta.imagen : `data:image/png;base64,${ruta.imagen}`}" 
+                 style="height:60px; border-radius:6px; object-fit:cover;"></td>` : 
+          `<td></td>`;
 
-  function abrirFormulario(ruta = {}, index = null) {
-    Swal.fire({
-      title: index !== null ? 'Editar Ruta' : 'Crear Ruta de Transporte',
-      html: `
-        <input type="text" id="swal-empresa" class="swal2-input" placeholder="Empresa" value="${ruta.empresa || ''}">
-        <select id="swal-tipo" class="swal2-select">
-          <option value="">Tipo de transporte</option>
-          <option value="Bus" ${ruta.tipo === "Bus" ? "selected" : ""}>Bus</option>
-          <option value="Taxi" ${ruta.tipo === "Taxi" ? "selected" : ""}>Taxi</option>
-          <option value="Tren" ${ruta.tipo === "Tren" ? "selected" : ""}>Tren</option>
-        </select>
-        <input type="text" id="swal-horario" class="swal2-input" placeholder="Horario" value="${ruta.horario || ''}">
-        <input type="text" id="swal-contacto" class="swal2-input" placeholder="Contacto" value="${ruta.contacto || ''}">
-        <textarea id="swal-rutas" class="swal2-textarea" placeholder="Descripción de rutas">${ruta.rutas || ''}</textarea>
-        <input type="file" id="swal-imagen" class="swal2-file" accept="image/*">
-        <img id="swal-preview" src="${ruta.imagen || ''}" style="max-width:100%; margin-top:10px;" />
-      `,
+        return `
+          <tr data-id="${ruta._id}">
+            <td>${ruta.empresa}</td>
+            <td>${ruta.tipo}</td>
+            <td>${ruta.horario}</td>
+            <td>${ruta.contacto}</td>
+            <td>${ruta.rutas}</td>
+            ${imagenCell}
+            <td>
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+    // Agregar event delegation para los botones
+    tabla.addEventListener('click', (e) => {
+      const row = e.target.closest('tr');
+      if (!row) return;
+      
+      const id = row.dataset.id;
+      
+      if (e.target.classList.contains('btn-edit')) {
+        editarRuta(id);
+      } else if (e.target.classList.contains('btn-delete')) {
+        eliminarRuta(id);
+      }
+    });
+    
+  } catch (error) {
+    console.error('Error al renderizar tabla:', error);
+    tabla.innerHTML = `<tr><td colspan="7" style="text-align:center;color:red;">Error al cargar las rutas</td></tr>`;
+  }
+};
+  // Función para eliminar ruta
+async function eliminarRuta(id) {
+  try {
+    const result = await Swal.fire({
+      title: '¿Eliminar esta ruta?',
+      text: "Esta acción no se puede deshacer",
+      icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: index !== null ? 'Guardar cambios' : 'Guardar',
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    });
+
+    if (result.isConfirmed) {
+      const response = await fetch(`${BASE_URL}/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error al eliminar');
+      }
+
+      await Swal.fire(
+        '¡Eliminada!',
+        'La ruta ha sido eliminada correctamente.',
+        'success'
+      );
+      await renderTabla();
+    }
+  } catch (error) {
+    console.error('Error al eliminar:', error);
+    Swal.fire(
+      'Error',
+      error.message || 'No se pudo eliminar la ruta',
+      'error'
+    );
+  }
+}
+
+  // Función para editar ruta
+async function editarRuta(id) {
+  try {
+    // Verificar primero que la ruta existe
+    const response = await fetch(`${BASE_URL}/${id}`);
+    
+    if (!response.ok) {
+      if (response.status === 404) {
+        throw new Error('La ruta no existe. Recarga la página para ver los cambios.');
+      }
+      throw new Error('Error al cargar la ruta');
+    }
+
+    const ruta = await response.json();
+    await abrirFormulario(ruta, id);
+  } catch (error) {
+    console.error('Error al editar:', error);
+    await Swal.fire('Error', error.message, 'error');
+    await renderTabla(); // Recargar la tabla por si la ruta fue eliminada
+  }
+}
+
+  // Función para abrir formulario (crear/editar)
+async function abrirFormulario(ruta = {}, id = null) {
+  try {
+    const { value: formData } = await Swal.fire({
+      title: id ? 'Editar Ruta' : 'Crear Ruta',
+      html: `
+        <div class="form-group">
+          <input type="text" id="swal-empresa" class="swal2-input" 
+                 placeholder="Empresa" value="${ruta.empresa || ''}" required>
+        </div>
+        <div class="form-group">
+          <select id="swal-tipo" class="swal2-select" required>
+            <option value="">Tipo de transporte</option>
+            <option value="Bus" ${ruta.tipo === "Bus" ? "selected" : ""}>Bus</option>
+            <option value="Taxi" ${ruta.tipo === "Taxi" ? "selected" : ""}>Taxi</option>
+            <option value="Tren" ${ruta.tipo === "Tren" ? "selected" : ""}>Tren</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="text" id="swal-horario" class="swal2-input" 
+                 placeholder="Horario" value="${ruta.horario || ''}" required>
+        </div>
+        <div class="form-group">
+          <input type="text" id="swal-contacto" class="swal2-input" 
+                 placeholder="Contacto" value="${ruta.contacto || ''}" required>
+        </div>
+        <div class="form-group">
+          <textarea id="swal-rutas" class="swal2-textarea" 
+                    placeholder="Descripción de rutas" required>${ruta.rutas || ''}</textarea>
+        </div>
+        <div class="form-group">
+          <input type="file" id="swal-imagen" class="swal2-file" accept="image/*">
+        </div>
+        ${ruta.imagen ? `
+          <div class="image-preview">
+            <img src="${ruta.imagen}" id="swal-preview" 
+                 style="max-width:100%; max-height:200px; margin-top:10px;">
+            <button type="button" id="swal-remove-img" class="btn-remove-img">
+              Eliminar imagen
+            </button>
+          </div>
+        ` : ''}
+      `,
+      focusConfirm: false,
+      showCancelButton: true,
+      confirmButtonText: id ? 'Actualizar' : 'Crear',
       cancelButtonText: 'Cancelar',
       preConfirm: () => {
-        const empresa = document.getElementById("swal-empresa").value.trim();
-        const tipo = document.getElementById("swal-tipo").value;
-        const horario = document.getElementById("swal-horario").value.trim();
-        const contacto = document.getElementById("swal-contacto").value.trim();
-        const rutas = document.getElementById("swal-rutas").value.trim();
-        const imagenInput = document.getElementById("swal-imagen");
-        const imagen = imagenInput.files[0];
+        // Obtener valores de los inputs de forma segura
+        const getValue = (id) => {
+          const element = document.getElementById(id);
+          return element ? element.value.trim() : '';
+        };
 
+        // Definir todas las variables necesarias
+        const empresa = getValue('swal-empresa');
+        const tipo = getValue('swal-tipo');
+        const horario = getValue('swal-horario');
+        const contacto = getValue('swal-contacto');
+        const rutas = getValue('swal-rutas');
+        const imagenInput = document.getElementById('swal-imagen');
+
+        // Validación de campos obligatorios
         if (!empresa || !tipo || !horario || !contacto || !rutas) {
-          Swal.showValidationMessage("Todos los campos son obligatorios");
+          Swal.showValidationMessage('Todos los campos son obligatorios');
           return false;
         }
 
-        return new Promise(resolve => {
-          if (imagen) {
+        // Procesar imagen (si se subió una nueva)
+        if (imagenInput.files.length > 0) {
+          return new Promise((resolve) => {
             const reader = new FileReader();
-            reader.onload = () => {
-              resolve({ empresa, tipo, horario, contacto, rutas, imagen: reader.result });
-            };
-            reader.readAsDataURL(imagen);
-          } else {
-            resolve({ empresa, tipo, horario, contacto, rutas, imagen: ruta.imagen || '' });
-          }
-        });
+            reader.onload = (e) => resolve({
+              empresa,
+              tipo,
+              horario,
+              contacto,
+              rutas,
+              imagen: e.target.result
+            });
+            reader.readAsDataURL(imagenInput.files[0]);
+          });
+        }
+
+        return {
+          empresa,
+          tipo,
+          horario,
+          contacto,
+          rutas,
+          imagen: ruta.imagen || null
+        };
       },
       didOpen: () => {
-        const imagenInput = document.getElementById("swal-imagen");
-        const preview = document.getElementById("swal-preview");
-
-        imagenInput.addEventListener("change", () => {
-          const file = imagenInput.files[0];
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = e => {
-              preview.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-          }
-        });
-      }
-    }).then(result => {
-      if (result.isConfirmed && result.value) {
-        if (index !== null) {
-          rutasGuardadas[index] = result.value;
-          Swal.fire("¡Ruta actualizada!", "Los cambios han sido guardados.", "success");
-        } else {
-          rutasGuardadas.push(result.value);
-          Swal.fire("¡Ruta registrada!", "La información ha sido guardada.", "success");
+        // Manejar eliminación de imagen
+        const removeBtn = document.getElementById('swal-remove-img');
+        if (removeBtn) {
+          removeBtn.addEventListener('click', () => {
+            const preview = document.getElementById('swal-preview');
+            if (preview) preview.remove();
+            removeBtn.remove();
+            ruta.imagen = null;
+          });
         }
-        localStorage.setItem("rutasTransporte", JSON.stringify(rutasGuardadas));
-        renderTabla();
       }
     });
-  }
 
-  function editarRuta(index) {
-    const ruta = rutasGuardadas[index];
-    abrirFormulario(ruta, index);
-  }
+    if (formData) {
+      const url = id ? `${BASE_URL}/${id}` : BASE_URL;
+      const method = id ? 'PUT' : 'POST';
+      
+      const response = await fetch(url, {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
 
-  function eliminarRuta(index) {
-    Swal.fire({
-      title: '¿Eliminar esta ruta?',
-      text: "Esta acción no se puede deshacer.",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar'
-    }).then(result => {
-      if (result.isConfirmed) {
-        rutasGuardadas.splice(index, 1);
-        localStorage.setItem("rutasTransporte", JSON.stringify(rutasGuardadas));
-        renderTabla();
-        Swal.fire("¡Ruta eliminada!", "La ruta ha sido borrada.", "success");
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || 'Error al guardar los cambios');
       }
-    });
-  }
 
+      await Swal.fire(
+        '¡Éxito!',
+        id ? 'Ruta actualizada correctamente' : 'Ruta creada correctamente',
+        'success'
+      );
+      await renderTabla();
+    }
+  } catch (error) {
+    console.error('Error en formulario:', error);
+    await Swal.fire(
+      'Error',
+      error.message || 'Hubo un problema al procesar el formulario',
+      'error'
+    );
+  }
+}
+
+  // Event listeners iniciales
+  crearBtn.addEventListener("click", () => abrirFormulario());
   renderTabla();
 });
