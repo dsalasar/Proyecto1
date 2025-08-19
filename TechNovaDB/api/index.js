@@ -7,8 +7,8 @@ const bodyParser = require('body-parser'); // Importar body-parser para manejar 
 // importar rutas 
 const authRoutes = require('./routes/authRoutes'); // Rutas de autenticación
 const anuncioRoutes = require('./routes/anuncioRoutes'); // Rutas de anuncios
-// const misanunciosRoutes = require('./routes/misanunciosRoutes'); // Rutas de mis anuncios
 const userRoutes = require('./routes/userRoutes'); // Rutas de usuario
+const emprendimitosRoutes = require('./routes/emprendimientosRoutes'); // Rutas de mis anuncios
 
 const app = express(); // Crear una instancia de express
 
@@ -30,6 +30,7 @@ mongoose.connect(process.env.MONGODB_URI) // Conectamos a MongoDB utilizando la 
 app.use('/api/auth', authRoutes); // Rutas de autenticación
 app.use('/api/anuncios', anuncioRoutes); // Rutas de anuncios
 app.use('/api/miusuario', userRoutes); // Rutas de usuario
+app.use('/api/emprendimiento', emprendimitosRoutes); // Rutas de mis anuncios
 
 // Rutas básicas
 app.get('/', (req, res) => { // Ruta raíz

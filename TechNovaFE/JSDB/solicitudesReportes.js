@@ -9,7 +9,7 @@ async function cargarReportes() {
 
     const reportes = await res.json();
     const tbody = document.getElementById("reportes-rows");
-    tbody.innerHTML = "";
+    // tbody.innerHTML = "";
 
     reportes.forEach(reporte => {
       const tr = document.createElement("tr");
