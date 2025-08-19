@@ -31,16 +31,6 @@ async function crearAnuncio() {
     Descripción
   </label>
   <textarea id="descripcion" class="swal2-textarea" placeholder="Escribe la descripción" style="height:90px;"></textarea>
-
-  <label style="font-weight:600; margin-bottom:5px; text-align:left;font-size:15px;color:#1C1F4C">
-    Imágenes (opcional)
-  </label>
-  <div class="custum-file-upload" id="dropZone" style="margin-bottom:20px;">
-    <div class="icon-upload">📁</div>
-    <div class="text"><span>Haz clic o arrastra imágenes aquí</span></div>
-    <input type="file" id="fileInput" multiple accept="image/*" style="display:none">
-  </div>
-  <div id="previews" style="display:flex;flex-wrap:wrap;gap:10px;"></div>
 </div>
 
     `,
