@@ -1,48 +1,64 @@
-// Sweet alert crear anuncio 
-function crearAnuncio() {
-  let archivosSeleccionados = [];      // ← lista viva de imágenes
+async function crearAnuncio() {
+  let archivosSeleccionados = []; // lista viva de imágenes
   const esDuplicado = f =>
     archivosSeleccionados.some(a => a.name === f.name && a.lastModified === f.lastModified);
 
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
+  const token = localStorage.getItem('token');
+  const API_URL = 'http://localhost:3000/api/anuncios'; // ajustar según tu backend
+
   Swal.fire({
-    title:
-      '<h2 style="color:#1C1F4C;font:700 30px Montserrat;margin-bottom:10px">Crear Anuncio</h2>',
+    title: '<h2 style="color:#1C1F4C;font:700 30px Montserrat;margin-bottom:10px">Crear Anuncio</h2>',
     html: `
       <div style="display:flex;flex-direction:column;font-family:Montserrat">
-        <label style="font-weight:600; margin-bottom: 5px; text-align: left;font-size:15px;color:#1C1F4C">Descripción</label>
-        <textarea id="descripcion" class="swal2-textarea"
-                  placeholder="Escribe la descripción"
-                  style="height:90px; font-size:14px; margin-bottom:20px; width:100%; margin-left:0; margin-right:0;"></textarea>
+  <label style="font-weight:600; margin-bottom: 5px; text-align:left;font-size:15px;color:#1C1F4C">
+    Título
+  </label>
+  <input id="titulo" class="swal2-input" placeholder="Escribe el título">
 
-        <label style="font-weight:600;font-size:15px;; margin-bottom:20px;color:#1C1F4C;text-align: left">Imágenes</label>
+  <label style="font-weight:600; margin-bottom: 5px; text-align:left;font-size:15px;color:#1C1F4C">
+    Categoría
+  </label>
+  <select id="categoria" class="swal2-input" 
+    style="appearance:none; background-color:#fff; background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 width=%2220%22 height=%2220%22><path fill=%22%23545454%22 d=%22M7 10l5 5 5-5z%22/></svg>'); background-repeat:no-repeat; background-position:right 10px center; background-size:16px; cursor:pointer;">
+    <option value="" disabled selected>Seleccione una categoría</option>
+    <option value="reporte">Reporte</option>
+    <option value="noticia">Noticia</option>
+    <option value="anuncio">Anuncio</option>
+  </select>
 
-        <div class="custum-file-upload" style="margin-bottom:20px;" id="dropZone">
-          <div class="icon-upload">
-            <!-- ícono -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path fill="currentColor"
-                d="M10 1a1 1 0 0 0-.71.29L3.29 7.29A1 1 0 0 0 3 8v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-1a3 3 0 0 0-3-3h-1v-.5A4.5 4.5 0 0 0 16.5 11a4.49 4.49 0 0 0-4.48 4H11v-7a1 1 0 0 0-1-1H6.41L9 4.41V7h2V3a2 2 0 0 0-2-2Zm6.5 12A2.5 2.5 0 0 1 19 15.5V17h1a1 1 0 0 1 0 2H13a1 1 0 0 1 0-2h1v-1.5A2.5 2.5 0 0 1 16.5 13ZM20 21H6a1 1 0 0 1-1-1V9h4a1 1 0 0 0 1-1V4h8a1 1 0 0 1 1 1v4a1 1 0 0 0 2 0V4a3 3 0 0 0-3-3H10Z"/>
-            </svg>
-          </div>
-          <div class="text"><span>Haz clic o arrastra imágenes aquí</span></div>
-          <input type="file" id="fileInput" multiple accept="image/*" style="display:none">
-        </div>
+  <label style="font-weight:600; margin-bottom: 5px; text-align:left;font-size:15px;color:#1C1F4C">
+    Descripción
+  </label>
+  <textarea id="descripcion" class="swal2-textarea" placeholder="Escribe la descripción" style="height:90px;"></textarea>
 
-        <div id="previews"
-             style="display:flex;flex-wrap:wrap;gap:10px;"></div>
-      </div>
+  <label style="font-weight:600; margin-bottom:5px; text-align:left;font-size:15px;color:#1C1F4C">
+    Imágenes (opcional)
+  </label>
+  <div class="custum-file-upload" id="dropZone" style="margin-bottom:20px;">
+    <div class="icon-upload">📁</div>
+    <div class="text"><span>Haz clic o arrastra imágenes aquí</span></div>
+    <input type="file" id="fileInput" multiple accept="image/*" style="display:none">
+  </div>
+  <div id="previews" style="display:flex;flex-wrap:wrap;gap:10px;"></div>
+</div>
+
     `,
     confirmButtonText: 'Subir',
     confirmButtonColor: '#007379',
     customClass: { confirmButton: 'montserrat-btn', popup: 'montserrat-popup' },
-    preConfirm: () => {
+    preConfirm: async () => {
+      const titulo = document.getElementById('titulo').value.trim();
       const descripcion = document.getElementById('descripcion').value.trim();
-      if (!descripcion || archivosSeleccionados.length === 0) {
-        Swal.showValidationMessage('Por favor completa todos los campos');
+      const categoria = document.getElementById('categoria').value.trim();
+
+      if (!descripcion) {
+        Swal.showValidationMessage('La descripción es obligatoria');
         return false;
       }
 
-      return Promise.all(
+      // Procesar imágenes
+      const imagenes = await Promise.all(
         archivosSeleccionados.map(
           f =>
             new Promise(res => {
@@ -51,61 +67,38 @@ function crearAnuncio() {
               r.readAsDataURL(f);
             })
         )
-      ).then(imagenes => ({ descripcion, imagenes }));
+      );
+
+      return { titulo, descripcion, categoria, imagenes };
     },
     didOpen: () => {
       const dropZone  = document.getElementById('dropZone');
       const fileInput = document.getElementById('fileInput');
       const previews  = document.getElementById('previews');
 
-      // --- helpers ---
-      const agregaArchivos = files => {
-        [...files]
-          .filter(f => f.type.startsWith('image/') && !esDuplicado(f))
-          .forEach(f => archivosSeleccionados.push(f));
-        dibujaPreviews();
-      };
-
       const dibujaPreviews = () => {
         previews.innerHTML = archivosSeleccionados
           .map(
             (f, i) => `
             <div style="position:relative">
-              <img src="${URL.createObjectURL(f)}"
-                   style="width:90px;height:90px;object-fit:cover;border-radius:6px">
-              <button data-idx="${i}"
-                      style="position:absolute;top:-6px;right:-6px;
-                             width:20px;height:20px;border:none;border-radius:50%;
-                             background:#e11d48;color:#fff;cursor:pointer;font-size:12px;
-                             line-height:20px;padding:0">✕</button>
+              <img src="${URL.createObjectURL(f)}" style="width:90px;height:90px;object-fit:cover;border-radius:6px">
+              <button data-idx="${i}" style="position:absolute;top:-6px;right:-6px;width:20px;height:20px;border:none;border-radius:50%;background:#e11d48;color:#fff;cursor:pointer;font-size:12px;line-height:20px;padding:0">✕</button>
             </div>`
           )
           .join('');
       };
 
-      // --- eventos ---
+      const agregaArchivos = files => {
+        [...files].filter(f => f.type.startsWith('image/') && !esDuplicado(f)).forEach(f => archivosSeleccionados.push(f));
+        dibujaPreviews();
+      };
+
       dropZone.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', e => { agregaArchivos(e.target.files); fileInput.value = ''; });
+      dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+      ['dragleave', 'drop'].forEach(evt => dropZone.addEventListener(evt, () => dropZone.classList.remove('dragover')));
+      dropZone.addEventListener('drop', e => { e.preventDefault(); agregaArchivos(e.dataTransfer.files); });
 
-      fileInput.addEventListener('change', e => {
-        agregaArchivos(e.target.files);
-        fileInput.value = '';               // ← permite seleccionar de nuevo
-      });
-
-      dropZone.addEventListener('dragover', e => {
-        e.preventDefault();
-        dropZone.classList.add('dragover');
-      });
-
-      ['dragleave', 'drop'].forEach(evt =>
-        dropZone.addEventListener(evt, () => dropZone.classList.remove('dragover'))
-      );
-
-      dropZone.addEventListener('drop', e => {
-        e.preventDefault();
-        agregaArchivos(e.dataTransfer.files);
-      });
-
-      // eliminar individual
       previews.addEventListener('click', e => {
         if (e.target.tagName === 'BUTTON') {
           const idx = +e.target.dataset.idx;
@@ -114,214 +107,31 @@ function crearAnuncio() {
         }
       });
     }
-  }).then(r => {
+  }).then(async r => {
     if (r.isConfirmed && r.value) {
-      const { descripcion, imagenes } = r.value;
-      Swal.fire({
-        title: '<h2 style="color:#1C1F4C;font:700 30px Montserrat;margin-bottom:10px">Resumen del Anuncio</h2>',
-        html: `
-          <p style="font-weight:600; width:100%; margin-bottom: 5px; text-align: left;font-size:15px;color:#1C1F4C">Descripción:</p>
-          <p style="font-family: 'Montserrat', sans-serif; font-size:14px; color:#1C1F4C; line-height:1.5; margin:10px 0; padding:10px 0; text-align:left; border-radius:8px;">
-  ${descripcion}
-</p>
+      const { titulo, descripcion, categoria, imagenes } = r.value;
 
-          <div>${imagenes
-            .map(
-              i =>
-                `<img src="${i.url}" alt="${i.name}"
-                      style="max-width:100%;max-height:160px;margin:4px;border-radius:6px">`
-            )
-            .join('')}</div>`,
-        confirmButtonText: 'Cerrar',
-        confirmButtonColor: '#007379'
-      });
-    }
-  });
-}
+      try {
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ titulo, descripcion, categoria, imagenes })
+        });
+        const data = await res.json();
 
-// fin sweetalert crear anuncio 
-
-// Sweet alert crear reporte 
-function crearReporte() {
-  let archivosSeleccionados = [];      // ← lista viva de imágenes
-  const esDuplicado = f =>
-    archivosSeleccionados.some(a => a.name === f.name && a.lastModified === f.lastModified);
-
-  Swal.fire({
-    title:
-      '<h2 style="color:#1C1F4C;font:700 30px Montserrat;margin-bottom:10px">Crear Reporte</h2>',
-    html: `
-      <div style="display:flex;flex-direction:column;font-family:Montserrat">
-        <label style="font-weight:600; margin-bottom: 5px; text-align: left;font-size:15px;color:#1C1F4C">Descripción</label>
-        <textarea id="descripcion" class="swal2-textarea"
-                  placeholder="Escriba su queja o reporte"
-                  style="height:90px; font-size:14px; margin-bottom:20px; width:100%; margin-left:0; margin-right:0;"></textarea>
-
-        <label style="font-weight:600;font-size:15px;; margin-bottom:20px;color:#1C1F4C;text-align: left">Imágenes</label>
-
-        <div class="custum-file-upload" style="margin-bottom:20px;" id="dropZone">
-          <div class="icon-upload">
-            <!-- ícono -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path fill="currentColor"
-                d="M10 1a1 1 0 0 0-.71.29L3.29 7.29A1 1 0 0 0 3 8v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-1a3 3 0 0 0-3-3h-1v-.5A4.5 4.5 0 0 0 16.5 11a4.49 4.49 0 0 0-4.48 4H11v-7a1 1 0 0 0-1-1H6.41L9 4.41V7h2V3a2 2 0 0 0-2-2Zm6.5 12A2.5 2.5 0 0 1 19 15.5V17h1a1 1 0 0 1 0 2H13a1 1 0 0 1 0-2h1v-1.5A2.5 2.5 0 0 1 16.5 13ZM20 21H6a1 1 0 0 1-1-1V9h4a1 1 0 0 0 1-1V4h8a1 1 0 0 1 1 1v4a1 1 0 0 0 2 0V4a3 3 0 0 0-3-3H10Z"/>
-            </svg>
-          </div>
-          <div class="text"><span>Haz clic o arrastra imágenes aquí</span></div>
-          <input type="file" id="fileInput" multiple accept="image/*" style="display:none">
-        </div>
-
-        <div id="previews"
-             style="display:flex;flex-wrap:wrap;gap:10px;"></div>
-      </div>
-    `,
-    confirmButtonText: 'Subir',
-    confirmButtonColor: '#007379',
-    customClass: { confirmButton: 'montserrat-btn', popup: 'montserrat-popup' },
-    preConfirm: () => {
-      const descripcion = document.getElementById('descripcion').value.trim();
-      if (!descripcion || archivosSeleccionados.length === 0) {
-        Swal.showValidationMessage('Por favor completa todos los campos');
-        return false;
+        if (res.ok) {
+          Swal.fire('Éxito', 'Anuncio creado correctamente', 'success');
+          cargarAnuncios(); // refresca lista de anuncios
+        } else {
+          Swal.fire('Error', data.msg || 'No se pudo crear el anuncio', 'error');
+        }
+      } catch (err) {
+        console.error(err);
+        Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
       }
-
-      return Promise.all(
-        archivosSeleccionados.map(
-          f =>
-            new Promise(res => {
-              const r = new FileReader();
-              r.onload = () => res({ name: f.name, url: r.result });
-              r.readAsDataURL(f);
-            })
-        )
-      ).then(imagenes => ({ descripcion, imagenes }));
-    },
-    didOpen: () => {
-      const dropZone  = document.getElementById('dropZone');
-      const fileInput = document.getElementById('fileInput');
-      const previews  = document.getElementById('previews');
-
-      // --- helpers ---
-      const agregaArchivos = files => {
-        [...files]
-          .filter(f => f.type.startsWith('image/') && !esDuplicado(f))
-          .forEach(f => archivosSeleccionados.push(f));
-        dibujaPreviews();
-      };
-
-      const dibujaPreviews = () => {
-        previews.innerHTML = archivosSeleccionados
-          .map(
-            (f, i) => `
-            <div style="position:relative">
-              <img src="${URL.createObjectURL(f)}"
-                   style="width:90px;height:90px;object-fit:cover;border-radius:6px">
-              <button data-idx="${i}"
-                      style="position:absolute;top:-6px;right:-6px;
-                             width:20px;height:20px;border:none;border-radius:50%;
-                             background:#e11d48;color:#fff;cursor:pointer;font-size:12px;
-                             line-height:20px;padding:0">✕</button>
-            </div>`
-          )
-          .join('');
-      };
-
-      // --- eventos ---
-      dropZone.addEventListener('click', () => fileInput.click());
-
-      fileInput.addEventListener('change', e => {
-        agregaArchivos(e.target.files);
-        fileInput.value = '';               // ← permite seleccionar de nuevo
-      });
-
-      dropZone.addEventListener('dragover', e => {
-        e.preventDefault();
-        dropZone.classList.add('dragover');
-      });
-
-      ['dragleave', 'drop'].forEach(evt =>
-        dropZone.addEventListener(evt, () => dropZone.classList.remove('dragover'))
-      );
-
-      dropZone.addEventListener('drop', e => {
-        e.preventDefault();
-        agregaArchivos(e.dataTransfer.files);
-      });
-
-      // eliminar individual
-      previews.addEventListener('click', e => {
-        if (e.target.tagName === 'BUTTON') {
-          const idx = +e.target.dataset.idx;
-          archivosSeleccionados.splice(idx, 1);
-          dibujaPreviews();
-        }
-      });
-    }
-  }).then(r => {
-    if (r.isConfirmed && r.value) {
-      const { descripcion, imagenes } = r.value;
-      Swal.fire({
-        title: '<h2 style="color:#1C1F4C;font:700 30px Montserrat;margin-bottom:10px">Resumen del Anuncio</h2>',
-        html: `
-          <p style="font-weight:600; width:100%; margin-bottom: 5px; text-align: left;font-size:15px;color:#1C1F4C">Descripción:</p>
-          <p style="font-family: 'Montserrat', sans-serif; font-size:14px; color:#1C1F4C; line-height:1.5; margin:10px 0; padding:10px 0; text-align:left; border-radius:8px;">
-  ${descripcion}
-</p>
-
-          <div>${imagenes
-            .map(
-              i =>
-                `<img src="${i.url}" alt="${i.name}"
-                      style="max-width:100%;max-height:160px;margin:4px;border-radius:6px">`
-            )
-            .join('')}</div>`,
-        confirmButtonText: 'Cerrar',
-        confirmButtonColor: '#007379'
-      });
     }
   });
 }
-
-// fin sweetalert crear reporte 
-
-// sweetalert noticia 
-
-function verNoticia(){
-    Swal.fire({
-  html: `
-  <img src="../../assets/img/dashboard/noticia2.jpg" alt="Desfile de la comunidad" style="width: 300px; height: 200px; border-radius: 12px; object-fit: cover; margin-bottom: 20px;">
-    <h2 style="color: #1c1f4c; font-size: 18px; margin-bottom: 10px;">
-      Desfile de la comunidad fue todo un éxito
-    </h2>
-    <p style="color: #1c1f4c; font-size: 14px;">
-      La comunidad se unió en un colorido desfile lleno de música, alegría y tradición, demostrando una vez más la fuerza y unidad que nos caracteriza.
-    </p>
-  `,
-  showConfirmButton: false,
-});
-
-
-}
-// fin sweetalert noticia 
-
-// sweetalert promo 
-
-function verPromocion(){
-    Swal.fire({
-  html: `
-    <img src="../../assets/img/dashboard/promo1.png" alt="Producto" 
-         style="width: auto; height: 200px; border-radius: 12px; object-fit: cover; margin-bottom: 10px;">
-    <h2 style="color: #1c1f4c; font-size: 18px; margin: 0;">
-      Hamburguesaaa topppp de Pescaito
-    </h2>
-    <p style="color: #777; font-size: 13px; margin: 4px 0 8px;">
-      Emprendimiento: Pescaito Costa Rica
-    </p>
-    <p style="color: #f8a71b; font-size: 16px; font-weight: bold; margin: 0;">
-      ₡3000
-    </p>
-  `,
-  showConfirmButton: false,
-});
-}
-// fin sweetalert promo 

@@ -45,3 +45,33 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mostrar componente inicial
   mostrarComponente("componente-anuncios");
 });
+
+
+//nombre y apellido 
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/miusuario/me", {
+      headers: {
+        "Authorization": "Bearer " + localStorage.getItem("token"),
+        "Content-Type": "application/json"
+      }
+    });
+
+    if (!res.ok) throw new Error("Error al cargar usuario");
+
+    const user = await res.json();
+    console.log("Usuario sidebar:", user);
+
+    // 🔹 Llenar dinámicamente el sidebar
+    document.getElementById("sidebar-nombre").innerText = user.nombre || "Usuario";
+    document.getElementById("sidebar-apellidos").innerText = `${user.apellido1 || ""} ${user.apellido2 || ""}`.trim();
+
+    // (opcional) si tu usuario tiene foto de perfil en BD
+    // document.getElementById("profile-pic").src = user.foto || "../../../assets/img/dashboard/profile.webp";
+
+  } catch (err) {
+    console.error("Error cargando sidebar:", err);
+    document.getElementById("sidebar-nombre").innerText = "Error";
+    document.getElementById("sidebar-apellidos").innerText = "";
+  }
+});

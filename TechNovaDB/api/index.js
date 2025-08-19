@@ -1,0 +1,50 @@
+require('dotenv').config(); // Cargar variables de entorno desde el archivo .env
+const express = require('express'); // Importar express
+const cors = require('cors'); // Importar cors para manejar CORS
+const mongoose = require('mongoose'); // Importar mongoose para manejar la conexión a MongoDB
+const bodyParser = require('body-parser'); // Importar body-parser para manejar el cuerpo de las solicitudes
+
+// importar rutas 
+const authRoutes = require('./routes/authRoutes'); // Rutas de autenticación
+const anuncioRoutes = require('./routes/anuncioRoutes'); // Rutas de anuncios
+const userRoutes = require('./routes/userRoutes'); // Rutas de usuario
+const emprendimitosRoutes = require('./routes/emprendimientosRoutes'); // Rutas de mis anuncios
+
+const app = express(); // Crear una instancia de express
+
+// Middlewares
+app.use(cors()); // Habilitar CORS
+// app.use(cors({ origin: 'http://localhost:5502' })); // Ejemplo para Live Server
+// JSON
+app.use(bodyParser.json({ limit: '900mb' }));
+
+// URL encoded
+app.use(bodyParser.urlencoded({ extended: true, limit: '900mb' }));
+
+// Conexión a MongoDB
+mongoose.connect(process.env.MONGODB_URI) // Conectamos a MongoDB utilizando la URI de conexión que está en el archivo .env con nuestra contraseña
+  .then(() => console.log('Conectado a MongoDB')) // Mensaje de éxito si logra conectar
+  .catch(err => console.error('Error conectando a MongoDB:', err)); // Mensaje de error por si no logra conectar
+
+//RUTAS 
+app.use('/api/auth', authRoutes); // Rutas de autenticación
+app.use('/api/anuncios', anuncioRoutes); // Rutas de anuncios
+app.use('/api/miusuario', userRoutes); // Rutas de usuario
+app.use('/api/emprendimiento', emprendimitosRoutes); // Rutas de mis anuncios
+
+// Rutas básicas
+app.get('/', (req, res) => { // Ruta raíz
+  res.json({ message: 'API funcionando' }); // Respuesta JSON simple
+}); 
+
+// Manejo de errores
+app.use((err, req, res, next) => { //Este middleware funciona de la siguiente manera: si hay un error en cualquier parte de la aplicación, este middleware lo captura y envía una respuesta al cliente.
+  console.error(err.stack); // Imprimir el error en la consola
+  res.status(500).json({ error: 'Algo salió mal!' }); // Enviar una respuesta JSON con un mensaje de error
+});
+
+// Iniciar servidor
+const PORT = process.env.PORT || 3000; // Definir el puerto en el que se ejecutará la aplicación, si no está definido en las variables de entorno, usará el puerto 3000
+app.listen(PORT, () => { 
+  console.log(`Servidor corriendo en http://localhost:${PORT}`); // Mensaje de éxito al iniciar el servidor
+});

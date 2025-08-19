@@ -26,7 +26,7 @@
         <div class="crear">
           <!-- bienvenida  -->
           <div class="bienvenida">
-            <p>¡Bienvenido de vuelta, <b>John</b>!</p>
+            <p>¡Bienvenido de vuelta<b id="nombreUsuario"></b>!</p>
           </div>
           <button class="crear-anuncio" id="crear-anuncio" onclick="crearAnuncio()">
             <!-- card -->
@@ -42,75 +42,7 @@
 
         </div>
         <div class="anuncios">
-
-          <!-- CARTA -->
-          <div class="card">
-            <div class="card-header">
-              <a href="perfil.html">
-                <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img">
-              </a>
-              <div class="user-info">
-                <p><strong>Nombre Apellido Apellido</strong></p>
-                <span>Hace 2 hrs</span>
-              </div>
-              <button class="btn-menu">
-                <span class="elipsis">
-                  <svg xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 128 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                    <path
-                      d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z" />
-                  </svg>
-                </span>
-              </button>
-            </div>
-            <div class="card-body">
-              <p>
-                Ya no se puede vivir con tanta basura en la comunidad. Cada día hay más bolsas tiradas
-                en las esquinas, los botes están siempre llenos y nadie parece hacerse responsable...
-              </p>
-              <div class="image-row">
-                <img src="../../../assets/img/dashboard/noticiaImg1.jpeg" alt="Imagen 1">
-                <img src="../../../assets/img/dashboard/noticiaImg2.jpg" alt="Imagen 1">
-                <img src="../../../assets/img/dashboard/noticiaImg3.jpg" alt="Imagen 1">
-              </div>
-            </div>
-          </div>
-          <!-- FIN CARTA -->
-
-          <!-- CARTA -->
-          <div class="card">
-            <div class="card-header">
-              <a href="perfil.html">
-                <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img">
-              </a>
-              <div class="user-info">
-                <p><strong>Nombre Apellido Apellido</strong></p>
-                <span>Hace 2 hrs</span>
-              </div>
-              <button class="btn-menu">
-                <span class="elipsis">
-                  <svg xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 128 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                    <path
-                      d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z" />
-                  </svg>
-                </span>
-              </button>
-            </div>
-            <div class="card-body">
-              <p>
-                Ya no se puede vivir con tanta basura en la comunidad. Cada día hay más bolsas tiradas
-                en las esquinas, los botes están siempre llenos y nadie parece hacerse responsable...
-              </p>
-              <!-- <div class="image-row">
-                <img src="../../assets/img/dashboard/noticiaImg1.jpeg" alt="Imagen 1">
-                <img src="../../assets/img/dashboard/noticiaImg2.jpg" alt="Imagen 1">
-                <img src="../../assets/img/dashboard/noticiaImg3.jpg" alt="Imagen 1">
-              </div> -->
-            </div>
-          </div>
-          <!-- FIN CARTA -->
-
+          <!-- // Aquí se cargarán los anuncios dinámicamente -->
         </div>
       </div>
 
@@ -119,7 +51,7 @@
         <!-- reportes -->
         <div class="reportes">
           <p>¿Tienes alguna <strong>queja </strong> o <strong>reporte</strong> ?</p>
-          <button class="boton-reporte" onclick="crearReporte()">Quéjese aquí</button>
+          <button class="boton-reporte" onclick="crearAnuncio()">Quéjese aquí</button>
         </div>
 
         <!-- noticias -->
@@ -211,11 +143,20 @@
   <script src="../../../js/sidebar.js"></script>
   <script>
     // Aquí defines si el usuario es admin
-    const esAdmin = true; // o true si lo es
-    cargarSidebar(esAdmin);
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    const role = usuario.role
+    if (role === "admin") {
+      cargarSidebar(true);
+    } else {
+      cargarSidebar(false);
+    }
   </script>
   <script src="../../../js/app/dashboard.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Mostrar datos con db  -->
+   <script src="../../../JSDB/dashboard.js"></script>
+   
 </body>
 
 </html>

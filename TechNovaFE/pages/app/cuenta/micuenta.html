@@ -27,259 +27,31 @@
         <!-- menu lateral izquierda -->
         <div class="menu-lateral">
             <img src="../../../assets/img/dashboard/profile.webp" alt="John" class="profile-pic">
-            <h2>John</h2>
-            <p>Doe Nommensen</p>
+            <h2 id="sidebar-nombre">John</h2>
+            <p id="sidebar-apellidos">Doe Nommensen</p>
             <button class="btn active" id="btn-anuncios">Mis anuncios</button>
             <button class="btn" id="btn-reportes">Mis reportes</button>
             <button class="btn" id="btn-info">Información Personal</button>
-            <button class="btn" id="btn-emprendimiento">Emprendimiento</button>
-            <button class="btn" id="btn-password">Password</button>
+            <!-- <button class="btn" id="btn-emprendimiento">Emprendimiento</button> -->
+            <!-- <button class="btn" id="btn-password">Password</button> -->
         </div>
 
         <!-- Contenido dinamico -->
         <main class="main-content" id="dynamic-content">
             <div id="componente-anuncios" class="componente-anuncios">
-                <!-- Contenido del componente anuncios -->
                 <h1>Mis anuncios</h1>
-
-                <!-- CARTA Anuncio -->
-                <div class="card">
-                    <div class="card-header">
-                        <a href="perfil.html">
-                            <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img" />
-                        </a>
-                        <div class="user-info">
-                            <p><strong>Nombre Apellido Apellido</strong></p>
-                            <span>Hace 2 hrs</span>
-                        </div>
-                        <div class="category-menu">
-                            <div>
-                                <span class="category">Pendiente</span>
-                            </div>
-                            <button class="btn-menu">
-                                <span class="elipsis">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
-                                        <path
-                                            d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            Ya no se puede vivir con tanta basura en la comunidad. Cada día hay más bolsas tiradas en
-                            las esquinas, los botes están siempre llenos y nadie parece hacerse responsable...
-                        </p>
-                        <div class="image-row">
-                            <img src="../../../assets/img/dashboard/noticiaImg1.jpeg" alt="Imagen 1" />
-                            <img src="../../../assets/img/dashboard/noticiaImg2.jpg" alt="Imagen 2" />
-                            <img src="../../../assets/img/dashboard/noticiaImg3.jpg" alt="Imagen 3" />
-                        </div>
-                    </div>
-                </div>
-                <!-- FIN CARTA -->
-
-                <!-- CARTA Anuncio -->
-                <div class="card">
-                    <div class="card-header">
-                        <a href="perfil.html">
-                            <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img" />
-                        </a>
-                        <div class="user-info">
-                            <p><strong>Nombre Apellido Apellido</strong></p>
-                            <span>Hace 2 hrs</span>
-                        </div>
-                        <div class="category-menu">
-                            <div>
-                                <span class="category">Pendiente</span>
-                            </div>
-                            <button class="btn-menu">
-                                <span class="elipsis">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
-                                        <path
-                                            d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            Ya no se puede vivir con tanta basura en la comunidad. Cada día hay más bolsas tiradas en
-                            las esquinas, los botes están siempre llenos y nadie parece hacerse responsable...
-                        </p>
-                        <div class="image-row">
-                            <img src="../../../assets/img/dashboard/noticiaImg1.jpeg" alt="Imagen 1" />
-                            <img src="../../../assets/img/dashboard/noticiaImg2.jpg" alt="Imagen 2" />
-                            <img src="../../../assets/img/dashboard/noticiaImg3.jpg" alt="Imagen 3" />
-                        </div>
-                    </div>
-                </div>
-                <!-- FIN CARTA -->
-
-                <!-- CARTA Anuncio -->
-                <div class="card">
-                    <div class="card-header">
-                        <a href="perfil.html">
-                            <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img" />
-                        </a>
-                        <div class="user-info">
-                            <p><strong>Nombre Apellido Apellido</strong></p>
-                            <span>Hace 2 hrs</span>
-                        </div>
-                        <div class="category-menu">
-                            <div>
-                                <span class="category">Pendiente</span>
-                            </div>
-                            <button class="btn-menu">
-                                <span class="elipsis">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
-                                        <path
-                                            d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            Ya no se puede vivir con tanta basura en la comunidad. Cada día hay más bolsas tiradas en
-                            las esquinas, los botes están siempre llenos y nadie parece hacerse responsable...
-                        </p>
-                        <div class="image-row">
-                            <img src="../../../assets/img/dashboard/noticiaImg1.jpeg" alt="Imagen 1" />
-                            <img src="../../../assets/img/dashboard/noticiaImg2.jpg" alt="Imagen 2" />
-                            <img src="../../../assets/img/dashboard/noticiaImg3.jpg" alt="Imagen 3" />
-                        </div>
-                    </div>
-                </div>
-                <!-- FIN CARTA -->
+                <!-- Contenido del componente anuncios -->
             </div>
 
-            <div id="componente-reportes" class="componente-reportes" style="display: none; display: flex; flex-direction: column; gap: 15px;">
+            <div id="componente-reportes" class="componente-reportes" style="display: none; flex-direction: column; gap: 15px;">
                 <!-- Contenido del componente reportes -->
                 <h1>Mis reportes</h1>
-
-                <!-- CARTA Anuncio -->
-                <div class="card">
-                    <div class="card-header">
-                        <a href="perfil.html">
-                            <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img" />
-                        </a>
-                        <div class="user-info">
-                            <p><strong>Nombre Apellido Apellido</strong></p>
-                            <span>Hace 2 hrs</span>
-                        </div>
-                        <div class="category-menu">
-                            <div>
-                                <span class="category">Pendiente</span>
-                            </div>
-                            <button class="btn-menu">
-                                <span class="elipsis">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
-                                        <path
-                                            d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            Ya no se puede vivir con tanta basura en la comunidad. Cada día hay más bolsas tiradas en
-                            las esquinas, los botes están siempre llenos y nadie parece hacerse responsable...
-                        </p>
-                        <div class="image-row">
-                            <img src="../../../assets/img/dashboard/noticiaImg1.jpeg" alt="Imagen 1" />
-                            <img src="../../../assets/img/dashboard/noticiaImg2.jpg" alt="Imagen 2" />
-                            <img src="../../../assets/img/dashboard/noticiaImg3.jpg" alt="Imagen 3" />
-                        </div>
-                    </div>
-                </div>
-                <!-- FIN CARTA -->
-
-                <!-- CARTA Anuncio -->
-                <div class="card">
-                    <div class="card-header">
-                        <a href="perfil.html">
-                            <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img" />
-                        </a>
-                        <div class="user-info">
-                            <p><strong>Nombre Apellido Apellido</strong></p>
-                            <span>Hace 2 hrs</span>
-                        </div>
-                        <div class="category-menu">
-                            <div>
-                                <span class="category">Pendiente</span>
-                            </div>
-                            <button class="btn-menu">
-                                <span class="elipsis">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
-                                        <path
-                                            d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            Ya no se puede vivir con tanta basura en la comunidad. Cada día hay más bolsas tiradas en
-                            las esquinas, los botes están siempre llenos y nadie parece hacerse responsable...
-                        </p>
-                        <div class="image-row">
-                            <img src="../../../assets/img/dashboard/noticiaImg1.jpeg" alt="Imagen 1" />
-                            <img src="../../../assets/img/dashboard/noticiaImg2.jpg" alt="Imagen 2" />
-                            <img src="../../../assets/img/dashboard/noticiaImg3.jpg" alt="Imagen 3" />
-                        </div>
-                    </div>
-                </div>
-                <!-- FIN CARTA -->
-
-                <!-- CARTA Anuncio -->
-                <div class="card">
-                    <div class="card-header">
-                        <a href="perfil.html">
-                            <img src="../../../assets/img/dashboard/profile.webp" alt="Perfil" class="profile-img" />
-                        </a>
-                        <div class="user-info">
-                            <p><strong>Nombre Apellido Apellido</strong></p>
-                            <span>Hace 2 hrs</span>
-                        </div>
-                        <div class="category-menu">
-                            <div>
-                                <span class="category">Pendiente</span>
-                            </div>
-                            <button class="btn-menu">
-                                <span class="elipsis">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
-                                        <path
-                                            d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            Ya no se puede vivir con tanta basura en la comunidad. Cada día hay más bolsas tiradas en
-                            las esquinas, los botes están siempre llenos y nadie parece hacerse responsable...
-                        </p>
-                        <div class="image-row">
-                            <img src="../../../assets/img/dashboard/noticiaImg1.jpeg" alt="Imagen 1" />
-                            <img src="../../../assets/img/dashboard/noticiaImg2.jpg" alt="Imagen 2" />
-                            <img src="../../../assets/img/dashboard/noticiaImg3.jpg" alt="Imagen 3" />
-                        </div>
-                    </div>
-                </div>
-                <!-- FIN CARTA -->
             </div>
 
             <div id="componente-info" class="componente-info" style="display: none;">
                 <!-- Contenido del componente info -->
                 <h2>Información Personal</h2>
-  <form>
+  <form id="userForm">
     <div class="form-group">
       <label for="nombre">Nombre</label>
       <input type="text" id="nombre" name="nombre" placeholder="John" />
@@ -294,10 +66,10 @@
         <input type="text" id="apellido2" name="apellido2" placeholder="Normmeysen" />
       </div>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="cedula">Cédula</label>
       <input type="text" id="cedula" name="cedula" placeholder="123456789" />
-    </div>
+    </div> -->
     <div class="form-group">
       <label for="correo">Correo</label>
       <input type="email" id="correo" name="correo" placeholder="john@example.com" />
@@ -310,12 +82,11 @@
             </div>
 
             <div id="componente-emprendimiento" class="componente-emprendimiento" style="display: none; flex-direction: column;">
-                <!-- Contenido del componente emprendimiento -->
                 <h2>Información del Negocio</h2>
   
   <div class="form-group">
     <label for="nombre">Nombre</label>
-    <input type="text" id="nombre" name="nombre" placeholder="Ingresa el nombre del negocio">
+    <input type="text" id="nombrenegocio" name="nombre" placeholder="Ingresa el nombre del negocio">
   </div>
   
   <div class="form-group">
@@ -386,6 +157,11 @@
 </script>
     <script src="../../../js/app/micuenta/miCuenta.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- base de datos  -->
+    <script src="../../../JSDB/misanuncios.js"></script>
+    <script src="../../../JSDB/misreportes.js"></script>
+    <script src="../../../JSDB/miinformacion.js"></script>
 </body>
 
 </html>
